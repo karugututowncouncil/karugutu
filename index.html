@@ -263,16 +263,37 @@
   .mandate-standalone p { font-size: 16px; line-height: 1.8; max-width: 800px; margin: 0 auto 20px; }
   .mandate-badge { background: rgba(255,255,255,0.2); display: inline-block; padding: 6px 18px; border-radius: 40px; font-size: 13px; font-weight: 600; backdrop-filter: blur(2px); }
 
-  /* Additional sections (stats, services, wards, etc) - preserved */
-  .stats { background: var(--primary); }
-  .stats-header { text-align: center; color: #fff; margin-bottom: 36px; }
-  .stats-header h2 { font-family: 'Merriweather', serif; font-size: 26px; margin-bottom: 10px; }
-  .stats-header p { font-size: 14px; color: rgba(255,255,255,0.7); }
-  .stats-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 2px; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.15); }
-  .stat-item { background: rgba(255,255,255,0.05); text-align: center; padding: 20px 10px; transition: background 0.2s; }
-  .stat-item:hover { background: rgba(255,255,255,0.12); }
-  .stat-item .num { font-family: 'Merriweather', serif; font-size: 30px; font-weight: 700; color: var(--accent-light); display: block; }
-  .stat-item .lbl { font-size: 11px; color: rgba(255,255,255,0.75); margin-top: 4px; }
+  /* STATS SECTION REPLACED WITH FULL WIDTH IMAGE */
+  .stats-image-section {
+    background: #fff;
+    padding: 40px 20px;
+    text-align: center;
+  }
+  .stats-image-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+    transition: transform 0.2s;
+  }
+  .stats-image-wrapper img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.3s ease;
+  }
+  .stats-image-wrapper:hover {
+    transform: scale(1.01);
+  }
+  .stats-image-caption {
+    margin-top: 16px;
+    font-size: 13px;
+    color: #666;
+    font-style: italic;
+  }
+
+  /* Additional sections (services, wards, etc) - preserved */
   .services-section { background: #fff; }
   .services-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 22px; margin-top: 36px; }
   .service-card { background: #fff; border: 1px solid var(--mid-gray); border-top: 4px solid var(--primary); border-radius: 4px; padding: 26px 24px 22px; display: flex; flex-direction: column; transition: box-shadow 0.2s, transform 0.2s; }
@@ -335,7 +356,6 @@
     .slide-caption h2 { font-size: 18px; }
     .slide-overlay { padding: 20px 24px; }
     .nav-inner { overflow-x: auto; flex-wrap: nowrap; }
-    .stats-grid { grid-template-columns: repeat(3, 1fr); }
     .leader-card img { width: 160px; height: 160px; }
     .leader-card { width: 260px; }
   }
@@ -390,14 +410,23 @@
     <!-- Vision 2040 Card: image left -->
     <div class="vm-card image-left">
       <div class="vm-image"><img src="vision2040.jpg" alt="Vision 2040 Pillars"></div>
-      <div class="vm-content"><div class="vm-icon-large">🌍</div><h3>Vision 2040</h3><p><strong>Karugutu Vision 2040:</strong> “To be a vibrant, inclusive, resilient, and sustainable Town by 2040.</p>
+      <div class="vm-content"><div class="vm-icon-large">🌍</div><h3>Vision 2040</h3><p><strong>Karugutu Vision 2040:</strong> “To be a vibrant, inclusive, resilient, and sustainable Town by 2040.”</p>
     </div>
   </div>
 </div></section>
 
-<!-- remaining sections unchanged but preserved -->
-<section class="stats"><div class="container"><div class="stats-header"><h2>Karugutu Town Council — Key Statistics</h2><p>Source: UBOS 2024 Census</p></div><div class="stats-grid"><div class="stat-item"><span class="num">19,070</span><div class="lbl">Total Population</div></div><div class="stat-item"><span class="num">10,548</span><div class="lbl">Male</div></div><div class="stat-item"><span class="num">8,522</span><div class="lbl">Female</div></div><div class="stat-item"><span class="num">87 km²</span><div class="lbl">Area</div></div><div class="stat-item"><span class="num">5</span><div class="lbl">Admin Wards</div></div><div class="stat-item"><span class="num">19</span><div class="lbl">Electoral Areas</div></div><div class="stat-item"><span class="num">~4,750</span><div class="lbl">Households</div></div><div class="stat-item"><span class="num">4.2</span><div class="lbl">Avg Household Size</div></div><div class="stat-item"><span class="num">41.5 km</span><div class="lbl">Total Roads</div></div><div class="stat-item"><span class="num">4 km</span><div class="lbl">Paved Roads</div></div><div class="stat-item"><span class="num">9,630</span><div class="lbl">Children (0–17 yrs)</div></div><div class="stat-item"><span class="num">4,330</span><div class="lbl">Youth (18–30 yrs)</div></div></div></div></section>
+<!-- STATISTICS SECTION REPLACED WITH SINGLE IMAGE -->
+<section class="stats-image-section">
+  <div class="container">
+    <h2 class="section-title">KarugutuTownCouncilin Briefandinnumbers</h2>
+    <div class="stats-image-wrapper">
+      <img src="stat.jpg" alt="Karugutu Town Council Key Statistics Infographic">
+    </div>
+    <div class="stats-image-caption">Comprehensive data based on UBOS 2024 Census & Council reports</div>
+  </div>
+</section>
 
+<!-- remaining sections unchanged but preserved -->
 <section class="services-section"><div class="container"><h2 class="section-title">Our Services</h2><div class="services-grid"><div class="service-card"><div class="service-icon">🏛️</div><h3>Administration & Management Support</h3><p>Coordinating day-to-day operations, human resources, and effective governance.</p><a href="#" class="service-cta">Access Service →</a></div><div class="service-card"><div class="service-icon">🏥</div><h3>Public Health Services</h3><p>Sanitation oversight, health education, disease surveillance.</p><a href="#" class="service-cta">Access Service →</a></div><div class="service-card"><div class="service-icon">🔧</div><h3>Works & Technical Services</h3><p>Roads, drainage, buildings, public infrastructure.</p><a href="#" class="service-cta">Access Service →</a></div><div class="service-card"><div class="service-icon">📐</div><h3>Physical Planning Services</h3><p>Land use, building approvals, structural plans.</p><a href="#" class="service-cta">Access Service →</a></div><div class="service-card"><div class="service-icon">🌾</div><h3>Production & Marketing</h3><p>Agriculture, livestock, market linkages.</p><a href="#" class="service-cta">Access Service →</a></div><div class="service-card"><div class="service-icon">💰</div><h3>Finance & Planning</h3><p>Budgeting, revenue collection, strategic planning.</p><a href="#" class="service-cta">Access Service →</a></div></div></div></section>
 
 <section class="wards"><div class="container"><h2 class="section-title">Administrative Wards</h2><div class="wards-table-wrap"><table class="wards-table"><thead><tr><th>Ward</th><th>Electoral Areas</th><th>Status</th></tr></thead><tbody><tr><td><strong>Karugutu</strong></td><td>5</td><td><span class="ward-badge">Active</span></td></tr><tr><td><strong>Kaghorwe</strong></td><td>3</td><td><span class="ward-badge">Active</span></td></tr><tr><td><strong>Ibanda</strong></td><td>3</td><td><span class="ward-badge">Active</span></td></tr><tr><td><strong>Nyabuhuru</strong></td><td>4</td><td><span class="ward-badge">Active</span></td></tr><tr><td><strong>Kacwamba</strong></td><td>4</td><td><span class="ward-badge">Active</span></td></tr><tr style="background:#f9f9f9; font-weight:700;"><td>Total</td><td>19</td><td></td></tr></tbody></table></div></div></section>
@@ -422,4 +451,4 @@
   document.querySelectorAll('.nav-item').forEach(item => { const drop = item.querySelector('.dropdown'); if (!drop) return; item.addEventListener('mouseenter', () => { if (drop.classList.contains('two-col')) drop.style.display = 'flex'; else drop.style.display = 'block'; }); item.addEventListener('mouseleave', () => drop.style.display = ''); });
 </script>
 </body>
-                                                                                                                                                                                                                                            </html>
+ </html>
