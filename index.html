@@ -109,7 +109,7 @@
   .section-title::after { content: ''; display: block; width: 70px; height: 3px; background: var(--accent); margin: 12px auto 0; }
   .container { max-width: 1200px; margin: 0 auto; }
 
-  /* ── LEADERSHIP — LARGER CIRCLES ── */
+  /* ── LEADERSHIP — LARGER CIRCLES (INCREASED SIZE) ── */
   .leadership { background: var(--light-gray); }
   .leadership-grid { display: flex; gap: 40px; justify-content: center; flex-wrap: wrap; margin-top: 40px; }
   .leader-card {
@@ -117,26 +117,26 @@
     text-align: center;
     padding: 36px 28px 30px;
     border-radius: 6px;
-    width: 270px;
+    width: 290px;           /* slightly wider to accommodate larger images */
     box-shadow: 0 4px 18px rgba(0,0,0,0.10);
     border-top: 4px solid var(--accent);
     transition: transform 0.2s, box-shadow 0.2s;
   }
   .leader-card:hover { transform: translateY(-4px); box-shadow: 0 8px 28px rgba(0,0,0,0.14); }
   .leader-card img {
-    width: 170px;        /* significantly increased from 110px */
-    height: 170px;       /* significantly increased from 110px */
+    width: 190px;           /* bigger than before (was 170px) */
+    height: 190px;          /* bigger than before (was 170px) */
     border-radius: 50%;
     object-fit: cover;
     border: 5px solid var(--accent);
-    margin-bottom: 18px;
+    margin-bottom: 20px;
     display: block;
     margin-left: auto;
     margin-right: auto;
     box-shadow: 0 4px 14px rgba(0,0,0,0.15);
   }
-  .leader-card h3 { font-family: 'Merriweather', serif; font-size: 15px; color: var(--primary); margin-bottom: 8px; }
-  .leader-card p { font-size: 12px; color: #888; font-weight: 600; letter-spacing: 0.8px; text-transform: uppercase; }
+  .leader-card h3 { font-family: 'Merriweather', serif; font-size: 16px; color: var(--primary); margin-bottom: 8px; }
+  .leader-card p { font-size: 13px; color: #888; font-weight: 600; letter-spacing: 0.8px; text-transform: uppercase; }
 
   /* ── ABOUT ── */
   .about-council { background: #fff; }
@@ -151,22 +151,70 @@
   .about-box a { display: inline-block; margin-top: 18px; padding: 9px 22px; background: var(--accent); color: #fff; font-size: 13px; font-weight: 600; border-radius: 3px; transition: opacity 0.2s; }
   .about-box a:hover { opacity: 0.85; }
 
-  /* ── MANDATE VISION MISSION ── */
-  .mandate-vision { background: var(--light-gray); }
-  .mv-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px; margin-top: 40px; }
-  .mv-card { border-radius: 4px; padding: 32px 28px; }
-  .mv-card.mandate-card { background: var(--accent); color: #fff; }
-  .mv-card.vision-card { background: var(--primary); color: #fff; }
-  .mv-card.mission-card { background: #fff; border: 2px solid var(--primary); }
-  .mv-card .mv-icon { font-size: 34px; margin-bottom: 14px; display: block; }
-  .mv-card h3 { font-family: 'Merriweather', serif; font-size: 18px; margin-bottom: 14px; }
-  .mv-card.mission-card h3 { color: var(--primary); }
-  .mv-card p { font-size: 13px; line-height: 1.85; }
-  .mv-card.mission-card p { color: #444; }
-  .mv-badge { display: inline-block; margin-top: 18px; padding: 5px 16px; background: rgba(255,255,255,0.2); color: #fff; font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; border-radius: 20px; border: 1px solid rgba(255,255,255,0.35); }
-  .mv-card.mission-card .mv-badge { background: var(--primary); color: #fff; border-color: var(--primary); }
+  /* NEW STYLES FOR ALTERNATING CARDS WITH IMAGES (Vision, Mission, Vision 2040) */
+  .vision-mission-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    margin-top: 40px;
+  }
+  .vm-card {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .vm-card:hover { transform: translateY(-5px); box-shadow: 0 12px 32px rgba(0,0,0,0.12); }
+  .vm-image {
+    flex: 1;
+    min-height: 280px;
+  }
+  .vm-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .vm-content {
+    flex: 1;
+    padding: 32px 32px 32px 0;
+  }
+  /* For left image (standard) */
+  .vm-card.image-left .vm-image { order: 1; }
+  .vm-card.image-left .vm-content { order: 2; padding-left: 0; padding-right: 32px; }
+  /* For right image (alternate) */
+  .vm-card.image-right .vm-image { order: 2; }
+  .vm-card.image-right .vm-content { order: 1; padding-left: 32px; padding-right: 0; }
+  
+  .vm-icon-large { font-size: 42px; margin-bottom: 12px; display: inline-block; }
+  .vm-content h3 { font-family: 'Merriweather', serif; font-size: 26px; color: var(--primary); margin-bottom: 16px; font-weight: 800; }
+  .vm-content .subhead { font-size: 14px; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+  .vm-content p { font-size: 15px; line-height: 1.7; color: #2c3e2f; margin-bottom: 14px; }
+  .pillars-list { display: flex; flex-wrap: wrap; gap: 10px; margin: 16px 0 10px; }
+  .pillar { background: var(--light-gray); padding: 6px 14px; border-radius: 40px; font-size: 13px; font-weight: 600; color: var(--primary); }
+  .outcome-list { margin-top: 12px; padding-left: 20px; }
+  .outcome-list li { font-size: 14px; margin-bottom: 6px; color: #2c3e2f; }
+  .vm-badge-alt { display: inline-block; margin-top: 12px; padding: 6px 16px; background: var(--primary); color: #fff; font-size: 12px; font-weight: 700; border-radius: 40px; letter-spacing: 0.5px; }
 
-  /* ── STATS ── */
+  /* Mandate card remains standalone with no image */
+  .mandate-standalone {
+    background: linear-gradient(135deg, var(--accent) 0%, #c96e00 100%);
+    color: #fff;
+    border-radius: 20px;
+    padding: 40px 36px;
+    margin-top: 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    text-align: center;
+  }
+  .mandate-standalone h3 { font-family: 'Merriweather', serif; font-size: 28px; margin-bottom: 20px; }
+  .mandate-standalone p { font-size: 16px; line-height: 1.8; max-width: 800px; margin: 0 auto 20px; }
+  .mandate-badge { background: rgba(255,255,255,0.2); display: inline-block; padding: 6px 18px; border-radius: 40px; font-size: 13px; font-weight: 600; backdrop-filter: blur(2px); }
+
+  /* ── STATS, SERVICES, WARDS, ETC (unchanged layout but kept) ── */
   .stats { background: var(--primary); }
   .stats-header { text-align: center; color: #fff; margin-bottom: 36px; }
   .stats-header h2 { font-family: 'Merriweather', serif; font-size: 26px; margin-bottom: 10px; }
@@ -178,8 +226,6 @@
   .stat-item .lbl { font-size: 11px; color: rgba(255,255,255,0.75); margin-top: 4px; }
   .stats-download { text-align: center; margin-top: 30px; }
   .stats-download a { display: inline-block; padding: 11px 28px; background: var(--accent); color: #fff; font-weight: 600; font-size: 13px; border-radius: 3px; transition: opacity 0.2s; }
-
-  /* ── SERVICES ── */
   .services-section { background: #fff; }
   .services-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 22px; margin-top: 36px; }
   .service-card { background: #fff; border: 1px solid var(--mid-gray); border-top: 4px solid var(--primary); border-radius: 4px; padding: 26px 24px 22px; display: flex; flex-direction: column; transition: box-shadow 0.2s, transform 0.2s; }
@@ -191,8 +237,6 @@
   .service-card p { font-size: 13px; color: #666; line-height: 1.7; flex: 1; margin-bottom: 16px; }
   .service-cta { display: inline-block; padding: 8px 18px; background: var(--primary); color: #fff; font-size: 12px; font-weight: 700; border-radius: 3px; letter-spacing: 0.3px; transition: background 0.2s; align-self: flex-start; }
   .service-cta:hover { background: var(--accent); }
-
-  /* ── WARDS ── */
   .wards { background: var(--light-gray); }
   .wards-table-wrap { margin-top: 36px; overflow-x: auto; }
   .wards-table { width: 100%; border-collapse: collapse; font-size: 14px; background: #fff; box-shadow: 0 2px 10px rgba(0,0,0,0.07); }
@@ -201,8 +245,6 @@
   .wards-table td { padding: 12px 18px; border-bottom: 1px solid var(--mid-gray); }
   .wards-table tbody tr:hover { background: #f0f9f3; }
   .ward-badge { display: inline-block; background: var(--accent); color: #fff; font-size: 11px; font-weight: 700; padding: 2px 10px; border-radius: 20px; }
-
-  /* ── NEWS ── */
   .news { background: #fff; }
   .news-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 30px; margin-top: 40px; }
   .news-card { border: 1px solid var(--mid-gray); border-radius: 4px; overflow: hidden; transition: box-shadow 0.2s, transform 0.2s; }
@@ -214,8 +256,6 @@
   .news-body p { font-size: 13px; color: #666; line-height: 1.7; margin-bottom: 14px; }
   .news-body a.read-more { font-size: 13px; font-weight: 600; color: var(--primary); border-bottom: 2px solid var(--accent); padding-bottom: 2px; transition: color 0.2s; }
   .news-body a.read-more:hover { color: var(--accent); }
-
-  /* ── PARTNERS ── */
   .partners { background: var(--light-gray); overflow: hidden; }
   .partners-intro { text-align: center; font-size: 14px; color: #666; margin-top: 12px; margin-bottom: 36px; }
   .partners-track-wrap { overflow: hidden; }
@@ -226,15 +266,11 @@
   .partners-list { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; margin-top: 30px; }
   .partner-pill { background: #fff; border: 1px solid var(--mid-gray); border-left: 4px solid var(--primary); padding: 10px 18px; font-size: 13px; font-weight: 600; color: var(--primary); border-radius: 3px; transition: box-shadow 0.2s; }
   .partner-pill:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
-
-  /* ── ANTI-CORRUPTION ── */
   .anti-corruption { background: var(--red); color: #fff; text-align: center; padding: 40px 20px; }
   .anti-corruption h2 { font-family: 'Merriweather', serif; font-size: 22px; margin-bottom: 8px; }
   .anti-corruption p { font-size: 14px; margin-bottom: 20px; opacity: 0.9; }
   .anti-corruption a { display: inline-block; padding: 11px 30px; background: #fff; color: var(--red); font-weight: 700; font-size: 13px; border-radius: 3px; transition: background 0.2s, color 0.2s; }
   .anti-corruption a:hover { background: var(--accent); color: #fff; }
-
-  /* ── FOOTER ── */
   footer { background: var(--dark); color: rgba(255,255,255,0.8); }
   .footer-top { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 40px; max-width: 1200px; margin: 0 auto; padding: 50px 20px 30px; }
   .footer-col h4 { font-family: 'Merriweather', serif; color: #fff; font-size: 15px; margin-bottom: 18px; padding-bottom: 10px; border-bottom: 2px solid var(--accent); }
@@ -247,10 +283,9 @@
   .footer-contacts span { color: var(--accent-light); font-weight: 600; }
   .footer-bottom { background: #111; text-align: center; padding: 14px; font-size: 12px; color: rgba(255,255,255,0.45); }
 
-  /* RESPONSIVE */
-  @media (max-width: 900px) { .mv-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 900px) { .vm-card { flex-direction: column; } .vm-card.image-left .vm-content, .vm-card.image-right .vm-content { padding: 28px; } .vm-card.image-left .vm-image, .vm-card.image-right .vm-image { order: 1; width: 100%; } .vm-card.image-left .vm-content, .vm-card.image-right .vm-content { order: 2; } .vm-image { width: 100%; min-height: 240px; } }
   @media (max-width: 768px) {
-    .about-grid, .mv-grid { grid-template-columns: 1fr; }
+    .about-grid { grid-template-columns: 1fr; }
     .footer-top { grid-template-columns: 1fr; }
     .hero { height: 360px; }
     .slide-caption h2 { font-size: 18px; }
@@ -260,155 +295,73 @@
     header { flex-direction: row; justify-content: space-between; }
     .header-text h2 { font-size: 22px; }
     .header-logo-left img, .header-logo-right img { height: 75px; }
-    .leader-card img { width: 140px; height: 140px; }
-    .leader-card { width: 230px; }
+    .leader-card img { width: 160px; height: 160px; }
+    .leader-card { width: 260px; }
   }
   @media (max-width: 550px) {
     .header-text h2 { font-size: 18px; }
     .header-text h1 { font-size: 9px; }
     .header-logo-left img, .header-logo-right img { height: 55px; }
-    .leader-card img { width: 120px; height: 120px; }
-    .leader-card { width: 200px; }
+    .leader-card img { width: 140px; height: 140px; }
+    .leader-card { width: 240px; }
+    .vm-content h3 { font-size: 22px; }
   }
 </style>
 </head>
 <body>
 
-<!-- TOP BAR -->
 <div class="top-bar">
-  <a href="https://www.ntoroko.go.ug/">Ntoroko District</a>
-  <span>/</span>
-  <a href="#">Karugutu Town Council</a>
-  <span>/</span>
+  <a href="https://www.ntoroko.go.ug/">Ntoroko District</a> <span>/</span>
+  <a href="#">Karugutu Town Council</a> <span>/</span>
   <a href="mailto:karugututowncouncil033@gmail.com">karugututowncouncil033@gmail.com</a>
 </div>
 
-<!-- HEADER -->
 <header>
-  <div class="header-logo-left">
-    <img src="http://molgtest.ccm77.org/mo/wp-content/uploads/2025/09/MoLG-2.jpg" alt="Uganda Coat of Arms - Ministry of Local Government">
-  </div>
-  <div class="header-text">
-    <h1>Ntoroko District — Western Region, Republic of Uganda</h1>
-    <h2>Karugutu Town Council</h2>
-  </div>
-  <div class="header-logo-right">
-    <img src="logoo.jpeg" alt="Karugutu Town Council Logo">
-  </div>
+  <div class="header-logo-left"><img src="http://molgtest.ccm77.org/mo/wp-content/uploads/2025/09/MoLG-2.jpg" alt="Ministry of Local Government"></div>
+  <div class="header-text"><h1>Ntoroko District — Western Region, Republic of Uganda</h1><h2>Karugutu Town Council</h2></div>
+  <div class="header-logo-right"><img src="logoo.jpeg" alt="Karugutu Town Council Logo"></div>
 </header>
 
-<!-- NAVIGATION -->
-<nav>
-  <div class="nav-inner">
-    <div class="nav-item active"><a href="#">HOME</a></div>
-    <div class="nav-item">
-      <span>Who We Are</span>
-      <div class="dropdown two-col">
-        <div class="dropdown-col">
-          <div class="dropdown-heading">Council Profile</div>
-          <a href="#">Background &amp; History</a>
-          <a href="#">Mandate, Vision &amp; Mission</a>
-          <a href="#">Leadership</a>
-          <a href="#">Composition of Council</a>
-          <a href="#">Functions of the Mayor</a>
-        </div>
-      </div>
-    </div>
-    <div class="nav-item">
-      <span>SERVICES</span>
-      <div class="dropdown two-col">
-        <div class="dropdown-col">
-          <div class="dropdown-heading">Core Services</div>
-          <a href="#">Administration &amp; Management</a>
-          <a href="#">Public Health Services</a>
-          <a href="#">Works &amp; Technical Services</a>
-          <a href="#">Physical Planning</a>
-          <a href="#">Finance &amp; Planning</a>
-        </div>
-        <div class="dropdown-col">
-          <div class="dropdown-heading">Community &amp; Development</div>
-          <a href="#">Production &amp; Marketing</a>
-          <a href="#">Community-Based Services</a>
-          <a href="#">Trade, Industry &amp; LED</a>
-          <a href="#">Natural Resources Management</a>
-          <a href="#">Audit Services</a>
-        </div>
-      </div>
-    </div>
-    <div class="nav-item">
-      <span>RESOURCES</span>
-      <div class="dropdown">
-        <div class="dropdown-heading">Publications</div>
-        <a href="#">Latest News</a>
-        <a href="#">Reports</a>
-        <a href="#">Performance Assessment FY 2025–2026</a>
-        <a href="#">Policies</a>
-      </div>
-    </div>
-    <div class="nav-item"><a href="#">GALLERY</a></div>
-    <div class="nav-item"><a href="#">CONTACT US</a></div>
-  </div>
-</nav>
+<nav><div class="nav-inner"><div class="nav-item active"><a href="#">HOME</a></div><div class="nav-item"><span>Who We Are</span><div class="dropdown two-col"><div class="dropdown-col"><div class="dropdown-heading">Council Profile</div><a href="#">Background & History</a><a href="#">Mandate, Vision & Mission</a><a href="#">Leadership</a><a href="#">Composition of Council</a><a href="#">Functions of the Mayor</a></div></div></div><div class="nav-item"><span>SERVICES</span><div class="dropdown two-col"><div class="dropdown-col"><div class="dropdown-heading">Core Services</div><a href="#">Administration & Management</a><a href="#">Public Health Services</a><a href="#">Works & Technical Services</a><a href="#">Physical Planning</a><a href="#">Finance & Planning</a></div><div class="dropdown-col"><div class="dropdown-heading">Community & Development</div><a href="#">Production & Marketing</a><a href="#">Community-Based Services</a><a href="#">Trade, Industry & LED</a><a href="#">Natural Resources Management</a><a href="#">Audit Services</a></div></div></div><div class="nav-item"><span>RESOURCES</span><div class="dropdown"><div class="dropdown-heading">Publications</div><a href="#">Latest News</a><a href="#">Reports</a><a href="#">Performance Assessment FY 2025–2026</a><a href="#">Policies</a></div></div><div class="nav-item"><a href="#">GALLERY</a></div><div class="nav-item"><a href="#">CONTACT US</a></div></div></nav>
 
-<!-- HERO SLIDER -->
-<div class="hero" id="hero">
-  <div class="slide active">
-    <div class="slide-overlay"><div class="slide-caption"><h2>Welcome to Karugutu Town Council — A Strategic Urban Growth Centre in Ntoroko District, Western Uganda.</h2><a href="#">Learn More</a></div></div>
-  </div>
-  <div class="slide">
-    <div class="slide-overlay"><div class="slide-caption"><h2>Elevated to Urban Status in 2010 — Driving Local Governance &amp; Socio-Economic Transformation for 19,070 Residents Across 5 Wards.</h2><a href="#">Our Services</a></div></div>
-  </div>
-  <div class="slide">
-    <div class="slide-overlay"><div class="slide-caption"><h2>Serving 87 km² Bordering Toro-Semliki National Park — Committed to Quality, Equitable &amp; Sustainable Service Delivery.</h2><a href="#">Contact Us</a></div></div>
-  </div>
-  <button class="slider-arrow arrow-prev" onclick="changeSlide(-1)">&#8249;</button>
-  <button class="slider-arrow arrow-next" onclick="changeSlide(1)">&#8250;</button>
-  <div class="slider-dots" id="dots"></div>
-</div>
+<div class="hero" id="hero"><div class="slide active"><div class="slide-overlay"><div class="slide-caption"><h2>Welcome to Karugutu Town Council — A Strategic Urban Growth Centre in Ntoroko District, Western Uganda.</h2><a href="#">Learn More</a></div></div></div><div class="slide"><div class="slide-overlay"><div class="slide-caption"><h2>Elevated to Urban Status in 2010 — Driving Local Governance & Socio-Economic Transformation for 19,070 Residents Across 5 Wards.</h2><a href="#">Our Services</a></div></div></div><div class="slide"><div class="slide-overlay"><div class="slide-caption"><h2>Serving 87 km² Bordering Toro-Semliki National Park — Committed to Quality, Equitable & Sustainable Service Delivery.</h2><a href="#">Contact Us</a></div></div></div><button class="slider-arrow arrow-prev" onclick="changeSlide(-1)">&#8249;</button><button class="slider-arrow arrow-next" onclick="changeSlide(1)">&#8250;</button><div class="slider-dots" id="dots"></div></div>
 
-<!-- LEADERSHIP -->
-<section class="leadership">
-  <div class="container">
-    <h2 class="section-title">Our Leadership</h2>
-    <div class="leadership-grid">
-      <div class="leader-card">
-        <img src="mayor.jpg" alt="Mayor">
-        <h3>Hon Maate Raphael G</h3>
-        <p>Mayor</p>
-      </div>
-      <div class="leader-card">
-        <img src="clerk.jpg" alt="Town Clerk">
-        <h3>Mr. Sekanabo Wilfred</h3>
-        <p>Town Clerk</p>
-      </div>
-      <div class="leader-card">
-        <img src="http://molgtest.ccm77.org/mo/wp-content/uploads/2025/10/PS-300x300.jpg" alt="Senior Treasurer">
-        <h3>Mr. Nzeghale Enoch</h3>
-        <p>Senior Treasurer</p>
-      </div>
-    </div>
-  </div>
-</section>
+<!-- LEADERSHIP (bigger images) -->
+<section class="leadership"><div class="container"><h2 class="section-title">Our Leadership</h2><div class="leadership-grid"><div class="leader-card"><img src="mayor.jpg" alt="Mayor"><h3>Hon Maate Raphael G</h3><p>Mayor</p></div><div class="leader-card"><img src="clerk.jpg" alt="Town Clerk"><h3>Mr. Sekanabo Wilfred</h3><p>Town Clerk</p></div><div class="leader-card"><img src="http://molgtest.ccm77.org/mo/wp-content/uploads/2025/10/PS-300x300.jpg" alt="Senior Treasurer"><h3>Mr. Nzeghale Enoch</h3><p>Senior Treasurer</p></div></div></div></section>
 
-<!-- ABOUT -->
 <section class="about-council"><div class="container"><div class="about-grid"><div class="about-box green-bg"><h3>About Karugutu Town Council</h3><p>Karugutu Town Council is located in Ntoroko District, Western Region of Uganda, covering an area of 87 km². Officially separated from Karugutu Sub-county in 2010 following the creation of Ntoroko District from Bundibugyo District, it attained autonomous urban status under Statutory Instrument 2016 No. 87 on 29th June 2016. The Council borders the Toro-Semliki National Park and serves as the strategic administrative and service hub for the district.</p><a href="#">Read More</a></div><div class="about-box white-bg"><h3>Functions of the Mayor</h3><p>The Mayor is the political head of the Town Council. He presides over all Council meetings, performs ceremonial and civic functions, hosts local and foreign dignitaries, and leads the Council in developing strategies for the Town Council's development. The Mayor monitors administration, provides guidance to ward administrations, and is answerable to the Council and the Member of Parliament. The Vice Mayor assists and deputises in the Mayor's absence.</p></div></div></div></section>
 
-<!-- MANDATE -->
-<section class="mandate-vision"><div class="container"><h2 class="section-title">Mandate, Vision &amp; Mission</h2><div class="mv-grid"><div class="mv-card mandate-card"><span class="mv-icon">📋</span><h3>Our Mandate</h3><p>Karugutu Town Council is mandated to provide local governance, service delivery, physical planning, and socio-economic transformation within its jurisdiction — positioning it as a strategic growth centre in Ntoroko District and the Western Region of Uganda.</p><span class="mv-badge">Statutory Instrument 2016 No. 87</span></div><div class="mv-card vision-card"><span class="mv-icon">🔭</span><h3>Our Vision</h3><p>To be an effective and efficiently managed Town Council that delivers quality, equitable, and sustainable services to all residents of Karugutu and its surrounding communities, fostering inclusive development and urban growth in Ntoroko District.</p><span class="mv-badge">Long-Term Goal</span></div><div class="mv-card mission-card"><span class="mv-icon">🎯</span><h3>Our Mission</h3><p>To enhance the welfare and quality of life of our community through participatory local governance, prudent resource management, improved infrastructure, and the delivery of responsive, transparent, and accountable public services to all residents.</p><span class="mv-badge">Guiding Principle</span></div></div></div></section>
+<!-- ALTERNATING CARDS: VISION (image left), MISSION (image right), VISION 2040 (image left) -->
+<section class="mandate-vision"><div class="container"><h2 class="section-title">Vision, Mission & Strategic Pillars</h2>
+  <div class="vision-mission-grid">
+    <!-- Vision Card: image on left -->
+    <div class="vm-card image-left">
+      <div class="vm-image"><img src="vision.jpg" alt="Vision Statement"></div>
+      <div class="vm-content"><div class="vm-icon-large">🔭</div><h3>Our Vision</h3><p>To be a vibrant, inclusive, resilient, and sustainable Town by 2040.</p><p class="subhead">Karugutu Town Council Vision Statement</p><p>We envision a thriving urban centre that harnesses local potential, embraces innovation, and ensures prosperity for all residents within the scenic landscapes of Ntoroko District.</p><div class="vm-badge-alt">Long-term aspiration</div></div>
+    </div>
+    <!-- Mission Card: image on right (alternate) -->
+    <div class="vm-card image-right">
+      <div class="vm-image"><img src="mission.jpg" alt="Mission Statement"></div>
+      <div class="vm-content"><div class="vm-icon-large">🎯</div><h3>Our Mission</h3><p>To improve the quality of life for all through inclusive planning, efficient service delivery, and sustainable use of local resources.</p><p>We are committed to participatory governance, transparent resource management, and equitable access to public services, ensuring that every citizen benefits from urban transformation.</p><div class="vm-badge-alt">Guiding principle</div></div>
+    </div>
+    <!-- Vision 2040 Card: image on left (alternates back) -->
+    <div class="vm-card image-left">
+      <div class="vm-image"><img src="vision2040.jpg" alt="Vision 2040 Pillars"></div>
+      <div class="vm-content"><div class="vm-icon-large">🌍</div><h3>Vision 2040 Pillars</h3><p><strong>Karugutu Vision 2040:</strong> A roadmap to sustainable prosperity</p><div class="pillars-list"><span class="pillar">Economic Growth</span><span class="pillar">Inclusive Services</span><span class="pillar">Climate Resilience</span><span class="pillar">Sustainable Resources</span><span class="pillar">Good Governance</span></div><p><strong>Key Outcomes:</strong></p><ul class="outcome-list"><li>Vibrant Economy</li><li>Inclusive Society</li><li>Climate Resilient</li><li>Sustainable Future</li><li>Good Governance</li></ul><div class="vm-badge-alt">Strategic Framework</div></div>
+    </div>
+  </div>
+  <!-- Mandate remains with no image, standalone -->
+  <div class="mandate-standalone"><h3>📜 Our Mandate</h3><p>Karugutu Town Council is mandated to provide local governance, service delivery, physical planning, and socio-economic transformation within its jurisdiction — positioning it as a strategic growth centre in Ntoroko District and the Western Region of Uganda.</p><span class="mandate-badge">Statutory Instrument 2016 No. 87</span></div>
+</div></section>
 
-<!-- STATS -->
 <section class="stats"><div class="container"><div class="stats-header"><h2>Karugutu Town Council — Key Statistics</h2><p>Source: UBOS 2024 Census</p></div><div class="stats-grid"><div class="stat-item"><span class="num">19,070</span><div class="lbl">Total Population</div></div><div class="stat-item"><span class="num">10,548</span><div class="lbl">Male</div></div><div class="stat-item"><span class="num">8,522</span><div class="lbl">Female</div></div><div class="stat-item"><span class="num">87 km²</span><div class="lbl">Area</div></div><div class="stat-item"><span class="num">5</span><div class="lbl">Admin Wards</div></div><div class="stat-item"><span class="num">19</span><div class="lbl">Electoral Areas</div></div><div class="stat-item"><span class="num">~4,750</span><div class="lbl">Households</div></div><div class="stat-item"><span class="num">4.2</span><div class="lbl">Avg Household Size</div></div><div class="stat-item"><span class="num">41.5 km</span><div class="lbl">Total Roads</div></div><div class="stat-item"><span class="num">4 km</span><div class="lbl">Paved Roads</div></div><div class="stat-item"><span class="num">9,630</span><div class="lbl">Children (0–17 yrs)</div></div><div class="stat-item"><span class="num">4,330</span><div class="lbl">Youth (18–30 yrs)</div></div></div></div></section>
 
-<!-- SERVICES -->
-<section class="services-section"><div class="container"><h2 class="section-title">Our Services</h2><div class="services-grid"><div class="service-card"><div class="service-icon">🏛️</div><h3>Administration &amp; Management Support</h3><p>Coordinating day-to-day operations, human resources, and effective governance.</p><a href="#" class="service-cta">Access Service →</a></div><div class="service-card"><div class="service-icon">🏥</div><h3>Public Health Services</h3><p>Sanitation oversight, health education, disease surveillance.</p><a href="#" class="service-cta">Access Service →</a></div><div class="service-card"><div class="service-icon">🔧</div><h3>Works &amp; Technical Services</h3><p>Roads, drainage, buildings, public infrastructure.</p><a href="#" class="service-cta">Access Service →</a></div><div class="service-card"><div class="service-icon">📐</div><h3>Physical Planning Services</h3><p>Land use, building approvals, structural plans.</p><a href="#" class="service-cta">Access Service →</a></div><div class="service-card"><div class="service-icon">🌾</div><h3>Production &amp; Marketing</h3><p>Agriculture, livestock, market linkages.</p><a href="#" class="service-cta">Access Service →</a></div><div class="service-card"><div class="service-icon">💰</div><h3>Finance &amp; Planning</h3><p>Budgeting, revenue collection, strategic planning.</p><a href="#" class="service-cta">Access Service →</a></div></div></div></section>
+<section class="services-section"><div class="container"><h2 class="section-title">Our Services</h2><div class="services-grid"><div class="service-card"><div class="service-icon">🏛️</div><h3>Administration & Management Support</h3><p>Coordinating day-to-day operations, human resources, and effective governance.</p><a href="#" class="service-cta">Access Service →</a></div><div class="service-card"><div class="service-icon">🏥</div><h3>Public Health Services</h3><p>Sanitation oversight, health education, disease surveillance.</p><a href="#" class="service-cta">Access Service →</a></div><div class="service-card"><div class="service-icon">🔧</div><h3>Works & Technical Services</h3><p>Roads, drainage, buildings, public infrastructure.</p><a href="#" class="service-cta">Access Service →</a></div><div class="service-card"><div class="service-icon">📐</div><h3>Physical Planning Services</h3><p>Land use, building approvals, structural plans.</p><a href="#" class="service-cta">Access Service →</a></div><div class="service-card"><div class="service-icon">🌾</div><h3>Production & Marketing</h3><p>Agriculture, livestock, market linkages.</p><a href="#" class="service-cta">Access Service →</a></div><div class="service-card"><div class="service-icon">💰</div><h3>Finance & Planning</h3><p>Budgeting, revenue collection, strategic planning.</p><a href="#" class="service-cta">Access Service →</a></div></div></div></section>
 
-<!-- WARDS TABLE -->
 <section class="wards"><div class="container"><h2 class="section-title">Administrative Wards</h2><div class="wards-table-wrap"><table class="wards-table"><thead><tr><th>Ward</th><th>Electoral Areas</th><th>Status</th></tr></thead><tbody><tr><td><strong>Karugutu</strong></td><td>5</td><td><span class="ward-badge">Active</span></td></tr><tr><td><strong>Kaghorwe</strong></td><td>3</td><td><span class="ward-badge">Active</span></td></tr><tr><td><strong>Ibanda</strong></td><td>3</td><td><span class="ward-badge">Active</span></td></tr><tr><td><strong>Nyabuhuru</strong></td><td>4</td><td><span class="ward-badge">Active</span></td></tr><tr><td><strong>Kacwamba</strong></td><td>4</td><td><span class="ward-badge">Active</span></td></tr><tr style="background:#f9f9f9; font-weight:700;"><td>Total</td><td>19</td><td></td></tr></tbody></table></div></div></section>
 
-<!-- NEWS -->
-<section class="news"><div class="container"><h2 class="section-title">Latest News &amp; Updates</h2><div class="news-grid"><div class="news-card"><img src="https://molg.go.ug/wp-content/uploads/2026/03/PS.png" alt="news"><div class="news-body"><div class="news-date">April 2026</div><h3>Karugutu Town Council Advances Physical Planning for Orderly Urban Growth</h3><p>The Town Council continues to implement its physical development plan, guiding land use and building approvals across all five wards…</p><a class="read-more" href="#">Read more</a></div></div><div class="news-card"><img src="https://molg.go.ug/wp-content/uploads/2026/03/Hon-Minister-of-State-Bunyangabu.jpeg" alt="farming"><div class="news-body"><div class="news-date">March 2026</div><h3>Production &amp; Marketing Department Supports Farmers</h3><p>Working with local farmers to improve agricultural output and market access, boosting incomes.</p><a class="read-more" href="#">Read more</a></div></div><div class="news-card"><img src="https://molg.go.ug/wp-content/uploads/2026/03/WhatsApp-Image-2026-03-27-at-7.40.39-AM-1.jpeg" alt="roads"><div class="news-body"><div class="news-date">February 2026</div><h3>Road Maintenance Works Underway on Gravel Network</h3><p>Works Department commences maintenance on 37.5 km of gravel roads, improving access to markets.</p><a class="read-more" href="#">Read more</a></div></div></div></div></section>
+<section class="news"><div class="container"><h2 class="section-title">Latest News & Updates</h2><div class="news-grid"><div class="news-card"><img src="https://molg.go.ug/wp-content/uploads/2026/03/PS.png" alt="news"><div class="news-body"><div class="news-date">April 2026</div><h3>Karugutu Town Council Advances Physical Planning for Orderly Urban Growth</h3><p>The Town Council continues to implement its physical development plan, guiding land use and building approvals across all five wards…</p><a class="read-more" href="#">Read more</a></div></div><div class="news-card"><img src="https://molg.go.ug/wp-content/uploads/2026/03/Hon-Minister-of-State-Bunyangabu.jpeg" alt="farming"><div class="news-body"><div class="news-date">March 2026</div><h3>Production & Marketing Department Supports Farmers</h3><p>Working with local farmers to improve agricultural output and market access, boosting incomes.</p><a class="read-more" href="#">Read more</a></div></div><div class="news-card"><img src="https://molg.go.ug/wp-content/uploads/2026/03/WhatsApp-Image-2026-03-27-at-7.40.39-AM-1.jpeg" alt="roads"><div class="news-body"><div class="news-date">February 2026</div><h3>Road Maintenance Works Underway on Gravel Network</h3><p>Works Department commences maintenance on 37.5 km of gravel roads, improving access to markets.</p><a class="read-more" href="#">Read more</a></div></div></div></div></section>
 
-<!-- PARTNERS -->
 <section class="partners"><div class="container"><h2 class="section-title">Our Partners</h2><p class="partners-intro">Karugutu Town Council collaborates with government institutions, development partners, and civil society.</p><div class="partners-track-wrap"><div class="partners-track" id="partnersTrack"><img src="ucc.jpeg" alt="UCC"><img src="medical.png" alt="NMS"><img src="police.jpeg" alt="police"><img src="gou.png" alt="GoU"><img src="world.png" alt="World Bank"><img src="download.jpeg" alt="CF"><img src="iras.png" alt="IRAS"><img src="ucc.jpeg" alt="UCC"><img src="medical.png" alt="NMS"><img src="police.jpeg" alt="police"><img src="gou.png" alt="GoU"><img src="world.png" alt="World Bank"><img src="download.jpeg" alt="CF"><img src="iras.png" alt="IRAS"></div></div><div class="partners-list"><div class="partner-pill">Ministry of Local Government</div><div class="partner-pill">Ntoroko District Local Government</div><div class="partner-pill">IRAS</div><div class="partner-pill">Children Foundation</div><div class="partner-pill">Uganda Police</div><div class="partner-pill">Uganda Communications Commission</div></div></div></section>
 
 <div class="anti-corruption"><h2>Karugutu Town Council condemns any form of corruption at all levels</h2><p>Report any form of corruption to the Council. Together we build a transparent and accountable government.</p></div>
@@ -419,12 +372,7 @@
   const slides = document.querySelectorAll('.slide');
   const dotsContainer = document.getElementById('dots');
   let current = 0, timer;
-  slides.forEach((_, i) => {
-    const d = document.createElement('button');
-    d.className = 'dot' + (i === 0 ? ' active' : '');
-    d.addEventListener('click', () => goTo(i));
-    dotsContainer.appendChild(d);
-  });
+  slides.forEach((_, i) => { const d = document.createElement('button'); d.className = 'dot' + (i === 0 ? ' active' : ''); d.addEventListener('click', () => goTo(i)); dotsContainer.appendChild(d); });
   function goTo(n) { slides[current].classList.remove('active'); dotsContainer.children[current].classList.remove('active'); current = (n + slides.length) % slides.length; slides[current].classList.add('active'); dotsContainer.children[current].classList.add('active'); resetTimer(); }
   function changeSlide(dir) { goTo(current + dir); }
   function resetTimer() { clearInterval(timer); timer = setInterval(() => goTo(current + 1), 5000); }
@@ -432,4 +380,4 @@
   document.querySelectorAll('.nav-item').forEach(item => { const drop = item.querySelector('.dropdown'); if (!drop) return; item.addEventListener('mouseenter', () => { if (drop.classList.contains('two-col')) drop.style.display = 'flex'; else drop.style.display = 'block'; }); item.addEventListener('mouseleave', () => drop.style.display = ''); });
 </script>
 </body>
-</html>
+                                                                                                          </html>
