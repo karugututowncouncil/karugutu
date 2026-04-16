@@ -296,61 +296,101 @@
 
  
 
-  /* ── LEADERSHIP — LARGER CIRCLES ── */
+  /* ── LEADERSHIP — PORTRAIT CARDS (no circles) ── */
 
   .leadership { background: var(--light-gray); }
 
-  .leadership-grid { display: flex; gap: 40px; justify-content: center; flex-wrap: wrap; margin-top: 40px; }
+  .leadership-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 36px;
+    margin-top: 44px;
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+  }
 
   .leader-card {
-
     background: #fff;
-
-    text-align: center;
-
-    padding: 36px 28px 30px;
-
-    border-radius: 6px;
-
-    width: 290px;
-
-    box-shadow: 0 4px 18px rgba(0,0,0,0.10);
-
-    border-top: 4px solid var(--accent);
-
-    transition: transform 0.2s, box-shadow 0.2s;
-
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.10);
+    border-bottom: 4px solid var(--accent);
+    transition: transform 0.25s, box-shadow 0.25s;
+    display: flex;
+    flex-direction: column;
   }
 
-  .leader-card:hover { transform: translateY(-4px); box-shadow: 0 8px 28px rgba(0,0,0,0.14); }
+  .leader-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 36px rgba(0,0,0,0.15);
+  }
 
-  .leader-card img {
+  .leader-card-image {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    overflow: hidden;
+    background: var(--mid-gray);
+    position: relative;
+  }
 
-    width: 190px;
-
-    height: 190px;
-
-    border-radius: 50%;
-
+  .leader-card-image img {
+    width: 100%;
+    height: 100%;
     object-fit: cover;
-
-    border: 5px solid var(--accent);
-
-    margin-bottom: 20px;
-
+    object-position: top center;
     display: block;
-
-    margin-left: auto;
-
-    margin-right: auto;
-
-    box-shadow: 0 4px 14px rgba(0,0,0,0.15);
-
+    transition: transform 0.35s ease;
   }
 
-  .leader-card h3 { font-family: 'Merriweather', serif; font-size: 16px; color: var(--primary); margin-bottom: 8px; }
+  .leader-card:hover .leader-card-image img {
+    transform: scale(1.04);
+  }
 
-  .leader-card p { font-size: 13px; color: #888; font-weight: 600; letter-spacing: 0.8px; text-transform: uppercase; }
+  .leader-card-body {
+    padding: 22px 24px 24px;
+    border-top: 3px solid var(--primary);
+  }
+
+  .leader-card-body h3 {
+    font-family: 'Merriweather', serif;
+    font-size: 16px;
+    color: var(--primary);
+    margin-bottom: 6px;
+    line-height: 1.4;
+  }
+
+  .leader-card-body p {
+    font-size: 12px;
+    color: var(--accent);
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  /* Responsive leadership grid */
+  @media (max-width: 900px) {
+    .leadership-grid {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+  }
+
+  @media (max-width: 650px) {
+    .leadership-grid {
+      grid-template-columns: 1fr;
+      max-width: 380px;
+    }
+    .leader-card-image {
+      aspect-ratio: 4 / 3;
+    }
+  }
+
+  @media (min-width: 651px) and (max-width: 850px) {
+    .leadership-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
 
  
 
@@ -700,10 +740,6 @@
 
     .nav-inner { overflow-x: auto; flex-wrap: nowrap; }
 
-    .leader-card img { width: 160px; height: 160px; }
-
-    .leader-card { width: 260px; }
-
   }
 
   @media (max-width: 550px) {
@@ -713,10 +749,6 @@
     .header-text h1 { font-size: 10px; }
 
     .header-logo-left img, .header-logo-right img { height: 75px; }
-
-    .leader-card img { width: 140px; height: 140px; }
-
-    .leader-card { width: 240px; }
 
     .vm-content h3 { font-size: 22px; }
 
@@ -751,8 +783,44 @@
  
 
 <!-- LEADERSHIP -->
+<section class="leadership">
+  <div class="container">
+    <h2 class="section-title">Our Leadership</h2>
+    <div class="leadership-grid">
 
-<section class="leadership"><div class="container"><h2 class="section-title">Our Leadership</h2><div class="leadership-grid"><div class="leader-card"><img src="mayor.jpg" alt="Mayor"><h3>Hon Maate Raphael G</h3><p>Mayor</p></div><div class="leader-card"><img src="clerk.jpg" alt="Town Clerk"><h3>Mr. Sekanabo Wilfred</h3><p>Town Clerk</p></div><div class="leader-card"><img src="http://molgtest.ccm77.org/mo/wp-content/uploads/2025/10/PS-300x300.jpg" alt="Senior Treasurer"><h3>Mr. Nzeghale Enoch</h3><p>Senior Treasurer</p></div></div></div></section>
+      <div class="leader-card">
+        <div class="leader-card-image">
+          <img src="mayor.jpg" alt="Mayor Hon Maate Raphael G">
+        </div>
+        <div class="leader-card-body">
+          <h3>Hon Maate Raphael G</h3>
+          <p>Mayor</p>
+        </div>
+      </div>
+
+      <div class="leader-card">
+        <div class="leader-card-image">
+          <img src="clerk.jpg" alt="Town Clerk Mr. Sekanabo Wilfred">
+        </div>
+        <div class="leader-card-body">
+          <h3>Mr. Sekanabo Wilfred</h3>
+          <p>Town Clerk</p>
+        </div>
+      </div>
+
+      <div class="leader-card">
+        <div class="leader-card-image">
+          <img src="http://molgtest.ccm77.org/mo/wp-content/uploads/2025/10/PS-300x300.jpg" alt="Senior Treasurer Mr. Nzeghale Enoch">
+        </div>
+        <div class="leader-card-body">
+          <h3>Mr. Nzeghale Enoch</h3>
+          <p>Senior Treasurer</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
 
  
 
