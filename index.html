@@ -1,454 +1,881 @@
 <!DOCTYPE html>
+
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
 <title>Karugutu Town Council – Official Website</title>
+
 <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&family=Open+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+
 <style>
+
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+ 
+
   :root {
+
     --primary: #1a6b3a;
+
     --primary-dark: #124d2a;
+
     --accent: #e07b00;
+
     --accent-light: #f5a623;
+
     --red: #c0392b;
+
     --dark: #1a1a1a;
+
     --light-gray: #f4f7f4;
+
     --mid-gray: #e0e0e0;
+
     --text: #222;
+
     --white: #fff;
+
   }
+
+ 
 
   body { font-family: 'Open Sans', sans-serif; color: var(--text); background: #fff; }
+
   a { text-decoration: none; color: inherit; }
 
+ 
+
   /* ===== HEADER ===== */
+
   header {
+
     background: #fff;
+
     padding: 20px 32px;
+
     display: flex;
+
     align-items: center;
+
     justify-content: space-between;
+
     gap: 32px;
+
     border-bottom: 4px solid var(--accent);
+
     box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+
     flex-wrap: wrap;
-  }
-  .header-logo-left { 
-    flex-shrink: 0; 
-    display: flex; 
-    align-items: center; 
-    background: #fff;
-    padding: 6px 0;
-  }
-  .header-logo-left img { 
-    height: 130px; 
-    width: auto; 
-    object-fit: contain; 
-    display: block; 
-    transition: transform 0.2s;
-  }
-  .header-text { 
-    flex: 1; 
-    text-align: center; 
-    margin: 0 10px; 
-  }
-  .header-text h1 { 
-    font-family: 'Merriweather', serif; 
-    font-size: 14px; 
-    color: #666; 
-    font-weight: 400; 
-    letter-spacing: 0.5px; 
-    margin-bottom: 8px; 
-  }
-  .header-text h2 { 
-    font-family: 'Merriweather', serif; 
-    font-size: 44px;          /* significantly bigger */
-    font-weight: 900; 
-    color: var(--primary); 
-    line-height: 1.2; 
-    text-shadow: 1px 1px 0 rgba(0,0,0,0.02); 
-    letter-spacing: -0.5px;
-  }
-  .header-logo-right { 
-    flex-shrink: 0; 
-    display: flex; 
-    align-items: center;
-    background: #fff;
-    padding: 6px 0;
-  }
-  .header-logo-right img { 
-    height: 130px; 
-    width: auto; 
-    object-fit: contain; 
-    display: block;
-    transition: transform 0.2s;
+
   }
 
-  /* Separator elements: yellow and green lines between logos and title */
-  .header-separator {
-    width: 4px;
-    height: 70px;
-    background: linear-gradient(180deg, var(--accent) 0%, var(--accent) 50%, var(--primary) 50%, var(--primary) 100%);
-    border-radius: 2px;
-    margin: 0 8px;
+  .header-logo-left { 
+
+    flex-shrink: 0; 
+
+    display: flex; 
+
+    align-items: center; 
+
+    background: #fff;
+
+    padding: 6px 0;
+
   }
-  /* For responsive, wrap separators nicely */
+
+  .header-logo-left img { 
+
+    height: 160px; 
+
+    width: auto; 
+
+    object-fit: contain; 
+
+    display: block; 
+
+    transition: transform 0.2s;
+
+  }
+
+  .header-text { 
+
+    flex: 1; 
+
+    text-align: center; 
+
+    margin: 0 10px; 
+
+  }
+
+  .header-text h1 { 
+
+    font-family: 'Merriweather', serif; 
+
+    font-size: 14px; 
+
+    color: #666; 
+
+    font-weight: 400; 
+
+    letter-spacing: 0.5px; 
+
+    margin-bottom: 8px; 
+
+  }
+
+  .header-text h2 { 
+
+    font-family: 'Merriweather', serif; 
+
+    font-size: 54px;
+
+    font-weight: 900; 
+
+    color: var(--primary); 
+
+    line-height: 1.2; 
+
+    text-shadow: 1px 1px 0 rgba(0,0,0,0.02); 
+
+    letter-spacing: -0.5px;
+
+  }
+
+  .header-logo-right { 
+
+    flex-shrink: 0; 
+
+    display: flex; 
+
+    align-items: center;
+
+    background: #fff;
+
+    padding: 6px 0;
+
+  }
+
+  .header-logo-right img { 
+
+    height: 160px; 
+
+    width: auto; 
+
+    object-fit: contain; 
+
+    display: block;
+
+    transition: transform 0.2s;
+
+  }
+
+ 
+
   @media (max-width: 850px) {
-    .header-separator { height: 50px; margin: 0 4px; }
-    .header-text h2 { font-size: 32px; }
-    .header-logo-left img, .header-logo-right img { height: 90px; }
+
+    .header-text h2 { font-size: 36px; }
+
+    .header-logo-left img, .header-logo-right img { height: 110px; }
+
   }
+
   @media (max-width: 650px) {
+
     header { flex-direction: column; text-align: center; gap: 16px; }
-    .header-separator { width: 60px; height: 4px; background: linear-gradient(90deg, var(--accent) 0%, var(--accent) 50%, var(--primary) 50%, var(--primary) 100%); margin: 8px auto; }
+
     .header-text h2 { font-size: 28px; }
-    .header-logo-left img, .header-logo-right img { height: 75px; }
+
+    .header-logo-left img, .header-logo-right img { height: 85px; }
+
   }
+
+ 
 
   /* ── NAV ── */
+
   nav { background: var(--primary); position: sticky; top: 0; z-index: 1000; }
+
   .nav-inner { max-width: 1300px; margin: 0 auto; display: flex; align-items: stretch; flex-wrap: wrap; }
+
   .nav-item { position: relative; }
+
   .nav-item > a, .nav-item > span {
+
     display: flex; align-items: center;
+
     padding: 14px 18px; color: #fff;
+
     font-size: 13px; font-weight: 700; letter-spacing: 0.5px;
+
     text-transform: uppercase; cursor: pointer;
+
     transition: background 0.2s; white-space: nowrap;
+
   }
+
   .nav-item > a:hover, .nav-item > span:hover,
+
   .nav-item.active > a, .nav-item.active > span { background: var(--accent); color: #fff; }
+
   .nav-item > span::after { content: ' ▾'; font-size: 10px; margin-left: 4px; }
 
+ 
+
   .dropdown { display: none; position: absolute; top: 100%; left: 0; background: #fff; min-width: 240px; box-shadow: 0 6px 20px rgba(0,0,0,0.15); z-index: 999; }
+
   .dropdown.two-col { display: none; min-width: 480px; flex-wrap: wrap; }
+
   .dropdown-col { flex: 1; min-width: 220px; }
+
   .dropdown-heading { background: var(--light-gray); padding: 8px 16px; font-size: 10px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--primary); border-bottom: 1px solid var(--mid-gray); }
+
   .dropdown a { display: block; padding: 9px 16px; font-size: 13px; color: var(--text); border-bottom: 1px solid #f0f0f0; transition: background 0.15s, color 0.15s; }
+
   .dropdown a:hover { background: var(--primary); color: #fff; }
+
   .nav-item:hover .dropdown { display: flex; }
+
   .nav-item:hover .dropdown:not(.two-col) { display: block; }
 
+ 
+
   /* ── HERO ── */
+
   .hero { position: relative; overflow: hidden; height: 520px; background: #0a2f1a; }
+
   .slide { position: absolute; inset: 0; opacity: 0; transition: opacity 1s ease; background-size: cover; background-position: center 30%; background-repeat: no-repeat; }
+
   .slide:nth-child(1) { background-image: url('hero.jpg'); background-size: cover; background-position: center; }
+
   .slide:nth-child(2) { background-image: url('karugutu.jpeg'); background-size: cover; background-position: center; }
+
   .slide:nth-child(3) { background-image: url('ka1.jpg'); background-size: cover; background-position: center; }
+
   .slide.active { opacity: 1; }
+
   .slide-overlay { position: absolute; inset: 0; background: linear-gradient(to right, rgba(10,60,20,0.80) 40%, rgba(0,0,0,0.25)); display: flex; align-items: flex-end; padding: 50px 60px; }
+
   .slide-caption { max-width: 680px; color: #fff; }
+
   .slide-caption h2 { font-family: 'Merriweather', serif; font-size: 26px; line-height: 1.4; text-shadow: 0 2px 12px rgba(0,0,0,0.6); margin-bottom: 20px; font-weight: 700; }
+
   .slide-caption a { display: inline-block; padding: 12px 32px; background: var(--accent); color: #fff; font-size: 14px; font-weight: 700; border-radius: 4px; transition: opacity 0.2s; }
+
   .slide-caption a:hover { opacity: 0.85; background: #c96e00; }
+
   .slider-dots { position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); display: flex; gap: 10px; z-index: 15; }
+
   .dot { width: 12px; height: 12px; border-radius: 50%; background: rgba(255,255,255,0.5); cursor: pointer; border: none; transition: background 0.3s; }
+
   .dot.active { background: var(--accent); transform: scale(1.1); }
+
   .slider-arrow { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.5); color: #fff; border: none; font-size: 28px; padding: 12px 20px; cursor: pointer; transition: background 0.2s; z-index: 15; border-radius: 4px; backdrop-filter: blur(4px); }
+
   .slider-arrow:hover { background: var(--accent); }
+
   .arrow-prev { left: 20px; }
+
   .arrow-next { right: 20px; }
 
+ 
+
   /* ── SECTION COMMON ── */
+
   section { padding: 60px 20px; }
+
   .section-title { font-family: 'Merriweather', serif; font-size: 28px; color: var(--primary); text-align: center; margin-bottom: 12px; position: relative; display: inline-block; left: 50%; transform: translateX(-50%); }
+
   .section-title::after { content: ''; display: block; width: 70px; height: 3px; background: var(--accent); margin: 12px auto 0; }
+
   .container { max-width: 1200px; margin: 0 auto; }
 
+ 
+
   /* ── LEADERSHIP — LARGER CIRCLES ── */
+
   .leadership { background: var(--light-gray); }
+
   .leadership-grid { display: flex; gap: 40px; justify-content: center; flex-wrap: wrap; margin-top: 40px; }
+
   .leader-card {
+
     background: #fff;
+
     text-align: center;
+
     padding: 36px 28px 30px;
+
     border-radius: 6px;
+
     width: 290px;
+
     box-shadow: 0 4px 18px rgba(0,0,0,0.10);
+
     border-top: 4px solid var(--accent);
+
     transition: transform 0.2s, box-shadow 0.2s;
+
   }
+
   .leader-card:hover { transform: translateY(-4px); box-shadow: 0 8px 28px rgba(0,0,0,0.14); }
+
   .leader-card img {
+
     width: 190px;
+
     height: 190px;
+
     border-radius: 50%;
+
     object-fit: cover;
+
     border: 5px solid var(--accent);
+
     margin-bottom: 20px;
+
     display: block;
+
     margin-left: auto;
+
     margin-right: auto;
+
     box-shadow: 0 4px 14px rgba(0,0,0,0.15);
+
   }
+
   .leader-card h3 { font-family: 'Merriweather', serif; font-size: 16px; color: var(--primary); margin-bottom: 8px; }
+
   .leader-card p { font-size: 13px; color: #888; font-weight: 600; letter-spacing: 0.8px; text-transform: uppercase; }
 
+ 
+
   /* ── ABOUT ── */
+
   .about-council { background: #fff; }
+
   .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 40px; }
+
   .about-box { padding: 36px; border-radius: 4px; }
+
   .about-box.green-bg { background: var(--primary); color: #fff; }
+
   .about-box.white-bg { background: #fff; border: 2px solid var(--primary); }
+
   .about-box h3 { font-family: 'Merriweather', serif; font-size: 20px; margin-bottom: 16px; }
+
   .about-box.green-bg h3 { color: #fff; }
+
   .about-box.white-bg h3 { color: var(--primary); }
+
   .about-box p { font-size: 14px; line-height: 1.8; }
+
   .about-box a { display: inline-block; margin-top: 18px; padding: 9px 22px; background: var(--accent); color: #fff; font-size: 13px; font-weight: 600; border-radius: 3px; transition: opacity 0.2s; }
+
   .about-box a:hover { opacity: 0.85; }
 
-  /* ALTERNATING CARDS (image left / text right) */
+ 
+
+  /* ALTERNATING CARDS — all images on left */
+
   .vision-mission-grid {
+
     display: flex;
+
     flex-direction: column;
+
     gap: 40px;
+
     margin-top: 40px;
+
   }
+
   .vm-card {
+
     display: flex;
+
     align-items: center;
+
     gap: 40px;
+
     background: #fff;
+
     border-radius: 16px;
+
     box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+
     overflow: hidden;
+
     transition: transform 0.2s, box-shadow 0.2s;
+
   }
+
   .vm-card:hover { transform: translateY(-5px); box-shadow: 0 12px 32px rgba(0,0,0,0.12); }
+
   .vm-image {
+
     flex: 1;
+
     min-height: 280px;
+
   }
+
   .vm-image img {
+
     width: 100%;
+
     height: 100%;
+
     object-fit: cover;
+
     display: block;
+
   }
+
   .vm-content {
+
     flex: 1;
+
     padding: 32px 32px 32px 0;
+
   }
-  /* left image */
-  .vm-card.image-left .vm-image { order: 1; }
-  .vm-card.image-left .vm-content { order: 2; padding-left: 0; padding-right: 32px; }
-  /* right image (alternate) */
-  .vm-card.image-right .vm-image { order: 2; }
-  .vm-card.image-right .vm-content { order: 1; padding-left: 32px; padding-right: 0; }
+
+  /* All cards: image always on left */
+
+  .vm-card .vm-image { order: 1; }
+
+  .vm-card .vm-content { order: 2; padding-left: 0; padding-right: 32px; }
+
+ 
 
   .vm-icon-large { font-size: 42px; margin-bottom: 12px; display: inline-block; }
+
   .vm-content h3 { font-family: 'Merriweather', serif; font-size: 26px; color: var(--primary); margin-bottom: 16px; font-weight: 800; }
+
   .vm-content .subhead { font-size: 14px; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+
   .vm-content p { font-size: 15px; line-height: 1.7; color: #2c3e2f; margin-bottom: 14px; }
+
   .pillars-list { display: flex; flex-wrap: wrap; gap: 10px; margin: 16px 0 10px; }
+
   .pillar { background: var(--light-gray); padding: 6px 14px; border-radius: 40px; font-size: 13px; font-weight: 600; color: var(--primary); }
+
   .outcome-list { margin-top: 12px; padding-left: 20px; }
+
   .outcome-list li { font-size: 14px; margin-bottom: 6px; color: #2c3e2f; }
+
   .vm-badge-alt { display: inline-block; margin-top: 12px; padding: 6px 16px; background: var(--primary); color: #fff; font-size: 12px; font-weight: 700; border-radius: 40px; letter-spacing: 0.5px; }
 
+ 
+
   /* Mandate standalone (after leadership) */
+
   .mandate-standalone {
+
     background: linear-gradient(135deg, var(--accent) 0%, #c96e00 100%);
+
     color: #fff;
+
     border-radius: 20px;
+
     padding: 40px 36px;
+
     margin-top: 30px;
+
     box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+
     text-align: center;
+
   }
+
   .mandate-standalone h3 { font-family: 'Merriweather', serif; font-size: 28px; margin-bottom: 20px; }
+
   .mandate-standalone p { font-size: 16px; line-height: 1.8; max-width: 800px; margin: 0 auto 20px; }
+
   .mandate-badge { background: rgba(255,255,255,0.2); display: inline-block; padding: 6px 18px; border-radius: 40px; font-size: 13px; font-weight: 600; backdrop-filter: blur(2px); }
 
-  /* STATS SECTION REPLACED WITH FULL WIDTH IMAGE */
+ 
+
+  /* STATS SECTION */
+
   .stats-image-section {
+
     background: #fff;
+
     padding: 40px 20px;
+
     text-align: center;
-  }
-  .stats-image-wrapper {
-    max-width: 1200px;
-    margin: 0 auto;
-    border-radius: 20px;
-    overflow: hidden;
-    box-shadow: 0 12px 30px rgba(0,0,0,0.1);
-    transition: transform 0.2s;
-  }
-  .stats-image-wrapper img {
-    width: 100%;
-    height: auto;
-    display: block;
-    transition: transform 0.3s ease;
-  }
-  .stats-image-wrapper:hover {
-    transform: scale(1.01);
-  }
-  .stats-image-caption {
-    margin-top: 16px;
-    font-size: 13px;
-    color: #666;
-    font-style: italic;
+
   }
 
-  /* Additional sections (services, wards, etc) - preserved */
+  .stats-image-section .section-title {
+
+    display: block;
+
+    left: auto;
+
+    transform: none;
+
+    text-align: center;
+
+    width: 100%;
+
+  }
+
+  .stats-image-wrapper {
+
+    max-width: 1200px;
+
+    margin: 0 auto;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+
+    box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+
+    transition: transform 0.2s;
+
+  }
+
+  .stats-image-wrapper img {
+
+    width: 100%;
+
+    height: auto;
+
+    display: block;
+
+    transition: transform 0.3s ease;
+
+  }
+
+  .stats-image-wrapper:hover {
+
+    transform: scale(1.01);
+
+  }
+
+  .stats-image-caption {
+
+    margin-top: 16px;
+
+    font-size: 13px;
+
+    color: #666;
+
+    font-style: italic;
+
+  }
+
+ 
+
+  /* Additional sections */
+
   .services-section { background: #fff; }
+
   .services-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 22px; margin-top: 36px; }
+
   .service-card { background: #fff; border: 1px solid var(--mid-gray); border-top: 4px solid var(--primary); border-radius: 4px; padding: 26px 24px 22px; display: flex; flex-direction: column; transition: box-shadow 0.2s, transform 0.2s; }
+
   .service-card:hover { box-shadow: 0 6px 20px rgba(0,0,0,0.1); transform: translateY(-3px); }
+
   .service-card:nth-child(2n) { border-top-color: var(--accent); }
+
   .service-icon { width: 46px; height: 46px; border-radius: 50%; background: var(--light-gray); display: flex; align-items: center; justify-content: center; font-size: 20px; margin-bottom: 14px; flex-shrink: 0; }
+
   .service-card h3 { font-family: 'Merriweather', serif; font-size: 14px; color: var(--primary); margin-bottom: 8px; line-height: 1.4; }
+
   .service-card p { font-size: 13px; color: #666; line-height: 1.7; flex: 1; margin-bottom: 16px; }
+
   .service-cta { display: inline-block; padding: 8px 18px; background: var(--primary); color: #fff; font-size: 12px; font-weight: 700; border-radius: 3px; letter-spacing: 0.3px; transition: background 0.2s; align-self: flex-start; }
+
   .service-cta:hover { background: var(--accent); }
+
   .wards { background: var(--light-gray); }
+
   .wards-table-wrap { margin-top: 36px; overflow-x: auto; }
+
   .wards-table { width: 100%; border-collapse: collapse; font-size: 14px; background: #fff; box-shadow: 0 2px 10px rgba(0,0,0,0.07); }
+
   .wards-table thead { background: var(--primary); color: #fff; }
+
   .wards-table th { padding: 14px 18px; text-align: left; font-weight: 600; font-size: 13px; letter-spacing: 0.4px; }
+
   .wards-table td { padding: 12px 18px; border-bottom: 1px solid var(--mid-gray); }
+
   .wards-table tbody tr:hover { background: #f0f9f3; }
+
   .ward-badge { display: inline-block; background: var(--accent); color: #fff; font-size: 11px; font-weight: 700; padding: 2px 10px; border-radius: 20px; }
+
   .news { background: #fff; }
+
   .news-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 30px; margin-top: 40px; }
+
   .news-card { border: 1px solid var(--mid-gray); border-radius: 4px; overflow: hidden; transition: box-shadow 0.2s, transform 0.2s; }
+
   .news-card:hover { box-shadow: 0 8px 24px rgba(0,0,0,0.12); transform: translateY(-3px); }
+
   .news-card img { width: 100%; height: 200px; object-fit: cover; }
+
   .news-body { padding: 20px; }
+
   .news-date { font-size: 11px; color: var(--accent); font-weight: 600; text-transform: uppercase; margin-bottom: 8px; letter-spacing: 0.5px; }
+
   .news-body h3 { font-family: 'Merriweather', serif; font-size: 15px; color: var(--primary); line-height: 1.5; margin-bottom: 10px; }
+
   .news-body p { font-size: 13px; color: #666; line-height: 1.7; margin-bottom: 14px; }
+
   .news-body a.read-more { font-size: 13px; font-weight: 600; color: var(--primary); border-bottom: 2px solid var(--accent); padding-bottom: 2px; transition: color 0.2s; }
+
   .news-body a.read-more:hover { color: var(--accent); }
+
   .partners { background: var(--light-gray); overflow: hidden; }
+
   .partners-intro { text-align: center; font-size: 14px; color: #666; margin-top: 12px; margin-bottom: 36px; }
+
   .partners-track-wrap { overflow: hidden; }
+
   .partners-track { display: flex; gap: 60px; align-items: center; animation: scroll-partners 30s linear infinite; white-space: nowrap; }
+
   .partners-track img { height: 55px; object-fit: contain; filter: grayscale(50%); opacity: 0.8; transition: filter 0.3s, opacity 0.3s; flex-shrink: 0; }
+
   .partners-track img:hover { filter: grayscale(0); opacity: 1; }
+
   @keyframes scroll-partners { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
   .partners-list { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; margin-top: 30px; }
+
   .partner-pill { background: #fff; border: 1px solid var(--mid-gray); border-left: 4px solid var(--primary); padding: 10px 18px; font-size: 13px; font-weight: 600; color: var(--primary); border-radius: 3px; transition: box-shadow 0.2s; }
+
   .anti-corruption { background: var(--red); color: #fff; text-align: center; padding: 40px 20px; }
+
   .anti-corruption h2 { font-family: 'Merriweather', serif; font-size: 22px; margin-bottom: 8px; }
+
   .anti-corruption p { font-size: 14px; margin-bottom: 20px; opacity: 0.9; }
+
   .anti-corruption a { display: inline-block; padding: 11px 30px; background: #fff; color: var(--red); font-weight: 700; font-size: 13px; border-radius: 3px; transition: background 0.2s, color 0.2s; }
+
   footer { background: var(--dark); color: rgba(255,255,255,0.8); }
+
   .footer-top { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 40px; max-width: 1200px; margin: 0 auto; padding: 50px 20px 30px; }
+
   .footer-col h4 { font-family: 'Merriweather', serif; color: #fff; font-size: 15px; margin-bottom: 18px; padding-bottom: 10px; border-bottom: 2px solid var(--accent); }
+
   .footer-col p, .footer-col address { font-size: 13px; line-height: 1.9; font-style: normal; }
+
   .footer-col ul { list-style: none; }
+
   .footer-col ul li { margin-bottom: 8px; }
+
   .footer-col ul li a { font-size: 13px; color: rgba(255,255,255,0.75); transition: color 0.2s; }
+
   .footer-col ul li a:hover { color: var(--accent-light); }
+
   .footer-contacts { font-size: 13px; line-height: 2.1; }
+
   .footer-contacts span { color: var(--accent-light); font-weight: 600; }
+
   .footer-bottom { background: #111; text-align: center; padding: 14px; font-size: 12px; color: rgba(255,255,255,0.45); }
 
-  @media (max-width: 900px) { .vm-card { flex-direction: column; } .vm-card.image-left .vm-content, .vm-card.image-right .vm-content { padding: 28px; } .vm-card.image-left .vm-image, .vm-card.image-right .vm-image { order: 1; width: 100%; } .vm-card.image-left .vm-content, .vm-card.image-right .vm-content { order: 2; } .vm-image { width: 100%; min-height: 240px; } }
+ 
+
+  @media (max-width: 900px) { .vm-card { flex-direction: column; } .vm-card .vm-content { padding: 28px; } .vm-card .vm-image { order: 1; width: 100%; } .vm-card .vm-content { order: 2; } .vm-image { width: 100%; min-height: 240px; } }
+
   @media (max-width: 768px) {
+
     .about-grid { grid-template-columns: 1fr; }
+
     .footer-top { grid-template-columns: 1fr; }
+
     .hero { height: 360px; }
+
     .slide-caption h2 { font-size: 18px; }
+
     .slide-overlay { padding: 20px 24px; }
+
     .nav-inner { overflow-x: auto; flex-wrap: nowrap; }
+
     .leader-card img { width: 160px; height: 160px; }
+
     .leader-card { width: 260px; }
+
   }
+
   @media (max-width: 550px) {
-    .header-text h2 { font-size: 22px; }
+
+    .header-text h2 { font-size: 24px; }
+
     .header-text h1 { font-size: 10px; }
-    .header-logo-left img, .header-logo-right img { height: 65px; }
+
+    .header-logo-left img, .header-logo-right img { height: 75px; }
+
     .leader-card img { width: 140px; height: 140px; }
+
     .leader-card { width: 240px; }
+
     .vm-content h3 { font-size: 22px; }
+
   }
+
 </style>
+
 </head>
+
 <body>
 
-<!-- top bar removed as requested: no thin bar with district/email -->
+ 
 
 <header>
+
   <div class="header-logo-left"><img src="http://molgtest.ccm77.org/mo/wp-content/uploads/2025/09/MoLG-2.jpg" alt="Ministry of Local Government"></div>
-  <div class="header-separator"></div>
-  <div class="header-text"><h2>Karugutu Town Council</h2><h1>"Service with integrity"</h1></div>
-  <div class="header-separator"></div>
+
+  <div class="header-text"><h2>KARUGUTU TOWN COUNCIL</h2><h1>"Service with integrity"</h1></div>
+
   <div class="header-logo-right"><img src="logoo.jpeg" alt="Karugutu Town Council Logo"></div>
+
 </header>
+
+ 
 
 <nav><div class="nav-inner"><div class="nav-item active"><a href="#">HOME</a></div><div class="nav-item"><span>Who We Are</span><div class="dropdown two-col"><div class="dropdown-col"><div class="dropdown-heading">Council Profile</div><a href="#">Background & History</a><a href="#">Mandate, Vision & Mission</a><a href="#">Leadership</a><a href="#">Composition of Council</a><a href="#">Functions of the Mayor</a></div></div></div><div class="nav-item"><span>SERVICES</span><div class="dropdown two-col"><div class="dropdown-col"><div class="dropdown-heading">Core Services</div><a href="#">Administration & Management</a><a href="#">Public Health Services</a><a href="#">Works & Technical Services</a><a href="#">Physical Planning</a><a href="#">Finance & Planning</a></div><div class="dropdown-col"><div class="dropdown-heading">Community & Development</div><a href="#">Production & Marketing</a><a href="#">Community-Based Services</a><a href="#">Trade, Industry & LED</a><a href="#">Natural Resources Management</a><a href="#">Audit Services</a></div></div></div><div class="nav-item"><span>RESOURCES</span><div class="dropdown"><div class="dropdown-heading">Publications</div><a href="#">Latest News</a><a href="#">Reports</a><a href="#">Performance Assessment FY 2025–2026</a><a href="#">Policies</a></div></div><div class="nav-item"><a href="#">GALLERY</a></div><div class="nav-item"><a href="#">CONTACT US</a></div></div></nav>
 
+ 
+
 <div class="hero" id="hero"><div class="slide active"><div class="slide-overlay"><div class="slide-caption"><h2>Welcome to Karugutu Town Council — A Strategic Urban Growth Centre in Ntoroko District, Western Uganda.</h2><a href="#">Learn More</a></div></div></div><div class="slide"><div class="slide-overlay"><div class="slide-caption"><h2>Elevated to Urban Status in 2010 — Driving Local Governance & Socio-Economic Transformation for 19,070 Residents Across 5 Wards.</h2><a href="#">Our Services</a></div></div></div><div class="slide"><div class="slide-overlay"><div class="slide-caption"><h2>Serving 87 km² Bordering Toro-Semliki National Park — Committed to Quality, Equitable & Sustainable Service Delivery.</h2><a href="#">Contact Us</a></div></div></div><button class="slider-arrow arrow-prev" onclick="changeSlide(-1)">&#8249;</button><button class="slider-arrow arrow-next" onclick="changeSlide(1)">&#8250;</button><div class="slider-dots" id="dots"></div></div>
 
-<!-- LEADERSHIP (bigger images) -->
+ 
+
+<!-- LEADERSHIP -->
+
 <section class="leadership"><div class="container"><h2 class="section-title">Our Leadership</h2><div class="leadership-grid"><div class="leader-card"><img src="mayor.jpg" alt="Mayor"><h3>Hon Maate Raphael G</h3><p>Mayor</p></div><div class="leader-card"><img src="clerk.jpg" alt="Town Clerk"><h3>Mr. Sekanabo Wilfred</h3><p>Town Clerk</p></div><div class="leader-card"><img src="http://molgtest.ccm77.org/mo/wp-content/uploads/2025/10/PS-300x300.jpg" alt="Senior Treasurer"><h3>Mr. Nzeghale Enoch</h3><p>Senior Treasurer</p></div></div></div></section>
 
-<!-- MANDATE immediately after leadership -->
+ 
+
+<!-- MANDATE -->
+
 <div class="container" style="margin-top: -20px;"><div class="mandate-standalone"><h3>📜 Our Mandate</h3><p>Karugutu Town Council is mandated to provide local governance, service delivery, physical planning, and socio-economic transformation within its jurisdiction — positioning it as a strategic growth centre in Ntoroko District and the Western Region of Uganda.</p><span class="mandate-badge">Statutory Instrument 2016 No. 87</span></div></div>
+
+ 
 
 <section class="about-council"><div class="container"><div class="about-grid"><div class="about-box green-bg"><h3>About Karugutu Town Council</h3><p>Karugutu Town Council is located in Ntoroko District, Western Region of Uganda, covering an area of 87 km². Officially separated from Karugutu Sub-county in 2010 following the creation of Ntoroko District from Bundibugyo District, it attained autonomous urban status under Statutory Instrument 2016 No. 87 on 29th June 2016. The Council borders the Toro-Semliki National Park and serves as the strategic administrative and service hub for the district.</p><a href="#">Read More</a></div><div class="about-box white-bg"><h3>Functions of the Mayor</h3><p>The Mayor is the political head of the Town Council. He presides over all Council meetings, performs ceremonial and civic functions, hosts local and foreign dignitaries, and leads the Council in developing strategies for the Town Council's development. The Mayor monitors administration, provides guidance to ward administrations, and is answerable to the Council and the Member of Parliament. The Vice Mayor assists and deputises in the Mayor's absence.</p></div></div></div></section>
 
-<!-- VISION, MISSION, VISION 2040 with images left/right -->
-<section class="mandate-vision"><div class="container"><h2 class="section-title">Vision, Mission & Strategic Pillars</h2>
+ 
+
+<!-- VISION, MISSION — order: Vision 2040, Vision, Mission; all images on left -->
+
+<section class="mandate-vision"><div class="container"><h2 class="section-title">Vision, Mission &amp; Strategic Pillars</h2>
+
   <div class="vision-mission-grid">
-   <!-- Mission Card: image right (alternate) -->
-    <div class="vm-card image-right">
-      <div class="vm-image"><img src="mission.jpg" alt="Mission Statement"></div>
-      <div class="vm-content"><div class="vm-icon-large">🎯</div><h3>Our Mission</h3><p>“To improve the quality of life for all through inclusive planning, efficient service delivery, and sustainable use of local resources.”</p><div class="vm-badge-alt">Guiding principle</div></div>
-    </div>
-    <!-- Vision Card: image left -->
-    <div class="vm-card image-left">
-      <div class="vm-image"><img src="vision.jpg" alt="Vision Statement"></div>
-      <div class="vm-content"><div class="vm-icon-large">🔭</div><h3>Our Vision</h3><p>“To be a vibrant, inclusive, resilient, and sustainable Town by 2040.”</p><div class="vm-badge-alt">Long-term aspiration</div></div>
-    </div>
-    
+
     <!-- Vision 2040 Card: image left -->
-    <div class="vm-card image-left">
+
+    <div class="vm-card">
+
       <div class="vm-image"><img src="vision2040.jpg" alt="Vision 2040 Pillars"></div>
-      <div class="vm-content"><div class="vm-icon-large">🌍</div><h3>Vision 2040</h3><p><strong>Karugutu Vision 2040:</strong> “To be a vibrant, inclusive, resilient, and sustainable Town by 2040.”</p>
+
+      <div class="vm-content"><div class="vm-icon-large">🌍</div><h3>Vision 2040</h3><p><strong>Karugutu Vision 2040:</strong> "To be a vibrant, inclusive, resilient, and sustainable Town by 2040."</p></div>
+
     </div>
+
+    <!-- Vision Card: image left -->
+
+    <div class="vm-card">
+
+      <div class="vm-image"><img src="vision.jpg" alt="Vision Statement"></div>
+
+      <div class="vm-content"><div class="vm-icon-large">🔭</div><h3>Our Vision</h3><p>"To be a vibrant, inclusive, resilient, and sustainable Town by 2040."</p><div class="vm-badge-alt">Long-term aspiration</div></div>
+
+    </div>
+
+    <!-- Mission Card: image left -->
+
+    <div class="vm-card">
+
+      <div class="vm-image"><img src="mission.jpg" alt="Mission Statement"></div>
+
+      <div class="vm-content"><div class="vm-icon-large">🎯</div><h3>Our Mission</h3><p>"To improve the quality of life for all through inclusive planning, efficient service delivery, and sustainable use of local resources."</p><div class="vm-badge-alt">Guiding principle</div></div>
+
+    </div>
+
   </div>
+
 </div></section>
 
-<!-- STATISTICS SECTION REPLACED WITH SINGLE IMAGE -->
+ 
+
+<!-- STATISTICS SECTION -->
+
 <section class="stats-image-section">
+
   <div class="container">
-    <h2 class="section-title">Karugutu TownCouncil in Brief and in numbers</h2>
+
+    <h2 class="section-title">Karugutu Town Council in Brief and in numbers</h2>
+
     <div class="stats-image-wrapper">
-      <img src="stat.jpg" alt="Karugutu Town Council Key Statistics Infographic">
+
+      <img src="stats.jpg" alt="Karugutu Town Council Key Statistics Infographic">
+
     </div>
-    <div class="stats-image-caption">Comprehensive data based on UBOS 2024 Census & Council reports</div>
+
+    <div class="stats-image-caption">Comprehensive data based on UBOS 2024 Census &amp; Council reports</div>
+
   </div>
+
 </section>
 
-<!-- remaining sections unchanged but preserved -->
+ 
+
 <section class="services-section"><div class="container"><h2 class="section-title">Our Services</h2><div class="services-grid"><div class="service-card"><div class="service-icon">🏛️</div><h3>Administration & Management Support</h3><p>Coordinating day-to-day operations, human resources, and effective governance.</p><a href="#" class="service-cta">Access Service →</a></div><div class="service-card"><div class="service-icon">🏥</div><h3>Public Health Services</h3><p>Sanitation oversight, health education, disease surveillance.</p><a href="#" class="service-cta">Access Service →</a></div><div class="service-card"><div class="service-icon">🔧</div><h3>Works & Technical Services</h3><p>Roads, drainage, buildings, public infrastructure.</p><a href="#" class="service-cta">Access Service →</a></div><div class="service-card"><div class="service-icon">📐</div><h3>Physical Planning Services</h3><p>Land use, building approvals, structural plans.</p><a href="#" class="service-cta">Access Service →</a></div><div class="service-card"><div class="service-icon">🌾</div><h3>Production & Marketing</h3><p>Agriculture, livestock, market linkages.</p><a href="#" class="service-cta">Access Service →</a></div><div class="service-card"><div class="service-icon">💰</div><h3>Finance & Planning</h3><p>Budgeting, revenue collection, strategic planning.</p><a href="#" class="service-cta">Access Service →</a></div></div></div></section>
+
+ 
 
 <section class="wards"><div class="container"><h2 class="section-title">Administrative Wards</h2><div class="wards-table-wrap"><table class="wards-table"><thead><tr><th>Ward</th><th>Electoral Areas</th><th>Status</th></tr></thead><tbody><tr><td><strong>Karugutu</strong></td><td>5</td><td><span class="ward-badge">Active</span></td></tr><tr><td><strong>Kaghorwe</strong></td><td>3</td><td><span class="ward-badge">Active</span></td></tr><tr><td><strong>Ibanda</strong></td><td>3</td><td><span class="ward-badge">Active</span></td></tr><tr><td><strong>Nyabuhuru</strong></td><td>4</td><td><span class="ward-badge">Active</span></td></tr><tr><td><strong>Kacwamba</strong></td><td>4</td><td><span class="ward-badge">Active</span></td></tr><tr style="background:#f9f9f9; font-weight:700;"><td>Total</td><td>19</td><td></td></tr></tbody></table></div></div></section>
 
+ 
+
 <section class="news"><div class="container"><h2 class="section-title">Latest News & Updates</h2><div class="news-grid"><div class="news-card"><img src="https://molg.go.ug/wp-content/uploads/2026/03/PS.png" alt="news"><div class="news-body"><div class="news-date">April 2026</div><h3>Karugutu Town Council Advances Physical Planning for Orderly Urban Growth</h3><p>The Town Council continues to implement its physical development plan...</p><a class="read-more" href="#">Read more</a></div></div><div class="news-card"><img src="https://molg.go.ug/wp-content/uploads/2026/03/Hon-Minister-of-State-Bunyangabu.jpeg" alt="farming"><div class="news-body"><div class="news-date">March 2026</div><h3>Production & Marketing Department Supports Farmers</h3><p>Working with local farmers to improve agricultural output and market access.</p><a class="read-more" href="#">Read more</a></div></div><div class="news-card"><img src="https://molg.go.ug/wp-content/uploads/2026/03/WhatsApp-Image-2026-03-27-at-7.40.39-AM-1.jpeg" alt="roads"><div class="news-body"><div class="news-date">February 2026</div><h3>Road Maintenance Works Underway on Gravel Network</h3><p>Works Department commences maintenance on 37.5 km of gravel roads.</p><a class="read-more" href="#">Read more</a></div></div></div></div></section>
+
+ 
 
 <section class="partners"><div class="container"><h2 class="section-title">Our Partners</h2><p class="partners-intro">Karugutu Town Council collaborates with government institutions, development partners, and civil society.</p><div class="partners-track-wrap"><div class="partners-track" id="partnersTrack"><img src="ucc.jpeg" alt="UCC"><img src="medical.png" alt="NMS"><img src="police.jpeg" alt="police"><img src="gou.png" alt="GoU"><img src="world.png" alt="World Bank"><img src="download.jpeg" alt="CF"><img src="iras.png" alt="IRAS"><img src="ucc.jpeg" alt="UCC"><img src="medical.png" alt="NMS"><img src="police.jpeg" alt="police"><img src="gou.png" alt="GoU"><img src="world.png" alt="World Bank"><img src="download.jpeg" alt="CF"><img src="iras.png" alt="IRAS"></div></div><div class="partners-list"><div class="partner-pill">Ministry of Local Government</div><div class="partner-pill">Ntoroko District Local Government</div><div class="partner-pill">IRAS</div><div class="partner-pill">Children Foundation</div><div class="partner-pill">Uganda Police</div><div class="partner-pill">Uganda Communications Commission</div></div></div></section>
 
+ 
+
 <div class="anti-corruption"><h2>Karugutu Town Council condemns any form of corruption at all levels</h2><p>Report any form of corruption to the Council. Together we build a transparent and accountable government.</p></div>
+
+ 
 
 <footer><div class="footer-top"><div class="footer-col"><h4>Find Us At</h4><address>P.O. Box 568, Fort Portal<br>Fort Portal–Bundibugyo Road<br>Karugutu, Ntoroko District<br>Western Region, Uganda<br><br><a href="mailto:karugututowncouncil033@gmail.com" style="color: rgba(255,255,255,0.75);">karugututowncouncil033@gmail.com</a></address></div><div class="footer-col"><h4>Key Contacts</h4><div class="footer-contacts"><div><span>Town Clerk:</span> +256 785 221 110</div><div><span>Sr. Asst. T/Clerk:</span> +256 773 899 959</div><div><span>LC III Chairperson:</span> +256 782 431 733</div><div><span>Senior CDO:</span> +256 775 512 770</div><div><span>Sr. Internal Auditor:</span> +256 772 823 466</div><div><span>Town Treasurer:</span> +256 772 303 176</div></div></div><div class="footer-col"><h4>Quick Links</h4><ul><li><a href="https://www.ntoroko.go.ug/">Ntoroko District Local Government</a></li><li><a href="#">Lower Local Government</a></li><li><a href="#">Performance Assessment FY 2025–2026</a></li><li><a href="#">Home</a></li><li><a href="#">Services</a></li><li><a href="#">Contact Us</a></li></ul></div></div><div class="footer-bottom">All Rights Reserved &copy; Karugutu Town Council, Ntoroko District, Uganda.</div></footer>
 
+ 
+
 <script>
+
   const slides = document.querySelectorAll('.slide');
+
   const dotsContainer = document.getElementById('dots');
+
   let current = 0, timer;
+
   slides.forEach((_, i) => { const d = document.createElement('button'); d.className = 'dot' + (i === 0 ? ' active' : ''); d.addEventListener('click', () => goTo(i)); dotsContainer.appendChild(d); });
+
   function goTo(n) { slides[current].classList.remove('active'); dotsContainer.children[current].classList.remove('active'); current = (n + slides.length) % slides.length; slides[current].classList.add('active'); dotsContainer.children[current].classList.add('active'); resetTimer(); }
+
   function changeSlide(dir) { goTo(current + dir); }
+
   function resetTimer() { clearInterval(timer); timer = setInterval(() => goTo(current + 1), 5000); }
+
   resetTimer();
+
   document.querySelectorAll('.nav-item').forEach(item => { const drop = item.querySelector('.dropdown'); if (!drop) return; item.addEventListener('mouseenter', () => { if (drop.classList.contains('two-col')) drop.style.display = 'flex'; else drop.style.display = 'block'; }); item.addEventListener('mouseleave', () => drop.style.display = ''); });
+
 </script>
+
 </body>
- </html>
+
+</html>
