@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Karugutu Town Council – Contact Us</title>
+<link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&family=Open+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --primary: #1a6b3a;
+    --primary-dark: #124d2a;
+    --accent: #e07b00;
+    --accent-light: #f5a623;
+    --red: #c0392b;
+    --dark: #1a1a1a;
+    --light-gray: #f4f7f4;
+    --mid-gray: #e0e0e0;
+    --text: #222;
+    --white: #fff;
+  }
+
+  body { font-family: 'Open Sans', sans-serif; color: var(--text); background: #fff; }
+  a { text-decoration: none; color: inherit; }
+
+  /* ===== HEADER ===== */
+  header {
+    background: #fff;
+    padding: 20px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+    border-bottom: 4px solid var(--accent);
+    box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+    flex-wrap: wrap;
+  }
+  .header-logo-left { 
+    flex-shrink: 0; 
+    display: flex; 
+    align-items: center; 
+    background: #fff;
+    padding: 6px 0;
+  }
+  .header-logo-left img { 
+    height: 160px; 
+    width: auto; 
+    object-fit: contain; 
+    display: block; 
+    transition: transform 0.2s;
+  }
+  .header-text { 
+    flex: 1; 
+    text-align: center; 
+    margin: 0 10px; 
+  }
+  .header-text h1 { 
+    font-family: 'Merriweather', serif; 
+    font-size: 14px; 
+    color: #666; 
+    font-weight: 400; 
+    letter-spacing: 0.5px; 
+    margin-bottom: 8px; 
+  }
+  .header-text h2 { 
+    font-family: 'Merriweather', serif; 
+    font-size: 54px;
+    font-weight: 900; 
+    color: var(--primary); 
+    line-height: 1.2; 
+    text-shadow: 1px 1px 0 rgba(0,0,0,0.02); 
+    letter-spacing: -0.5px;
+  }
+  .header-logo-right { 
+    flex-shrink: 0; 
+    display: flex; 
+    align-items: center;
+    background: #fff;
+    padding: 6px 0;
+  }
+  .header-logo-right img { 
+    height: 160px; 
+    width: auto; 
+    object-fit: contain; 
+    display: block;
+    transition: transform 0.2s;
+  }
+
+  @media (max-width: 850px) {
+    .header-text h2 { font-size: 36px; }
+    .header-logo-left img, .header-logo-right img { height: 110px; }
+  }
+  @media (max-width: 650px) {
+    header { flex-direction: column; text-align: center; gap: 16px; }
+    .header-text h2 { font-size: 28px; }
+    .header-logo-left img, .header-logo-right img { height: 85px; }
+  }
+
+  /* ── NAV ── */
+  nav { background: var(--primary); position: sticky; top: 0; z-index: 1000; }
+  .nav-inner { max-width: 1300px; margin: 0 auto; display: flex; align-items: stretch; flex-wrap: wrap; }
+  .nav-item { position: relative; }
+  .nav-item > a, .nav-item > span {
+    display: flex; align-items: center;
+    padding: 14px 18px; color: #fff;
+    font-size: 13px; font-weight: 700; letter-spacing: 0.5px;
+    text-transform: uppercase; cursor: pointer;
+    transition: background 0.2s; white-space: nowrap;
+  }
+  .nav-item > a:hover, .nav-item > span:hover,
+  .nav-item.active > a, .nav-item.active > span { background: var(--accent); color: #fff; }
+  .nav-item > span::after { content: ' ▾'; font-size: 10px; margin-left: 4px; }
+
+  .dropdown { display: none; position: absolute; top: 100%; left: 0; background: #fff; min-width: 240px; box-shadow: 0 6px 20px rgba(0,0,0,0.15); z-index: 999; }
+  .dropdown.two-col { display: none; min-width: 480px; flex-wrap: wrap; }
+  .dropdown-col { flex: 1; min-width: 220px; }
+  .dropdown-heading { background: var(--light-gray); padding: 8px 16px; font-size: 10px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--primary); border-bottom: 1px solid var(--mid-gray); }
+  .dropdown a { display: block; padding: 9px 16px; font-size: 13px; color: var(--text); border-bottom: 1px solid #f0f0f0; transition: background 0.15s, color 0.15s; }
+  .dropdown a:hover { background: var(--primary); color: #fff; }
+  .nav-item:hover .dropdown { display: flex; }
+  .nav-item:hover .dropdown:not(.two-col) { display: block; }
+
+  /* ── HERO (simplified for contact page) ── */
+  .hero {
+    position: relative;
+    overflow: hidden;
+    height: 380px;
+    background: linear-gradient(135deg, #0a2f1a 0%, #1a6b3a 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  .hero-content {
+    color: #fff;
+    z-index: 2;
+    padding: 0 20px;
+  }
+  .hero-content h1 {
+    font-family: 'Merriweather', serif;
+    font-size: 48px;
+    font-weight: 800;
+    margin-bottom: 16px;
+    text-shadow: 0 2px 15px rgba(0,0,0,0.3);
+  }
+  .hero-content p {
+    font-size: 18px;
+    max-width: 650px;
+    margin: 0 auto;
+    opacity: 0.9;
+  }
+  @media (max-width: 768px) {
+    .hero { height: 280px; }
+    .hero-content h1 { font-size: 32px; }
+    .hero-content p { font-size: 15px; }
+  }
+
+  /* ── CONTACT SECTION ── */
+  .contact-main {
+    padding: 70px 20px;
+    background: #fff;
+  }
+  .contact-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+  }
+  .contact-info h2, .contact-form-container h2 {
+    font-family: 'Merriweather', serif;
+    font-size: 28px;
+    color: var(--primary);
+    margin-bottom: 12px;
+  }
+  .contact-info h2::after, .contact-form-container h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: var(--accent);
+    margin-top: 8px;
+    margin-bottom: 20px;
+  }
+  .info-details {
+    background: var(--light-gray);
+    padding: 30px;
+    border-radius: 16px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  }
+  .info-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 28px;
+  }
+  .info-icon {
+    background: var(--primary);
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 22px;
+    flex-shrink: 0;
+  }
+  .info-text h4 {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 6px;
+    color: var(--primary);
+  }
+  .info-text p, .info-text a {
+    font-size: 15px;
+    color: #444;
+    line-height: 1.5;
+  }
+  .info-text a:hover {
+    color: var(--accent);
+  }
+  .working-hours {
+    background: #fff;
+    border-left: 4px solid var(--accent);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  }
+  .working-hours h4 {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: var(--primary);
+  }
+  .working-hours p {
+    font-size: 14px;
+    margin-bottom: 6px;
+  }
+
+  /* Form Styling */
+  .contact-form {
+    background: #fff;
+    padding: 10px 0;
+  }
+  .form-group {
+    margin-bottom: 24px;
+  }
+  .form-group label {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--primary);
+  }
+  .form-group input, .form-group select, .form-group textarea {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid var(--mid-gray);
+    border-radius: 8px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    transition: 0.2s;
+  }
+  .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(224,123,0,0.1);
+  }
+  .submit-btn {
+    background: var(--primary);
+    color: #fff;
+    border: none;
+    padding: 14px 28px;
+    font-size: 16px;
+    font-weight: 700;
+    border-radius: 40px;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+    display: inline-block;
+  }
+  .submit-btn:hover {
+    background: var(--accent);
+  }
+  .form-status {
+    margin-top: 20px;
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  /* Map Section */
+  .map-section {
+    background: var(--light-gray);
+    padding: 60px 20px;
+  }
+  .map-container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .map-container h2 {
+    font-family: 'Merriweather', serif;
+    font-size: 28px;
+    color: var(--primary);
+    text-align: center;
+    margin-bottom: 32px;
+  }
+  .map-container h2::after {
+    content: '';
+    display: block;
+    width: 70px;
+    height: 3px;
+    background: var(--accent);
+    margin: 12px auto 0;
+  }
+  .map-iframe-wrapper {
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    background: #fff;
+    border: 1px solid var(--mid-gray);
+  }
+  iframe {
+    width: 100%;
+    height: 450px;
+    border: 0;
+    display: block;
+  }
+  .map-note {
+    text-align: center;
+    margin-top: 16px;
+    font-size: 13px;
+    color: #666;
+  }
+
+  /* Footer & misc */
+  footer { background: var(--dark); color: rgba(255,255,255,0.8); margin-top: 0; }
+  .footer-top { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 40px; max-width: 1200px; margin: 0 auto; padding: 50px 20px 30px; }
+  .footer-col h4 { font-family: 'Merriweather', serif; color: #fff; font-size: 15px; margin-bottom: 18px; padding-bottom: 10px; border-bottom: 2px solid var(--accent); }
+  .footer-col p, .footer-col address { font-size: 13px; line-height: 1.9; font-style: normal; }
+  .footer-col ul { list-style: none; }
+  .footer-col ul li { margin-bottom: 8px; }
+  .footer-col ul li a { font-size: 13px; color: rgba(255,255,255,0.75); transition: color 0.2s; }
+  .footer-col ul li a:hover { color: var(--accent-light); }
+  .footer-contacts { font-size: 13px; line-height: 2.1; }
+  .footer-contacts span { color: var(--accent-light); font-weight: 600; }
+  .footer-bottom { background: #111; text-align: center; padding: 14px; font-size: 12px; color: rgba(255,255,255,0.45); }
+
+  @media (max-width: 900px) {
+    .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+  }
+  @media (max-width: 768px) {
+    .footer-top { grid-template-columns: 1fr; }
+    .map-iframe-wrapper iframe { height: 320px; }
+  }
+  .nav-item.active > a { background: var(--accent); }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-logo-left"><img src="http://molgtest.ccm77.org/mo/wp-content/uploads/2025/09/MoLG-2.jpg" alt="Ministry of Local Government"></div>
+  <div class="header-text"><h2>KARUGUTU TOWN COUNCIL</h2><h1>"Service with integrity"</h1></div>
+  <div class="header-logo-right"><img src="logoo.jpeg" alt="Karugutu Town Council Logo"></div>
+</header>
+
+<nav><div class="nav-inner"><div class="nav-item"><a href="#">HOME</a></div><div class="nav-item"><span>Who We Are</span><div class="dropdown two-col"><div class="dropdown-col"><div class="dropdown-heading">Council Profile</div><a href="#">Mandate, Vision & Mission</a><a href="#">Leadership</a><a href="#">Composition of Council</a><a href="#">Functions of the Mayor</a></div></div></div><div class="nav-item"><span>SERVICES</span><div class="dropdown two-col"><div class="dropdown-col"><div class="dropdown-heading">Core Services</div><a href="#">Administration & Management</a><a href="#">Public Health Services</a><a href="#">Works & Technical Services</a><a href="#">Physical Planning</a><a href="#">Finance & Planning</a></div><div class="dropdown-col"><div class="dropdown-heading">Community & Development</div><a href="#">Production & Marketing</a><a href="#">Community-Based Services</a><a href="#">Trade, Industry & LED</a><a href="#">Natural Resources Management</a><a href="#">Audit Services</a></div></div></div><div class="nav-item"><span>RESOURCES</span><div class="dropdown"><div class="dropdown-heading">Publications</div><a href="#">Latest News</a><a href="#">Reports</a><a href="#">Performance Assessment FY 2025–2026</a><a href="#">Policies</a></div></div><div class="nav-item"><a href="#">GALLERY</a></div><div class="nav-item active"><a href="#">CONTACT US</a></div></div></nav>
+
+<!-- HERO section (simplified for contact) -->
+<div class="hero">
+  <div class="hero-content">
+    <h1>Contact Us</h1>
+    <p>Reach out to Karugutu Town Council for inquiries, support, and partnership opportunities. We are here to serve you.</p>
+  </div>
+</div>
+
+<!-- MAIN CONTACT SECTION: details + formspree form -->
+<section class="contact-main">
+  <div class="contact-grid">
+    <!-- Left: Contact details -->
+    <div class="contact-info">
+      <h2>Get in touch</h2>
+      <div class="info-details">
+        <div class="info-item">
+          <div class="info-icon">📍</div>
+          <div class="info-text">
+            <h4>Our Office Location</h4>
+            <p>P.O. Box 568, Fort Portal<br>Fort Portal–Bundibugyo Road, Karugutu Town<br>Ntoroko District, Western Region, Uganda</p>
+          </div>
+        </div>
+        <div class="info-item">
+          <div class="info-icon">📞</div>
+          <div class="info-text">
+            <h4>Phone Numbers</h4>
+            <p><strong>Town Clerk:</strong> +256 785 221 110<br>
+            <strong>Sr. Asst. T/Clerk:</strong> +256 773 899 959<br>
+            <strong>LC III Chairperson:</strong> +256 782 431 733<br>
+            <strong>Senior CDO:</strong> +256 775 512 770<br>
+            <strong>Senior Treasurer:</strong> +256 772 303 176</p>
+          </div>
+        </div>
+        <div class="info-item">
+          <div class="info-icon">✉️</div>
+          <div class="info-text">
+            <h4>Email Address</h4>
+            <a href="mailto:karugututowncouncil033@gmail.com">karugututowncouncil033@gmail.com</a>
+          </div>
+        </div>
+      </div>
+      <div class="working-hours">
+        <h4>🕒 Working Hours</h4>
+        <p><strong>Monday - Friday:</strong> 8:00 AM – 5:00 PM</p>
+        <p><strong>Saturday:</strong> 9:00 AM – 1:00 PM (selected services)</p>
+        <p><strong>Sunday & Public Holidays:</strong> Closed</p>
+        <p style="margin-top: 10px;"><em>Emergency contacts available 24/7 via Town Clerk's mobile.</em></p>
+      </div>
+    </div>
+
+    <!-- Right: Formspree contact form -->
+    <div class="contact-form-container">
+      <h2>Send us a message</h2>
+      <form class="contact-form" id="contactForm" action="https://formspree.io/f/xgvwygke" method="POST">
+        <div class="form-group">
+          <label for="name">Full Name *</label>
+          <input type="text" id="name" name="name" required placeholder="e.g., John Okello">
+        </div>
+        <div class="form-group">
+          <label for="email">Email Address *</label>
+          <input type="email" id="email" name="email" required placeholder="you@example.com">
+        </div>
+        <div class="form-group">
+          <label for="phone">Phone Number (optional)</label>
+          <input type="tel" id="phone" name="phone" placeholder="+256 XXX XXX XXX">
+        </div>
+        <div class="form-group">
+          <label for="subject">Subject *</label>
+          <input type="text" id="subject" name="subject" required placeholder="Inquiry, Feedback, or Request">
+        </div>
+        <div class="form-group">
+          <label for="message">Message *</label>
+          <textarea id="message" name="message" rows="5" required placeholder="Write your message here..."></textarea>
+        </div>
+        <button type="submit" class="submit-btn">Submit Message ➤</button>
+        <div id="formStatus" class="form-status"></div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- MAP SECTION: embedded iframe for location -->
+<section class="map-section">
+  <div class="map-container">
+    <h2>Find us on the map</h2>
+    <div class="map-iframe-wrapper">
+      <!-- Google Maps iframe for Karugutu Town Council, Ntoroko District, Western Uganda (approximate location based on known coordinates) -->
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15937.239847178887!2d30.287398!3d0.893986!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x176b4e8d8b5e2c2d%3A0x7b2f5a4c9a8e7f1a!2sKarugutu%2C%20Uganda!5e0!3m2!1sen!2sug!4v1682345678901!5m2!1sen!2sug" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+    <div class="map-note">📍 Karugutu Town Council headquarters, located along Fort Portal–Bundibugyo Road, adjacent to the main market area.</div>
+  </div>
+</section>
+
+<!-- FOOTER (identical to original with consistent branding) -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-col"><h4>Find Us At</h4><address>P.O. Box 568, Fort Portal<br>Fort Portal–Bundibugyo Road<br>Karugutu, Ntoroko District<br>Western Region, Uganda<br><br><a href="mailto:karugututowncouncil033@gmail.com" style="color: rgba(255,255,255,0.75);">karugututowncouncil033@gmail.com</a></address></div>
+    <div class="footer-col"><h4>Key Contacts</h4><div class="footer-contacts"><div><span>Town Clerk:</span> +256 785 221 110</div><div><span>Sr. Asst. T/Clerk:</span> +256 773 899 959</div><div><span>LC III Chairperson:</span> +256 782 431 733</div><div><span>Senior CDO:</span> +256 775 512 770</div><div><span>Sr. Internal Auditor:</span> +256 772 823 466</div><div><span>Town Treasurer:</span> +256 772 303 176</div></div></div>
+    <div class="footer-col"><h4>Quick Links</h4><ul><li><a href="https://www.ntoroko.go.ug/">Ntoroko District Local Government</a></li><li><a href="#">Lower Local Government</a></li><li><a href="#">Performance Assessment FY 2025–2026</a></li><li><a href="#">Home</a></li><li><a href="#">Services</a></li><li><a href="#">Contact Us</a></li></ul></div>
+  </div>
+  <div class="footer-bottom">All Rights Reserved &copy; Karugutu Town Council, Ntoroko District, Uganda.</div>
+</footer>
+
+<script>
+  // Maintain navbar dropdown behavior (as original) and active class sync
+  document.querySelectorAll('.nav-item').forEach(item => {
+    const drop = item.querySelector('.dropdown');
+    if (!drop) return;
+    item.addEventListener('mouseenter', () => {
+      if (drop.classList.contains('two-col')) drop.style.display = 'flex';
+      else drop.style.display = 'block';
+    });
+    item.addEventListener('mouseleave', () => drop.style.display = '');
+  });
+
+  // FORMSPREE handling: show success/error messages
+  const form = document.getElementById('contactForm');
+  const statusDiv = document.getElementById('formStatus');
+  
+  if (form) {
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      statusDiv.innerHTML = '<span style="color: #1a6b3a;">Sending message, please wait...</span>';
+      statusDiv.style.marginTop = '15px';
+      
+      const formData = new FormData(form);
+      try {
+        const response = await fetch(form.action, {
+          method: 'POST',
+          body: formData,
+          headers: { 'Accept': 'application/json' }
+        });
+        if (response.ok) {
+          statusDiv.innerHTML = '<span style="color: #1a6b3a; font-weight:600;">✅ Message sent successfully! We will get back to you shortly.</span>';
+          form.reset();
+        } else {
+          const errorData = await response.json();
+          statusDiv.innerHTML = `<span style="color: #c0392b;">❌ Oops! Something went wrong: ${errorData.error || 'Please try again later.'}</span>`;
+        }
+      } catch (error) {
+        statusDiv.innerHTML = '<span style="color: #c0392b;">❌ Network error. Please check your connection and try again.</span>';
+      }
+      setTimeout(() => {
+        if (statusDiv.innerHTML.includes('successfully')) {
+          setTimeout(() => { statusDiv.innerHTML = ''; }, 5000);
+        } else {
+          setTimeout(() => { statusDiv.innerHTML = ''; }, 7000);
+        }
+      }, 5000);
+    });
+  }
+
+  // Optional smooth scroll for any hash links if needed (preserve functionality)
+  if (window.location.hash) {
+    const target = document.querySelector(window.location.hash);
+    if (target) {
+      setTimeout(() => {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 100);
+    }
+  }
+</script>
+</body>
+</html>
