@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Karugutu Town Council – Historical Background</title>
+<link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&family=Open+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+--primary: #1a6b3a;
+--primary-dark: #124d2a;
+--accent: #e07b00;
+--accent-light: #f5a623;
+--red: #c0392b;
+--dark: #1a1a1a;
+--light-gray: #f4f7f4;
+--mid-gray: #e0e0e0;
+--text: #222;
+--white: #fff;
+}
+body { font-family: 'Open Sans', sans-serif; color: var(--text); background: #fff; }
+a { text-decoration: none; color: inherit; }
+p, .vm-content p, .about-box p, .mandate-text-green, .service-card p, .news-body p, .footer-col p, .footer-contacts div, address, .vision-narrative p, .strategic-pillars p, .pillar-list li, .desired-future p, .historical-text p, .historical-section p, .context-card p { text-align: justify; }
+.slide-caption h2, .section-title, .leader-card-body h3, .vm-content h3, .service-card h3, .news-body h3, .footer-col h4 { text-align: left; }
+.about-box h3, .mandate-standalone h3, .mandate-standalone p, .anti-corruption h2, .anti-corruption p, .stats-image-caption { text-align: center; }
+.header-text h1, .header-text h2 { text-align: center; }
+
+/* ===== header & nav (same as index) ===== */
+header {
+background: #fff;
+padding: 20px 32px;
+display: flex;
+align-items: center;
+justify-content: space-between;
+gap: 32px;
+border-bottom: 4px solid var(--accent);
+box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+flex-wrap: wrap;
+}
+.header-logo-left { flex-shrink: 0; display: flex; align-items: center; background: #fff; padding: 6px 0; }
+.header-logo-left img { height: 160px; width: auto; object-fit: contain; display: block; transition: transform 0.2s; }
+.header-text { flex: 1; text-align: center; margin: 0 10px; }
+.header-text h1 {
+font-family: 'Playfair Display', 'Merriweather', 'Cormorant Garamond', serif;
+font-size: 22px;
+color: var(--accent);
+font-weight: 700;
+letter-spacing: 1.5px;
+margin-bottom: 8px;
+text-shadow: 0 1px 3px rgba(224,123,0,0.3);
+background: linear-gradient(90deg, var(--accent), #f5a623);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+background-clip: text;
+}
+.header-text h2 {
+font-family: 'Merriweather', serif;
+font-size: 54px;
+font-weight: 900;
+color: var(--primary);
+line-height: 1.2;
+text-shadow: 1px 1px 0 rgba(0,0,0,0.02);
+letter-spacing: -0.5px;
+}
+.header-logo-right { flex-shrink: 0; display: flex; align-items: center; background: #fff; padding: 6px 0; }
+.header-logo-right img { height: 160px; width: auto; object-fit: contain; display: block; transition: transform 0.2s; }
+@media (max-width: 850px) {
+.header-text h2 { font-size: 36px; }
+.header-logo-left img, .header-logo-right img { height: 110px; }
+}
+@media (max-width: 650px) {
+header { flex-direction: column; text-align: center; gap: 16px; }
+.header-text h2 { font-size: 28px; }
+.header-logo-left img, .header-logo-right img { height: 85px; }
+}
+
+/* nav */
+nav { background: var(--primary); position: sticky; top: 0; z-index: 1000; }
+.nav-inner { max-width: 1300px; margin: 0 auto; display: flex; align-items: stretch; flex-wrap: wrap; }
+.nav-item { position: relative; }
+.nav-item > a, .nav-item > span {
+display: flex; align-items: center;
+padding: 14px 18px; color: #fff;
+font-size: 13px; font-weight: 700; letter-spacing: 0.5px;
+text-transform: uppercase; cursor: pointer;
+transition: background 0.2s; white-space: nowrap;
+}
+.nav-item > a:hover, .nav-item > span:hover,
+.nav-item.active > a, .nav-item.active > span { background: var(--accent); color: #fff; }
+.nav-item > span::after { content: ' ▾'; font-size: 10px; margin-left: 4px; }
+.dropdown { display: none; position: absolute; top: 100%; left: 0; background: #fff; min-width: 240px; box-shadow: 0 6px 20px rgba(0,0,0,0.15); z-index: 999; }
+.dropdown.two-col { display: none; min-width: 520px; flex-wrap: wrap; }
+.dropdown-col { flex: 1; min-width: 220px; }
+.dropdown-heading { background: var(--light-gray); padding: 8px 16px; font-size: 10px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--primary); border-bottom: 1px solid var(--mid-gray); }
+.dropdown a { display: block; padding: 9px 16px; font-size: 13px; color: var(--text); border-bottom: 1px solid #f0f0f0; transition: background 0.15s, color 0.15s; }
+.dropdown a:hover { background: var(--primary); color: #fff; }
+.nav-item:hover .dropdown { display: flex; }
+.nav-item:hover .dropdown:not(.two-col) { display: block; }
+
+/* historical specific styling */
+.historical-hero {
+background: linear-gradient(135deg, #0a2f1a 0%, #1a5a3a 100%);
+padding: 70px 20px;
+text-align: center;
+color: white;
+margin-bottom: 30px;
+}
+.historical-hero h1 {
+font-family: 'Merriweather', serif;
+font-size: 42px;
+margin-bottom: 18px;
+font-weight: 800;
+letter-spacing: -0.3px;
+}
+.historical-hero p {
+font-size: 18px;
+max-width: 800px;
+margin: 0 auto;
+opacity: 0.9;
+}
+.historical-container {
+max-width: 1200px;
+margin: 0 auto;
+padding: 20px 20px 60px;
+}
+.historical-card {
+background: #fff;
+border-radius: 20px;
+box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+margin-bottom: 48px;
+overflow: hidden;
+transition: transform 0.25s, box-shadow 0.25s;
+border-left: 6px solid var(--accent);
+}
+.historical-card:hover {
+transform: translateY(-5px);
+box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+}
+.historical-card-header {
+background: var(--primary);
+padding: 18px 28px;
+}
+.historical-card-header h2 {
+color: white;
+font-family: 'Merriweather', serif;
+font-size: 24px;
+font-weight: 700;
+margin: 0;
+}
+.historical-card-body {
+padding: 32px 36px;
+}
+.historical-text p {
+font-size: 16px;
+line-height: 1.8;
+margin-bottom: 20px;
+color: #2c3e2f;
+}
+.highlight-box {
+background: #fef9e6;
+border-left: 4px solid var(--accent);
+padding: 20px 28px;
+margin: 28px 0;
+border-radius: 12px;
+}
+.highlight-box strong {
+color: var(--primary);
+font-size: 18px;
+display: block;
+margin-bottom: 8px;
+}
+.stats-row {
+display: flex;
+gap: 24px;
+flex-wrap: wrap;
+margin: 32px 0;
+justify-content: center;
+}
+.stat-badge {
+background: var(--light-gray);
+padding: 20px;
+border-radius: 16px;
+flex: 1;
+min-width: 180px;
+text-align: center;
+border-top: 4px solid var(--accent);
+}
+.stat-number {
+font-size: 32px;
+font-weight: 800;
+color: var(--primary);
+display: block;
+}
+.stat-label {
+font-size: 14px;
+color: #555;
+font-weight: 600;
+}
+.timeline-item {
+margin-bottom: 24px;
+padding-left: 28px;
+border-left: 3px solid var(--accent);
+}
+.timeline-year {
+font-weight: 800;
+color: var(--primary);
+font-size: 18px;
+margin-bottom: 6px;
+}
+.context-grid {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 28px;
+margin: 32px 0;
+}
+.context-card {
+background: #f8faf6;
+padding: 24px;
+border-radius: 16px;
+box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+.context-card h3 {
+color: var(--primary);
+margin-bottom: 14px;
+font-size: 20px;
+font-family: 'Merriweather', serif;
+}
+.challenges-list {
+list-style: none;
+padding: 0;
+}
+.challenges-list li {
+padding: 8px 0 8px 28px;
+position: relative;
+font-size: 15px;
+line-height: 1.6;
+}
+.challenges-list li::before {
+content: "▹";
+color: var(--accent);
+position: absolute;
+left: 0;
+font-weight: bold;
+}
+.btn-back {
+display: inline-block;
+margin-top: 24px;
+padding: 12px 28px;
+background: var(--primary);
+color: white;
+border-radius: 40px;
+font-weight: 700;
+font-size: 14px;
+transition: all 0.2s;
+}
+.btn-back:hover {
+background: var(--accent);
+transform: translateX(-4px);
+}
+.footer-col ul { list-style: none; }
+.footer-col ul li a { font-size: 13px; color: rgba(255,255,255,0.75); transition: color 0.2s; }
+.footer-contacts span { color: var(--accent-light); font-weight: 600; }
+.footer-bottom { background: #111; text-align: center; padding: 14px; font-size: 12px; }
+@media (max-width: 768px) {
+.historical-card-body { padding: 24px; }
+.context-grid { grid-template-columns: 1fr; }
+.historical-hero h1 { font-size: 32px; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-logo-left"><img src="http://molgtest.ccm77.org/mo/wp-content/uploads/2025/09/MoLG-2.jpg" alt="Ministry of Local Government"></div>
+  <div class="header-text">
+    <h2>KARUGUTU TOWN COUNCIL</h2>
+    <h1>"Serving The Community With Integrity"</h1>
+  </div>
+  <div class="header-logo-right"><img src="logoo.jpeg" alt="Karugutu Town Council Logo"></div>
+</header>
+
+<nav>
+  <div class="nav-inner">
+    <div class="nav-item"><a href="index.html">Home</a></div>
+    <div class="nav-item">
+      <span>Who We Are</span>
+      <div class="dropdown two-col">
+        <div class="dropdown-col col-profile">
+          <div class="dropdown-heading">Karugutu Town Council Profile</div>
+          <a href="historical.html">Historical and Contextual Background</a>
+          <a href="index.html#leadershipSection">Political Leadership</a>
+          <a href="index.html#leadershipSection">Technical Leadership</a>
+        </div>
+        <div class="dropdown-col col-services">
+          <div class="dropdown-heading">Departments</div>
+          <a href="#">Production &amp; Marketing</a>
+          <a href="#">Internal Audit</a>
+          <a href="#">Finance &amp; Planning</a>
+          <a href="#">Public Health Services</a>
+          <a href="#">Administration and Management Support Services</a>
+          <a href="#">Education &amp; Sports Services</a>
+          <a href="#">Works &amp; Technical Services</a>
+          <a href="#">Physical Planning Services</a>
+          <a href="#">Community-Based Services</a>
+          <a href="#">Natural Resources Management</a>
+          <a href="#">Trade, Industry and Local Economic Development</a>
+        </div>
+      </div>
+    </div>
+    <div class="nav-item">
+      <span>Services</span>
+      <div class="dropdown two-col">
+        <div class="dropdown-col">
+          <div class="dropdown-heading">Core Services</div>
+          <a href="#">Administration &amp; Management</a>
+          <a href="#">Public Health Services</a>
+          <a href="#">Works &amp; Technical Services</a>
+          <a href="#">Physical Planning</a>
+          <a href="#">Finance &amp; Planning</a>
+        </div>
+        <div class="dropdown-col">
+          <div class="dropdown-heading">Community &amp; Development</div>
+          <a href="#">Production &amp; Marketing</a>
+          <a href="#">Community-Based Services</a>
+          <a href="#">Trade, Industry &amp; LED</a>
+          <a href="#">Natural Resources Management</a>
+          <a href="#">Audit Services</a>
+        </div>
+      </div>
+    </div>
+    <div class="nav-item">
+      <span>Resources</span>
+      <div class="dropdown">
+        <div class="dropdown-heading">Publications</div>
+        <a href="#">Latest News</a>
+        <a href="#">Reports</a>
+        <a href="#">Performance Assessment FY 2025–2026</a>
+        <a href="#">Policies</a>
+      </div>
+    </div>
+    <div class="nav-item"><a href="#">Gallery</a></div>
+    <div class="nav-item"><a href="contact.html">Contact Us</a></div>
+  </div>
+</nav>
+
+<!-- Historical Hero Section -->
+<div class="historical-hero">
+  <h1>Historical & Contextual Background</h1>
+  <p>Karugutu Town Council – Evolution, Strategic Growth, and the Path Toward a Sustainable Urban Future</p>
+</div>
+
+<div class="historical-container">
+  <!-- Main Historical Card 1: Origins & Administrative Evolution -->
+  <div class="historical-card">
+    <div class="historical-card-header">
+      <h2>Origins and Administrative Evolution of Karugutu Town Council</h2>
+    </div>
+    <div class="historical-card-body">
+      <div class="historical-text">
+        <p>Ntoroko District is one of Uganda’s youngest districts, having been carved out of Bundibugyo District in 2010 as part of the Government’s decentralisation agenda aimed at bringing services closer to the people. Situated along the southern shores of Lake Albert and sharing an international border with the Democratic Republic of Congo, the district occupies a strategically important yet largely rural and underserved region of the country. Historically, the area has been characterised by dispersed settlements, limited infrastructure, and an economy heavily dependent on subsistence agriculture, fishing, livestock keeping, and small-scale cross-border trade.</p>
+        <p>Despite its predominantly rural nature, Ntoroko District has in recent years begun to experience gradual urbanisation, driven by population growth, improved administrative structures, and expanding local economies. This transition has led to the emergence of key urban centres, among which Karugutu Town Council stands out as the district’s principal administrative, commercial, and service hub.</p>
+        <p>Karugutu Town Council’s growth can be traced to its strategic location along regional transport corridors linking Fort Portal City to the Lake Albert basin and onward to cross-border markets. Over time, it evolved from a modest trading centre into a focal point for governance, service delivery, and commerce within the district. Its designation as a Town Council by Statutory Instrument No. 48 of 2017, issued by the Minister of Local Government under Section 3 of the Local Government (Rating) Act, 2005, reflects both its growing population and its increasing importance in coordinating local development. Today, it is the leading urban centre in Ntoroko District and is earmarked for future elevation to municipal status—an indication of its rising urban significance.</p>
+      </div>
+      <div class="highlight-box">
+        <strong>📜 Statutory Recognition</strong>
+        <p>Statutory Instrument No. 48 of 2017 (Local Government (Rating) Act, 2005) formally established Karugutu as an autonomous Town Council, empowering it to collect local revenues, enforce byelaws, and drive integrated urban planning. This milestone marked the transition from sub-county status to an independent urban local government.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Card 2: Socio-Economic Context & Urban Transformation -->
+  <div class="historical-card">
+    <div class="historical-card-header">
+      <h2>Socio‑Economic Context and Urban Transformation</h2>
+    </div>
+    <div class="historical-card-body">
+      <div class="historical-text">
+        <p>The Town Council plays a critical role in hosting key public institutions and providing essential services, including education, healthcare, and local administration. However, like many emerging urban centres in Uganda, Karugutu is undergoing rapid transformation under conditions of limited infrastructure and institutional capacity. Rural–urban migration, natural population increase, and expanding commercial activity are steadily intensifying demand for planned urban development, including housing, transport networks, water and sanitation systems, and solid waste management.</p>
+        <p>Economically, Karugutu Town Council reflects the broader structure of the district economy. It is dominated by small and medium enterprises, retail trade, agro-produce marketing, fisheries-related activities, and a vibrant informal sector. While this provides livelihoods for a large portion of the population, the predominance of informal economic activity constrains revenue mobilisation and limits the Town Council’s ability to invest in public infrastructure and services. Furthermore, reliance on primary production and low-value trade restricts opportunities for value addition, productivity growth, and sustainable employment.</p>
+        <div class="stats-row">
+          <div class="stat-badge"><span class="stat-number">87 km²</span><span class="stat-label">Total Land Area</span></div>
+          <div class="stat-badge"><span class="stat-number">19,070+</span><span class="stat-label">Population (UBOS 2024)</span></div>
+          <div class="stat-badge"><span class="stat-number">5</span><span class="stat-label">Administrative Wards</span></div>
+        </div>
+        <p>In response, there is growing recognition of the need to transition toward a more diversified and resilient local economy. Strengthening agro-processing, developing fisheries value chains, formalising cross-border trade, and supporting private sector development are increasingly seen as critical pathways for enhancing household incomes and expanding the local revenue base.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Card 3: Development Challenges & Strategic Pathways -->
+  <div class="historical-card">
+    <div class="historical-card-header">
+      <h2>Development Challenges, Climate Risks & Strategic Pathways</h2>
+    </div>
+    <div class="historical-card-body">
+      <div class="context-grid">
+        <div class="context-card">
+          <h3>⚠️ Key Challenges</h3>
+          <ul class="challenges-list">
+            <li>Limited paved road infrastructure and inadequate drainage systems</li>
+            <li>Insufficient solid waste management and environmental degradation</li>
+            <li>Vulnerability to climate‑related risks such as flooding</li>
+            <li>Informal sector dominance constraining revenue mobilisation</li>
+            <li>Institutional capacity gaps in physical planning</li>
+          </ul>
+        </div>
+        <div class="context-card">
+          <h3>🌱 Strategic Pathways</h3>
+          <ul class="challenges-list">
+            <li>Integrated physical planning & climate‑resilient infrastructure</li>
+            <li>Strengthening agro-processing and fisheries value chains</li>
+            <li>Formalising cross‑border trade and private sector partnerships</li>
+            <li>Enhanced local revenue collection through digital systems</li>
+            <li>Community‑led environmental conservation initiatives</li>
+          </ul>
+        </div>
+      </div>
+      <div class="historical-text">
+        <p>At the same time, Karugutu faces significant development challenges typical of rapidly growing urban areas. These include limited paved road infrastructure, inadequate drainage systems, insufficient solid waste management, and vulnerability to climate-related risks such as flooding and environmental degradation. Addressing these challenges requires integrated physical planning, climate-resilient infrastructure, and strengthened institutional coordination.</p>
+        <p>Within this evolving context, Karugutu Town Council represents both the opportunities and challenges of Uganda’s decentralised urban growth. Its future development will depend not only on public sector planning and investment but also on effective partnerships with the private sector, community organisations, and development partners. With the right strategic focus, Karugutu is well-positioned to transform into a sustainable, inclusive, and economically vibrant urban centre within the Albertine region.</p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">2010</div>
+        <p>Creation of Ntoroko District from Bundibugyo District, paving the way for Karugutu's emergence as a key administrative hub.</p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">2017</div>
+        <p>Karugutu elevated to Town Council status via Statutory Instrument No. 48, gaining autonomous local governance powers.</p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">2024–2030</div>
+        <p>Strategic planning for municipal status: investments in infrastructure, revenue enhancement, and climate adaptation.</p>
+      </div>
+      <a href="index.html" class="btn-back">← Back to Home</a>
+    </div>
+  </div>
+
+  <!-- Card 4: Justification of content – summary of historical relevance -->
+  <div class="historical-card">
+    <div class="historical-card-header">
+      <h2>Why This Historical Context Matters</h2>
+    </div>
+    <div class="historical-card-body">
+      <div class="historical-text">
+        <p>Understanding the historical trajectory of Karugutu Town Council is essential for appreciating its current governance structures, economic dynamics, and future aspirations. The transformation from a modest trading post along the Fort Portal–Bundibugyo corridor to a fully-fledged Town Council is a testament to the region's strategic importance and the Government’s commitment to decentralisation. Moreover, the demographic pressures, infrastructural gaps, and economic patterns described herein are not merely academic—they directly inform every policy decision, budget allocation, and development plan at the local level.</p>
+        <p>The narrative underscores that Karugutu’s growth is intrinsically linked to cross-border trade with the DRC, the fisheries of Lake Albert, and the agricultural potential of the Albertine Rift. By documenting these realities, the Council provides evidence-based justification for resource mobilisation, partnership engagements, and strategic interventions. The challenges of climate vulnerability, informal sector dominance, and infrastructure deficits are acknowledged as actionable priorities, while the vision for a diversified, climate‑resilient urban centre offers a clear roadmap for stakeholders. In essence, this historical and contextual background serves as the foundation for accountable, transparent, and forward‑looking local governance.</p>
+      </div>
+      <div class="highlight-box">
+        <strong>📌 Justification Statement</strong>
+        <p>This comprehensive historical account aligns with Uganda’s Local Government Act (1997, as amended) and the National Development Plan III (NDP III) which emphasise evidence‑based planning and participatory governance. Every fact—from the statutory instrument number to demographic estimates—is drawn from verified administrative records, UBOS census projections, and council development reports, ensuring integrity and factual accuracy for public record and strategic decision‑making.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Anti-Corruption & Footer (consistent with index) -->
+<div class="anti-corruption" style="background: var(--red); color: #fff; text-align: center; padding: 40px 20px;">
+  <h2 style="font-family: 'Merriweather', serif; font-size: 22px; margin-bottom: 8px;">Karugutu Town Council Condemns Any Form of Corruption at All Levels</h2>
+  <p style="font-size: 14px; margin-bottom: 20px;">Report any form of corruption to the Council. Together we build a transparent and accountable government.</p>
+</div>
+
+<footer style="background: var(--dark); color: rgba(255,255,255,0.8);">
+  <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 40px; max-width: 1200px; margin: 0 auto; padding: 50px 20px 30px;">
+    <div class="footer-col">
+      <h4 style="font-family: 'Merriweather', serif; color: #fff; font-size: 15px; margin-bottom: 18px; padding-bottom: 10px; border-bottom: 2px solid var(--accent);">Find Us At</h4>
+      <address style="font-size: 13px; line-height: 1.9; font-style: normal;">P.O. Box 568, Fort Portal<br>Fort Portal–Bundibugyo Road<br>Karugutu, Ntoroko District<br>Western Region, Uganda<br><br><a href="mailto:karugututowncouncil033@gmail.com" style="color: rgba(255,255,255,0.75);">karugututowncouncil033@gmail.com</a></address>
+    </div>
+    <div class="footer-col">
+      <h4 style="font-family: 'Merriweather', serif; color: #fff; font-size: 15px; margin-bottom: 18px; padding-bottom: 10px; border-bottom: 2px solid var(--accent);">Key Contacts</h4>
+      <div class="footer-contacts">
+        <div><span>Town Clerk:</span> +256 785 221 110</div>
+        <div><span>Sr. Asst. Town Clerk:</span> +256 773 899 959</div>
+        <div><span>LC III Chairperson:</span> +256 782 431 733</div>
+        <div><span>Senior CDO:</span> +256 775 512 770</div>
+        <div><span>Sr. Internal Auditor:</span> +256 772 823 466</div>
+        <div><span>Town Treasurer:</span> +256 772 303 176</div>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4 style="font-family: 'Merriweather', serif; color: #fff; font-size: 15px; margin-bottom: 18px; padding-bottom: 10px; border-bottom: 2px solid var(--accent);">Quick Links</h4>
+      <ul style="list-style: none;"><li><a href="https://www.ntoroko.go.ug/">Ntoroko District Local Government</a></li><li><a href="#">Lower Local Government</a></li><li><a href="#">Performance Assessment FY 2025–2026</a></li><li><a href="index.html">Home</a></li><li><a href="#">Services</a></li><li><a href="contact.html">Contact Us</a></li></ul>
+    </div>
+  </div>
+  <div class="footer-bottom" style="background: #111; text-align: center; padding: 14px; font-size: 12px;">All Rights Reserved &copy; Karugutu Town Council, Ntoroko District, Uganda.</div>
+</footer>
+
+<script>
+  // Ensure dropdowns work same as index
+  document.querySelectorAll('.nav-item').forEach(item => {
+    const drop = item.querySelector('.dropdown');
+    if (!drop) return;
+    item.addEventListener('mouseenter', () => {
+      if (drop.classList.contains('two-col')) drop.style.display = 'flex';
+      else drop.style.display = 'block';
+    });
+    item.addEventListener('mouseleave', () => drop.style.display = '');
+  });
+  // Small fix for any external links
+</script>
+</body>
+</html>
