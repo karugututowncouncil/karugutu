@@ -124,17 +124,17 @@ max-width: 700px;
 .hero-political { padding: 40px 20px; }
 }
 
-/* main image container – only political.jpg as full-width content */
+/* main image container – reduced size: smaller max-width, lighter padding, limited scale */
 .image-main-section {
-padding: 40px 20px 60px;
+padding: 30px 20px 50px;
 background: #fefef7;
 }
 .image-container {
-max-width: 1300px;
+max-width: 900px;         /* reduced from 1300px to make image area smaller */
 margin: 0 auto;
 border-radius: 28px;
 overflow: hidden;
-box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+box-shadow: 0 16px 32px rgba(0,0,0,0.12);
 background: #fff;
 transition: transform 0.2s ease;
 }
@@ -144,10 +144,21 @@ height: auto;
 display: block;
 object-fit: contain;
 background: #fafaf5;
+max-height: 620px;       /* visual cap to avoid over-large display */
 }
 .image-container:hover {
 transform: scale(1.01);
-box-shadow: 0 24px 48px rgba(0,0,0,0.18);
+box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+
+/* optional additional small image refinement: if image extremely large it won't exceed container */
+@media (max-width: 1024px) {
+.image-container { max-width: 750px; }
+.image-container img { max-height: 550px; }
+}
+@media (max-width: 640px) {
+.image-container { max-width: 95%; border-radius: 20px; }
+.image-container img { max-height: 420px; }
 }
 
 /* footer styles (matching index) */
@@ -265,7 +276,8 @@ opacity: 0.9;
   </div>
 </div>
 
-<!-- MAIN CONTENT: ONLY political.jpg IMAGE, no words -->
+<!-- MAIN CONTENT: political.jpg displayed in a reduced-size container.
+     No additional text, only the image, but image appears smaller due to constrained max-width and max-height -->
 <section class="image-main-section">
   <div class="image-container">
     <img src="political.jpg" alt="Karugutu Town Council Political Leadership – Mayor, Councilors, and Administrative Wards Representation">
