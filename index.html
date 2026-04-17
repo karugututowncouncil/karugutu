@@ -46,7 +46,6 @@ flex-wrap: wrap;
 .header-text h1 {
 font-family: 'Playfair Display', 'Merriweather', 'Cormorant Garamond', serif;
 font-size: 22px;
-font-style: italic;
 color: var(--accent);
 font-weight: 700;
 letter-spacing: 1.5px;
@@ -93,17 +92,19 @@ transition: background 0.2s; white-space: nowrap;
 .nav-item.active > a, .nav-item.active > span { background: var(--accent); color: #fff; }
 .nav-item > span::after { content: ' ▾'; font-size: 10px; margin-left: 4px; }
 .dropdown { display: none; position: absolute; top: 100%; left: 0; background: #fff; min-width: 240px; box-shadow: 0 6px 20px rgba(0,0,0,0.15); z-index: 999; }
-.dropdown.two-col { display: none; min-width: 560px; flex-wrap: wrap; }
-.dropdown-col { flex: 1; min-width: 240px; }
+.dropdown.two-col { display: none; min-width: 520px; flex-wrap: wrap; }
+.dropdown-col { flex: 1; min-width: 220px; }
 .dropdown-heading { background: var(--light-gray); padding: 8px 16px; font-size: 10px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--primary); border-bottom: 1px solid var(--mid-gray); }
 .dropdown a { display: block; padding: 9px 16px; font-size: 13px; color: var(--text); border-bottom: 1px solid #f0f0f0; transition: background 0.15s, color 0.15s; }
 .dropdown a:hover { background: var(--primary); color: #fff; }
 .nav-item:hover .dropdown { display: flex; }
 .nav-item:hover .dropdown:not(.two-col) { display: block; }
 
-/* custom who-we-are columns */
-.dropdown-col.col-profile { background: #fafcf9; }
-.dropdown-col.col-profile .dropdown-heading { background: var(--primary); color: #fff; border-bottom: 1px solid rgba(255,255,255,0.2); }
+/* who we are dropdown special columns */
+.dropdown-col.col-profile { background: var(--primary); }
+.dropdown-col.col-profile .dropdown-heading { background: var(--primary-dark); color: #fff; border-bottom: 1px solid rgba(255,255,255,0.15); }
+.dropdown-col.col-profile a { color: rgba(255,255,255,0.9); border-bottom: 1px solid rgba(255,255,255,0.1); }
+.dropdown-col.col-profile a:hover { background: var(--accent); color: #fff; }
 .dropdown-col.col-services { background: #fff; }
 .dropdown-col.col-services .dropdown-heading { background: var(--light-gray); color: var(--primary); }
 
@@ -393,56 +394,91 @@ footer { background: var(--dark); color: rgba(255,255,255,0.8); }
   <div class="header-logo-right"><img src="logoo.jpeg" alt="Karugutu Town Council Logo"></div>
 </header>
 
-<nav><div class="nav-inner">
-  <div class="nav-item"><a href="#">Home</a></div>
-  <div class="nav-item active"><span>Who We Are</span>
-    <div class="dropdown two-col">
-      <!-- Left column: Karugutu Town Council Profile -->
-      <div class="dropdown-col col-profile">
-        <div class="dropdown-heading">📌 Karugutu Town Council Profile</div>
-        <a href="#" data-scroll="historicalContext">Historical & Contextual Background</a>
-        <a href="#" data-scroll="leadershipSection">Political Leadership</a>
-        <a href="#" data-scroll="technicalLeadership">Technical Leadership</a>
-      </div>
-      <!-- Right column: Departments (full list) -->
-      <div class="dropdown-col col-services">
-        <div class="dropdown-heading">🏛️ Departments</div>
-        <a href="#">Production & Marketing</a>
-        <a href="#">Internal Audit</a>
-        <a href="#">Finance & Planning</a>
-        <a href="#">Public Health Services</a>
-        <a href="#">Administration and Management Support Services</a>
-        <a href="#">Education & Sports Services</a>
-        <a href="#">Works & Technical Services</a>
-        <a href="#">Physical Planning Services</a>
-        <a href="#">Community-Based Services</a>
-        <a href="#">Natural Resources Management</a>
-        <a href="#">Trade, Industry and Local Economic Development</a>
+<nav>
+  <div class="nav-inner">
+
+    <!-- HOME: plain link, no dropdown -->
+    <div class="nav-item active"><a href="#">Home</a></div>
+
+    <!-- WHO WE ARE: two-column dropdown -->
+    <div class="nav-item">
+      <span>Who We Are</span>
+      <div class="dropdown two-col">
+        <div class="dropdown-col col-profile">
+          <div class="dropdown-heading">Karugutu Town Council Profile</div>
+          <a href="#" data-scroll="aboutCouncil">Historical and Contextual Background</a>
+          <a href="#" data-scroll="leadershipSection">Political Leadership</a>
+          <a href="#" data-scroll="leadershipSection">Technical Leadership</a>
+        </div>
+        <div class="dropdown-col col-services">
+          <div class="dropdown-heading">Departments</div>
+          <a href="#">Production &amp; Marketing</a>
+          <a href="#">Internal Audit</a>
+          <a href="#">Finance &amp; Planning</a>
+          <a href="#">Public Health Services</a>
+          <a href="#">Administration and Management Support Services</a>
+          <a href="#">Education &amp; Sports Services</a>
+          <a href="#">Works &amp; Technical Services</a>
+          <a href="#">Physical Planning Services</a>
+          <a href="#">Community-Based Services</a>
+          <a href="#">Natural Resources Management</a>
+          <a href="#">Trade, Industry and Local Economic Development</a>
+        </div>
       </div>
     </div>
+
+    <!-- SERVICES -->
+    <div class="nav-item">
+      <span>Services</span>
+      <div class="dropdown two-col">
+        <div class="dropdown-col">
+          <div class="dropdown-heading">Core Services</div>
+          <a href="#">Administration &amp; Management</a>
+          <a href="#">Public Health Services</a>
+          <a href="#">Works &amp; Technical Services</a>
+          <a href="#">Physical Planning</a>
+          <a href="#">Finance &amp; Planning</a>
+        </div>
+        <div class="dropdown-col">
+          <div class="dropdown-heading">Community &amp; Development</div>
+          <a href="#">Production &amp; Marketing</a>
+          <a href="#">Community-Based Services</a>
+          <a href="#">Trade, Industry &amp; LED</a>
+          <a href="#">Natural Resources Management</a>
+          <a href="#">Audit Services</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- RESOURCES -->
+    <div class="nav-item">
+      <span>Resources</span>
+      <div class="dropdown">
+        <div class="dropdown-heading">Publications</div>
+        <a href="#">Latest News</a>
+        <a href="#">Reports</a>
+        <a href="#">Performance Assessment FY 2025–2026</a>
+        <a href="#">Policies</a>
+      </div>
+    </div>
+
+    <div class="nav-item"><a href="#">Gallery</a></div>
+    <div class="nav-item"><a href="contact.html">Contact Us</a></div>
+
   </div>
-  <div class="nav-item"><span>Services</span><div class="dropdown two-col"><div class="dropdown-col"><div class="dropdown-heading">Core Services</div><a href="#">Administration & Management</a><a href="#">Public Health Services</a><a href="#">Works & Technical Services</a><a href="#">Physical Planning</a><a href="#">Finance & Planning</a></div><div class="dropdown-col"><div class="dropdown-heading">Community & Development</div><a href="#">Production & Marketing</a><a href="#">Community-Based Services</a><a href="#">Trade, Industry & LED</a><a href="#">Natural Resources Management</a><a href="#">Audit Services</a></div></div></div>
-  <div class="nav-item"><span>Resources</span><div class="dropdown"><div class="dropdown-heading">Publications</div><a href="#">Latest News</a><a href="#">Reports</a><a href="#">Performance Assessment FY 2025–2026</a><a href="#">Policies</a></div></div>
-  <div class="nav-item"><a href="#">Gallery</a></div>
-  <div class="nav-item"><a href="contact.html">Contact Us</a></div>
-</div></nav>
+</nav>
 
 <div class="hero"><div class="slide active"><div class="slide-overlay"><div class="slide-caption"><h2>Welcome to Karugutu Town Council — A Strategic Urban Growth Centre in Ntoroko District, Western Uganda.</h2><a href="#">Learn More</a></div></div></div><div class="slide"><div class="slide-overlay"><div class="slide-caption"><h2>Elevated to Urban Status in 2010 — Driving Local Governance &amp; Socio-Economic Transformation for 19,070 Residents Across 5 Wards.</h2><a href="#">Our Services</a></div></div></div><div class="slide"><div class="slide-overlay"><div class="slide-caption"><h2>Serving 87 km² Bordering Toro-Semliki National Park — Committed to Quality, Equitable &amp; Sustainable Service Delivery.</h2><a href="#">Contact Us</a></div></div></div><button class="slider-arrow arrow-prev" onclick="changeSlide(-1)">&#8249;</button><button class="slider-arrow arrow-next" onclick="changeSlide(1)">&#8250;</button><div class="slider-dots" id="dots"></div></div>
 
-<!-- Historical & Contextual Background Section (Anchor) -->
-<section id="historicalContext" class="about-council" style="padding-top: 40px;"><div class="container"><div class="about-box green-bg" style="background: #2c5e2e;"><h3>📜 Historical & Contextual Background</h3><p>Karugutu Town Council is located in Ntoroko District, Western Region of Uganda, covering an area of 87 km². Officially separated from Karugutu Sub-county in 2010 following the creation of Ntoroko District from Bundibugyo District, it attained autonomous urban status under Statutory Instrument No. 48 of 2017, issued by the Minister of Local Government under Section 3 of the Local Government (Rating) Act, 2005. The Council borders the Toro-Semliki National Park and serves as the strategic administrative and service hub for the district. The town's evolution reflects Uganda's decentralization policy, empowering local communities to drive development, improve service delivery, and foster accountable governance at grassroots level.</p></div></div></section>
-
-<section id="leadershipSection" class="leadership"><div class="container"><h2 class="section-title">Political Leadership</h2><div class="leadership-grid"><div class="leader-card"><div class="leader-card-image"><img src="Mayor.jpg" alt="Mayor Hon Maate Raphael G"></div><div class="leader-card-body"><h3>Hon. Maate Raphael G</h3><p>Mayor (Political Head)</p></div></div><div class="leader-card"><div class="leader-card-image"><img src="clerk.jpg" alt="Town Clerk Mr. Sekanabo Wilfred"></div><div class="leader-card-body"><h3>Mr. Sekanabo Wilfred</h3><p>Town Clerk</p></div></div><div class="leader-card"><div class="leader-card-image"><img src="http://molgtest.ccm77.org/mo/wp-content/uploads/2025/10/PS-300x300.jpg" alt="Senior Treasurer Mr. Nzeghale Enoch"></div><div class="leader-card-body"><h3>Mr. Nzeghale Enoch</h3><p>Senior Treasurer</p></div></div></div></div></section>
-
-<section id="technicalLeadership" class="about-council"><div class="container"><div class="about-box white-bg"><h3>🛠️ Technical Leadership</h3><p>The technical wing is headed by the Town Clerk (Chief Administrative Officer) supported by Heads of Departments: Production & Marketing, Internal Audit, Finance & Planning, Public Health, Administration, Education, Works, Physical Planning, Community-Based Services, Natural Resources, and Trade & Economic Development. Together, they implement council resolutions, manage public funds, and ensure efficient urban service delivery in line with the Local Governments Act and national development agenda.</p></div></div></section>
+<section id="leadershipSection" class="leadership"><div class="container"><h2 class="section-title">Our Leadership</h2><div class="leadership-grid"><div class="leader-card"><div class="leader-card-image"><img src="Mayor.jpg" alt="Mayor Hon Maate Raphael G"></div><div class="leader-card-body"><h3>Hon. Maate Raphael G</h3><p>Mayor</p></div></div><div class="leader-card"><div class="leader-card-image"><img src="clerk.jpg" alt="Town Clerk Mr. Sekanabo Wilfred"></div><div class="leader-card-body"><h3>Mr. Sekanabo Wilfred</h3><p>Town Clerk</p></div></div><div class="leader-card"><div class="leader-card-image"><img src="http://molgtest.ccm77.org/mo/wp-content/uploads/2025/10/PS-300x300.jpg" alt="Senior Treasurer Mr. Nzeghale Enoch"></div><div class="leader-card-body"><h3>Mr. Nzeghale Enoch</h3><p>Senior Treasurer</p></div></div></div></div></section>
 
 <div id="aboutCouncil" class="container" style="margin-top: -20px;"><div class="mandate-standalone"><h3>📜 Our Mandate</h3><div class="mandate-text-green">A Town Council is a lower local government established under the Local Governments Act (Cap 243), mandated to govern urban areas below the municipality level. Its core role is to decentralize service delivery, promote democratic participation in decision-making, and drive local economic development within its jurisdiction. In fulfilling this mandate, the Council provides essential public services such as primary education, primary health care, sanitation, waste management, and local transport infrastructure. It is also responsible for planning and implementing development programmes, including physical planning, land use regulation, and enforcement of building standards to ensure orderly urban growth.</div><div class="mandate-text-green">In addition, the Town Council exercises legislative and administrative authority through the formulation of byelaws, collection of local revenues, and oversight of public service delivery. It manages urban systems such as markets, street lighting, and environmental health services while ensuring accountability and coordination across sectors. Structurally, the Council comprises elected political leaders, including a Chairperson and Ward Representatives, supported by an Executive Committee that oversees policy implementation. The technical administration, led by the Town Clerk, manages day-to-day operations and ensures that council decisions are effectively translated into service delivery and development outcomes.</div><span class="mandate-badge">Statutory Instrument No. 48 of 2017, issued by the Minister of Local Government under Section 3 of the Local Government (Rating) Act, 2005</span></div></div>
 
 <section id="compositionCouncil" class="about-council"><div class="container"><div class="about-grid"><div class="about-box green-bg"><h3>About Karugutu Town Council</h3><p>Karugutu Town Council is located in Ntoroko District, Western Region of Uganda, covering an area of 87 km². Officially separated from Karugutu Sub-county in 2010 following the creation of Ntoroko District from Bundibugyo District, it attained autonomous urban status under Statutory Instrument No. 48 of 2017, issued by the Minister of Local Government under Section 3 of the Local Government (Rating) Act, 2005. The Council borders the Toro-Semliki National Park and serves as the strategic administrative and service hub for the district.</p><a href="#">Read More</a></div><div id="mayorFunctions" class="about-box white-bg"><h3>Functions of the Mayor</h3><p>The Mayor is the political head of the Town Council. He presides over all council meetings, performs ceremonial and civic functions, hosts local and foreign dignitaries, and leads the council in developing strategies for the Town Council's development. The Mayor monitors administration, provides guidance to ward administrations, and is answerable to the council and the Member of Parliament. The Vice Mayor assists and deputises in the Mayor's absence.</p></div></div></div></section>
 
-<section class="mandate-vision"><div class="container"><h2 class="section-title">Vision, Mission &amp; Strategic Pillars</h2><div class="vision-mission-grid"><div class="vm-card"><div class="vm-image"><img src="vision.jpg" alt="Vision 2040 Pillars"></div><div class="vm-content"><div class="vm-icon-large">🌍</div><h3>Vision 2040</h3><p><strong>Karugutu Vision 2040:</strong> "A vibrant, inclusive, climate-resilient and well-governed town with sustainable economic growth and improved quality of life for all."</p><button id="readMoreVisionBtn" class="read-more-btn">📖 Read Full Vision 2040</button><div id="fullVisionContainer" class="full-vision-container" style="display: none;"><div class="vision-headline">Karugutu Town Council – Vision 2040</div><div class="vision-quote">"A vibrant, inclusive, climate-resilient and well-governed town with sustainable economic growth and improved quality of life for all."</div><div class="vision-narrative"><p><strong>Vision Narrative</strong><br>By 2040, Karugutu Town Council will stand as a model of balanced and people-centered development...</p><p>The town will embody an inclusive society, where all people—regardless of age, gender, or ability, have access to quality social services...</p></div><div class="strategic-pillars"><strong style="font-size: 20px; color: var(--primary); display: block; margin: 24px 0 16px;">Strategic Pillars of Vision 2040</strong><div class="pillar-list"><div class="pillar-card"><strong>Economic Growth</strong><ul><li>Expansion of trade, agriculture, and local industries</li><li>Promotion of entrepreneurship and job creation</li></ul></div><div class="pillar-card"><strong>Inclusive Services</strong><ul><li>Universal access to education, healthcare, and social protection</li></ul></div><div class="pillar-card"><strong>Climate Resilience</strong><ul><li>Adoption of renewable energy solutions</li></ul></div><div class="pillar-card"><strong>Sustainable Resource Management</strong><ul><li>Efficient use of land and natural resources</li></ul></div><div class="pillar-card"><strong>Good Governance</strong><ul><li>Transparency, accountability, and citizen participation</li></ul></div></div></div><div class="desired-future"><h4>The Desired Future</h4><p>By 2040, Karugutu will be a town where: businesses flourish, communities are empowered, environment protected.</p></div></div></div></div><div class="vm-card"><div class="vm-image"><img src="vision2040.jpg" alt="Vision Statement"></div><div class="vm-content"><div class="vm-icon-large">🔭</div><h3>Our Vision</h3><p>"To be a vibrant, inclusive, resilient, and sustainable town by 2040."</p></div></div><div class="vm-card"><div class="vm-image"><img src="mission.jpg" alt="Mission Statement"></div><div class="vm-content"><div class="vm-icon-large">🎯</div><h3>Our Mission</h3><p>"To improve the quality of life for all through inclusive planning, efficient service delivery, and sustainable use of local resources."</p></div></div></div></div></section>
+<section class="mandate-vision"><div class="container"><h2 class="section-title">Vision, Mission &amp; Strategic Pillars</h2><div class="vision-mission-grid"><div class="vm-card"><div class="vm-image"><img src="vision.jpg" alt="Vision 2040 Pillars"></div><div class="vm-content"><div class="vm-icon-large">🌍</div><h3>Vision 2040</h3><p><strong>Karugutu Vision 2040:</strong> "A vibrant, inclusive, climate-resilient and well-governed town with sustainable economic growth and improved quality of life for all."</p><button id="readMoreVisionBtn" class="read-more-btn">📖 Read Full Vision 2040</button><div id="fullVisionContainer" class="full-vision-container" style="display: none;"><div class="vision-headline">Karugutu Town Council – Vision 2040</div><div class="vision-quote">"A vibrant, inclusive, climate-resilient and well-governed town with sustainable economic growth and improved quality of life for all."</div><div class="vision-narrative"><p><strong>Vision Narrative</strong><br>By 2040, Karugutu Town Council will stand as a model of balanced and people-centered development, where economic opportunity, social inclusion, environmental sustainability, and good governance are not aspirations, but lived realities.</p><p>Karugutu will be a thriving economic hub, powered by local enterprise, modern agriculture, small industries, and innovation. Markets will be vibrant, businesses supported, and youth and women fully engaged in productive livelihoods. Infrastructure—roads, energy, and communication—will enable seamless connectivity within and beyond the town.</p><p>The town will embody an inclusive society, where all people—regardless of age, gender, or ability, have access to quality social services. Education, healthcare, and community support systems will be accessible, equitable, and responsive, ensuring that no one is left behind.</p><p>As a climate-resilient community, Karugutu will embrace clean energy, sustainable land use, and environmental conservation. Solar energy, water management systems, and green landscapes will define the town's commitment to protecting its natural resources while adapting to climate change.</p><p>Karugutu will champion a sustainable future, where development today does not compromise tomorrow. Natural ecosystems will be preserved, waste will be managed responsibly, and growth will align with environmental stewardship.</p><p>At the core of this transformation will be good governance, transparent, accountable, and participatory leadership. Citizens will actively engage in decision-making, institutions will be efficient and service-oriented, and justice and rule of law will guide all actions.</p></div><div class="strategic-pillars"><strong style="font-size: 20px; color: var(--primary); display: block; margin: 24px 0 16px;">Strategic Pillars of Vision 2040</strong><div class="pillar-list"><div class="pillar-card"><strong>Economic Growth</strong><ul><li>Expansion of trade, agriculture, and local industries</li><li>Promotion of entrepreneurship and job creation</li><li>Investment in infrastructure and technology</li></ul></div><div class="pillar-card"><strong>Inclusive Services</strong><ul><li>Universal access to education, healthcare, and social protection</li><li>Empowerment of vulnerable and marginalized groups</li><li>Strengthening community-based development programs</li></ul></div><div class="pillar-card"><strong>Climate Resilience</strong><ul><li>Adoption of renewable energy solutions</li><li>Climate-smart agriculture and environmental conservation</li><li>Disaster preparedness and sustainable water management</li></ul></div><div class="pillar-card"><strong>Sustainable Resource Management</strong><ul><li>Efficient use of land and natural resources</li><li>Protection of ecosystems and biodiversity</li><li>Sustainable urban planning and development</li></ul></div><div class="pillar-card"><strong>Good Governance</strong><ul><li>Transparency, accountability, and citizen participation</li><li>Strengthening institutional capacity</li><li>Upholding justice, equity, and the rule of law</li></ul></div></div></div><div class="desired-future"><h4>The Desired Future</h4><p>By 2040, Karugutu will be a town where:</p><ul><li>Businesses flourish and livelihoods are secure</li><li>Communities are united, empowered, and inclusive</li><li>The environment is protected and resilient</li><li>Public services are efficient and accessible</li><li>Leadership is trusted and accountable</li></ul></div></div></div></div><div class="vm-card"><div class="vm-image"><img src="vision2040.jpg" alt="Vision Statement"></div><div class="vm-content"><div class="vm-icon-large">🔭</div><h3>Our Vision</h3><p>"To be a vibrant, inclusive, resilient, and sustainable town by 2040."</p><div class="vm-badge-alt">Long-Term Aspiration</div></div></div><div class="vm-card"><div class="vm-image"><img src="mission.jpg" alt="Mission Statement"></div><div class="vm-content"><div class="vm-icon-large">🎯</div><h3>Our Mission</h3><p>"To improve the quality of life for all through inclusive planning, efficient service delivery, and sustainable use of local resources."</p><div class="vm-badge-alt">Guiding Principle</div></div></div></div></div></section>
 
-<section class="stats-image-section"><div class="container"><h2 class="section-title">Karugutu Town Council in Brief and in Numbers</h2><div class="stats-image-wrapper"><img src="stats.jpg" alt="Key Statistics"></div><div class="stats-image-caption">Comprehensive data based on UBOS 2024 Census &amp; Council Reports</div></div></section>
+<section class="stats-image-section"><div class="container"><h2 class="section-title">Karugutu Town Council in Brief and in Numbers</h2><div class="stats-image-wrapper"><img src="stats.jpg" alt="Karugutu Town Council Key Statistics Infographic"></div><div class="stats-image-caption">Comprehensive data based on UBOS 2024 Census &amp; Council Reports</div></div></section>
 
 <section class="services-section"><div class="container"><h2 class="section-title">Our Services</h2><div class="services-grid"><div class="service-card"><div class="service-icon">🏛️</div><h3>Administration &amp; Management Support</h3><p>Coordinating day-to-day operations, human resources, and effective governance.</p><a href="#" class="service-cta">Access Service →</a></div><div class="service-card"><div class="service-icon">🏥</div><h3>Public Health Services</h3><p>Sanitation oversight, health education, disease surveillance.</p><a href="#" class="service-cta">Access Service →</a></div><div class="service-card"><div class="service-icon">🔧</div><h3>Works &amp; Technical Services</h3><p>Roads, drainage, buildings, public infrastructure.</p><a href="#" class="service-cta">Access Service →</a></div><div class="service-card"><div class="service-icon">📐</div><h3>Physical Planning Services</h3><p>Land use, building approvals, structural plans.</p><a href="#" class="service-cta">Access Service →</a></div><div class="service-card"><div class="service-icon">🌾</div><h3>Production &amp; Marketing</h3><p>Agriculture, livestock, market linkages.</p><a href="#" class="service-cta">Access Service →</a></div><div class="service-card"><div class="service-icon">💰</div><h3>Finance &amp; Planning</h3><p>Budgeting, revenue collection, strategic planning.</p><a href="#" class="service-cta">Access Service →</a></div></div></div></section>
 
