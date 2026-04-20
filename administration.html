@@ -94,16 +94,16 @@ transition: background 0.2s; white-space: nowrap;
 .nav-item:hover .dropdown { display: flex; }
 .nav-item:hover .dropdown:not(.two-col) { display: block; }
 
-/* Hero section */
+/* Hero section - removed subheading paragraph */
 .hero-admin {
 position: relative;
 background: linear-gradient(135deg, #0a2f1a 0%, #1a5a3a 100%);
-min-height: 220px;
+min-height: 180px;
 display: flex;
 align-items: center;
 justify-content: center;
 text-align: center;
-padding: 60px 20px;
+padding: 50px 20px;
 }
 .hero-admin h1 {
 font-family: 'Merriweather', serif;
@@ -113,24 +113,18 @@ font-weight: 800;
 letter-spacing: -0.5px;
 text-shadow: 0 2px 12px rgba(0,0,0,0.2);
 }
-.hero-admin p {
-color: rgba(255,255,255,0.85);
-font-size: 18px;
-margin-top: 12px;
-max-width: 700px;
-}
 @media (max-width: 768px) {
 .hero-admin h1 { font-size: 28px; }
-.hero-admin { padding: 40px 20px; }
+.hero-admin { padding: 40px 20px; min-height: 140px; }
 }
 
-/* images section - each image in its own full row */
+/* images section - each image in its own full row, no cropping, full visibility */
 .images-section {
 padding: 50px 20px 70px;
 background: #fefef7;
 }
 .images-container {
-max-width: 1300px;
+max-width: 1400px;
 margin: 0 auto;
 }
 .image-row {
@@ -140,6 +134,7 @@ overflow: hidden;
 box-shadow: 0 20px 40px rgba(0,0,0,0.12);
 transition: transform 0.3s ease, box-shadow 0.3s ease;
 background: #fff;
+display: block;
 }
 .image-row:hover {
 transform: translateY(-6px);
@@ -151,16 +146,15 @@ height: auto;
 display: block;
 object-fit: contain;
 background: #fafaf5;
+/* Ensure full image visibility without any hidden clipping */
+max-width: 100%;
 }
-/* optional: ensure large display */
+/* No max-height restrictions - full image shows completely */
 .image-row img {
-max-height: 650px;
-width: 100%;
-object-fit: cover;
+max-height: none;
 }
 @media (max-width: 768px) {
-.image-row { margin-bottom: 28px; }
-.image-row img { max-height: 380px; object-fit: cover; }
+.image-row { margin-bottom: 32px; }
 }
 
 /* footer */
@@ -272,26 +266,21 @@ opacity: 0.9;
   </div>
 </nav>
 
-<!-- Hero Section -->
+<!-- Hero Section without subheading -->
 <div class="hero-admin">
   <div>
     <h1>Administration & Support Management</h1>
-    <p>Office of the Town Clerk • Administrative Excellence • Service Delivery Coordination</p>
   </div>
 </div>
 
-<!-- IMAGES SECTION: Each image takes full row, no captions -->
+<!-- IMAGES SECTION: Two images only (removed assistant image). Each image full width, full visibility, no hidden cropping -->
 <section class="images-section">
   <div class="images-container">
-    <!-- Image 1: Assistant Senior Town Clerk (full row) -->
-    <div class="image-row">
-      <img src="assist.jpg" alt="Assistant Senior Town Clerk - Karugutu Town Council Administration">
-    </div>
-    <!-- Image 2: Administration & Management Support Department (first image, full row) -->
+    <!-- Image 1: Administration & Management Support Department (first image) -->
     <div class="image-row">
       <img src="admin.jpg" alt="Administration and Management Support Department - Karugutu Town Council">
     </div>
-    <!-- Image 3: Administration & Management Support Department (second image, full row) -->
+    <!-- Image 2: Administration & Management Support Department (second image) -->
     <div class="image-row">
       <img src="admin1.jpg" alt="Administration Department Operations - Karugutu Town Council">
     </div>
@@ -349,4 +338,4 @@ opacity: 0.9;
   });
 </script>
 </body>
-</html>
+    </html>
