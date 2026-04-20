@@ -124,63 +124,43 @@ max-width: 700px;
 .hero-admin { padding: 40px 20px; }
 }
 
-/* gallery / images section */
-.gallery-section {
+/* images section - each image in its own full row */
+.images-section {
 padding: 50px 20px 70px;
 background: #fefef7;
 }
-.gallery-container {
+.images-container {
 max-width: 1300px;
 margin: 0 auto;
 }
-.gallery-grid {
-display: grid;
-grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-gap: 40px;
-}
-.gallery-card {
-background: #fff;
-border-radius: 24px;
+.image-row {
+margin-bottom: 48px;
+border-radius: 28px;
 overflow: hidden;
-box-shadow: 0 16px 32px rgba(0,0,0,0.1);
+box-shadow: 0 20px 40px rgba(0,0,0,0.12);
 transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-.gallery-card:hover {
-transform: translateY(-8px);
-box-shadow: 0 24px 48px rgba(0,0,0,0.15);
-}
-.gallery-card img {
-width: 100%;
-height: 380px;
-object-fit: cover;
-display: block;
-transition: transform 0.4s ease;
-}
-.gallery-card:hover img {
-transform: scale(1.03);
-}
-.gallery-caption {
-padding: 18px 24px 24px;
 background: #fff;
-text-align: center;
-border-top: 3px solid var(--accent);
 }
-.gallery-caption h3 {
-font-family: 'Merriweather', serif;
-font-size: 18px;
-color: var(--primary);
-margin-bottom: 6px;
-font-weight: 700;
+.image-row:hover {
+transform: translateY(-6px);
+box-shadow: 0 28px 50px rgba(0,0,0,0.18);
 }
-.gallery-caption p {
-font-size: 13px;
-color: #666;
-letter-spacing: 0.3px;
+.image-row img {
+width: 100%;
+height: auto;
+display: block;
+object-fit: contain;
+background: #fafaf5;
 }
-/* single image full width option (if needed, but we use grid) */
+/* optional: ensure large display */
+.image-row img {
+max-height: 650px;
+width: 100%;
+object-fit: cover;
+}
 @media (max-width: 768px) {
-.gallery-grid { gap: 24px; }
-.gallery-card img { height: 280px; }
+.image-row { margin-bottom: 28px; }
+.image-row img { max-height: 380px; object-fit: cover; }
 }
 
 /* footer */
@@ -300,34 +280,20 @@ opacity: 0.9;
   </div>
 </div>
 
-<!-- IMAGES SECTION: Assistant Senior Town Clerk + two department images -->
-<section class="gallery-section">
-  <div class="gallery-container">
-    <div class="gallery-grid">
-      <!-- Image 1: Assistant Senior Town Clerk -->
-      <div class="gallery-card">
-        <img src="assistant_senior_town_clerk.jpg" alt="Assistant Senior Town Clerk - Karugutu Town Council Administration">
-        <div class="gallery-caption">
-          <h3>Assistant Senior Town Clerk</h3>
-          <p>Office of the Town Clerk • Deputy Head of Administration</p>
-        </div>
-      </div>
-      <!-- Image 2: Administration & Management Support Department (first image) -->
-      <div class="gallery-card">
-        <img src="admin_support_1.jpg" alt="Administration and Management Support Department - Karugutu Town Council">
-        <div class="gallery-caption">
-          <h3>Administration & Management Support</h3>
-          <p>Human Resources • Records Management • Council Coordination</p>
-        </div>
-      </div>
-      <!-- Image 3: Administration & Management Support Department (second image) -->
-      <div class="gallery-card">
-        <img src="admin_support_2.jpg" alt="Administration Department Operations - Karugutu Town Council">
-        <div class="gallery-caption">
-          <h3>Administrative Operations</h3>
-          <p>Service Delivery • Strategic Planning • Staff Welfare</p>
-        </div>
-      </div>
+<!-- IMAGES SECTION: Each image takes full row, no captions -->
+<section class="images-section">
+  <div class="images-container">
+    <!-- Image 1: Assistant Senior Town Clerk (full row) -->
+    <div class="image-row">
+      <img src="assistant_senior_town_clerk.jpg" alt="Assistant Senior Town Clerk - Karugutu Town Council Administration">
+    </div>
+    <!-- Image 2: Administration & Management Support Department (first image, full row) -->
+    <div class="image-row">
+      <img src="admin_support_1.jpg" alt="Administration and Management Support Department - Karugutu Town Council">
+    </div>
+    <!-- Image 3: Administration & Management Support Department (second image, full row) -->
+    <div class="image-row">
+      <img src="admin_support_2.jpg" alt="Administration Department Operations - Karugutu Town Council">
     </div>
   </div>
 </section>
