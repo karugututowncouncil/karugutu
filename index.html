@@ -118,7 +118,6 @@ transition: background 0.2s; white-space: nowrap;
 .slide:nth-child(4) { background-image: url('hero3.jpg'); background-size: cover; background-position: center; }
 .slide:nth-child(5) { background-image: url('hero4.jpg'); background-size: cover; background-position: center; }
 .slide.active { opacity: 1; }
-/* REMOVED greenish overlay completely — no gradient, no background tint */
 .slide-overlay { 
     position: absolute; 
     inset: 0; 
@@ -159,7 +158,17 @@ transition: background 0.2s; white-space: nowrap;
 
 /* ── section common ── */
 section { padding: 60px 20px; }
-.section-title { font-family: 'Merriweather', serif; font-size: 28px; color: var(--primary); text-align: center; margin-bottom: 12px; position: relative; display: inline-block; left: 50%; transform: translateX(-50%); }
+.section-title { 
+    font-family: 'Merriweather', serif; 
+    font-size: 28px; 
+    color: var(--primary); 
+    text-align: center; 
+    margin-bottom: 12px; 
+    position: relative; 
+    display: inline-block; 
+    left: 50%; 
+    transform: translateX(-50%);
+}
 .section-title::after { content: ''; display: block; width: 70px; height: 3px; background: var(--accent); margin: 12px auto 0; }
 .container { max-width: 1200px; margin: 0 auto; }
 
@@ -352,10 +361,21 @@ text-align: justify;
 .mandate-badge { background: rgba(255,255,255,0.2); display: inline-block; padding: 6px 18px; border-radius: 40px; font-size: 13px; font-weight: 600; }
 
 /* stats */
-.stats-image-section h2{
-  text-align: center;
+.stats-image-section {
+    background: #fff; 
+    padding: 40px 20px;
 }
-.stats-image-section { background: #fff; padding: 40px 20px; text-align: center; }
+.stats-title-wrapper {
+    text-align: center;
+    margin-bottom: 28px;
+}
+.stats-title-wrapper .section-title {
+    display: inline-block;
+    float: none;
+    left: auto;
+    transform: none;
+    margin: 0 auto;
+}
 .stats-image-wrapper { max-width: 1200px; margin: 0 auto; border-radius: 20px; overflow: hidden; box-shadow: 0 12px 30px rgba(0,0,0,0.1); }
 .stats-image-wrapper img { width: 100%; height: auto; display: block; transition: transform 0.3s ease; }
 .stats-image-caption { margin-top: 16px; font-size: 13px; color: #666; font-style: italic; }
@@ -542,7 +562,18 @@ footer { background: var(--dark); color: rgba(255,255,255,0.8); }
 
 <section class="mandate-vision"><div class="container"><h2 class="section-title">Vision, Mission &amp; Strategic Pillars</h2><div class="vision-mission-grid"><div class="vm-card"><div class="vm-image"><img src="vision.jpg" alt="Vision 2040 Pillars"></div><div class="vm-content"><h3>Vision 2040</h3><p><strong>Karugutu Vision 2040:</strong> "A vibrant, inclusive, climate-resilient and well-governed town with sustainable economic growth and improved quality of life for all."</p><button id="readMoreVisionBtn" class="read-more-btn">📖 Read Full Vision 2040</button><div id="fullVisionContainer" class="full-vision-container" style="display: none;"><div class="vision-headline">Karugutu Town Council – Vision 2040</div><div class="vision-quote">"A vibrant, inclusive, climate-resilient and well-governed town with sustainable economic growth and improved quality of life for all."</div><div class="vision-narrative"><p><strong>Vision Narrative</strong><br>By 2040, Karugutu Town Council will stand as a model of balanced and people-centered development, where economic opportunity, social inclusion, environmental sustainability, and good governance are not aspirations, but lived realities.</p><p>Karugutu will be a thriving economic hub, powered by local enterprise, modern agriculture, small industries, and innovation. Markets will be vibrant, businesses supported, and youth and women fully engaged in productive livelihoods. Infrastructure—roads, energy, and communication—will enable seamless connectivity within and beyond the town.</p><p>The town will embody an inclusive society, where all people—regardless of age, gender, or ability, have access to quality social services. Education, healthcare, and community support systems will be accessible, equitable, and responsive, ensuring that no one is left behind.</p><p>As a climate-resilient community, Karugutu will embrace clean energy, sustainable land use, and environmental conservation. Solar energy, water management systems, and green landscapes will define the town's commitment to protecting its natural resources while adapting to climate change.</p><p>Karugutu will champion a sustainable future, where development today does not compromise tomorrow. Natural ecosystems will be preserved, waste will be managed responsibly, and growth will align with environmental stewardship.</p><p>At the core of this transformation will be good governance, transparent, accountable, and participatory leadership. Citizens will actively engage in decision-making, institutions will be efficient and service-oriented, and justice and rule of law will guide all actions.</p></div><div class="strategic-pillars"><strong style="font-size: 20px; color: var(--primary); display: block; margin: 24px 0 16px;">Strategic Pillars of Vision 2040</strong><div class="pillar-list"><div class="pillar-card"><strong>Economic Growth</strong><ul><li>Expansion of trade, agriculture, and local industries</li><li>Promotion of entrepreneurship and job creation</li><li>Investment in infrastructure and technology</li></ul></div><div class="pillar-card"><strong>Inclusive Services</strong><ul><li>Universal access to education, healthcare, and social protection</li><li>Empowerment of vulnerable and marginalized groups</li><li>Strengthening community-based development programs</li></ul></div><div class="pillar-card"><strong>Climate Resilience</strong><ul><li>Adoption of renewable energy solutions</li><li>Climate-smart agriculture and environmental conservation</li><li>Disaster preparedness and sustainable water management</li></ul></div><div class="pillar-card"><strong>Sustainable Resource Management</strong><ul><li>Efficient use of land and natural resources</li><li>Protection of ecosystems and biodiversity</li><li>Sustainable urban planning and development</li></ul></div><div class="pillar-card"><strong>Good Governance</strong><ul><li>Transparency, accountability, and citizen participation</li><li>Strengthening institutional capacity</li><li>Upholding justice, equity, and the rule of law</li></ul></div></div></div><div class="desired-future"><h4>The Desired Future</h4><p>By 2040, Karugutu will be a town where:</p><ul><li>Businesses flourish and livelihoods are secure</li><li>Communities are united, empowered, and inclusive</li><li>The environment is protected and resilient</li><li>Public services are efficient and accessible</li><li>Leadership is trusted and accountable</li></ul></div></div></div></div><div class="vm-card"><div class="vm-image"><img src="mission.jpg" alt="Mission Statement"></div><div class="vm-content"><h3>Our Mission</h3><p>"To improve the quality of life for all through inclusive planning, efficient service delivery, and sustainable use of local resources."</p><div class="vm-badge-alt">Guiding Principle</div></div></div></div></div></section>
 
-<section class="stats-image-section"><div class="container"><center><h2 class="section-title">Karugutu Town Council in Brief and in Numbers</h2></center><div class="stats-image-wrapper"><img src="br.jpg" alt="Karugutu Town Council Key Statistics Infographic"></div><div class="stats-image-caption">Comprehensive data based on UBOS 2024 Census &amp; Council Reports</div></div></section>
+<!-- Updated stats section: heading centered for all screen sizes -->
+<section class="stats-image-section">
+    <div class="container">
+        <div class="stats-title-wrapper">
+            <h2 class="section-title">Karugutu Town Council in Brief and in Numbers</h2>
+        </div>
+        <div class="stats-image-wrapper">
+            <img src="br.jpg" alt="Karugutu Town Council Key Statistics Infographic">
+        </div>
+        <div class="stats-image-caption">Comprehensive data based on UBOS 2024 Census &amp; Council Reports</div>
+    </div>
+</section>
 
 <section class="services-section"><div class="container"><h2 class="section-title">Our Services</h2><div class="services-grid"><div class="service-card"><div class="service-icon">🏛️</div><h3>Administration &amp; Management Support</h3><p>Coordinating day-to-day operations, human resources, and effective governance.</p><a href="#" class="service-cta">Access Service →</a></div><div class="service-card"><div class="service-icon">🏥</div><h3>Public Health Services</h3><p>Sanitation oversight, health education, disease surveillance.</p><a href="#" class="service-cta">Access Service →</a></div><div class="service-card"><div class="service-icon">🔧</div><h3>Works &amp; Technical Services</h3><p>Roads, drainage, buildings, public infrastructure.</p><a href="#" class="service-cta">Access Service →</a></div><div class="service-card"><div class="service-icon">📐</div><h3>Physical Planning Services</h3><p>Land use, building approvals, structural plans.</p><a href="#" class="service-cta">Access Service →</a></div><div class="service-card"><div class="service-icon">🌾</div><h3>Production &amp; Marketing</h3><p>Agriculture, livestock, market linkages.</p><a href="#" class="service-cta">Access Service →</a></div><div class="service-card"><div class="service-icon">💰</div><h3>Finance &amp; Planning</h3><p>Budgeting, revenue collection, strategic planning.</p><a href="#" class="service-cta">Access Service →</a></div></div></div></section>
 
