@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Karugutu Town Council – Administration</title>
+<link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&family=Open+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+--primary: #1a6b3a;
+--primary-dark: #124d2a;
+--accent: #e07b00;
+--accent-light: #f5a623;
+--red: #c0392b;
+--dark: #1a1a1a;
+--light-gray: #f4f7f4;
+--mid-gray: #e0e0e0;
+--text: #222;
+--white: #fff;
+}
+body { font-family: 'Open Sans', sans-serif; color: var(--text); background: #fff; }
+a { text-decoration: none; color: inherit; }
+
+/* header */
+header {
+background: #fff;
+padding: 20px 32px;
+display: flex;
+align-items: center;
+justify-content: space-between;
+gap: 32px;
+border-bottom: 4px solid var(--accent);
+box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+flex-wrap: wrap;
+}
+.header-logo-left { flex-shrink: 0; display: flex; align-items: center; background: #fff; padding: 6px 0; }
+.header-logo-left img { height: 160px; width: auto; object-fit: contain; display: block; transition: transform 0.2s; }
+.header-text { flex: 1; text-align: center; margin: 0 10px; }
+.header-text h1 {
+font-family: 'Playfair Display', 'Merriweather', 'Cormorant Garamond', serif;
+font-size: 22px;
+color: var(--accent);
+font-weight: 700;
+letter-spacing: 1.5px;
+margin-bottom: 8px;
+text-shadow: 0 1px 3px rgba(224,123,0,0.3);
+background: linear-gradient(90deg, var(--accent), #f5a623);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+background-clip: text;
+}
+.header-text h2 {
+font-family: 'Merriweather', serif;
+font-size: 54px;
+font-weight: 900;
+color: var(--primary);
+line-height: 1.2;
+text-shadow: 1px 1px 0 rgba(0,0,0,0.02);
+letter-spacing: -0.5px;
+}
+.header-logo-right { flex-shrink: 0; display: flex; align-items: center; background: #fff; padding: 6px 0; }
+.header-logo-right img { height: 160px; width: auto; object-fit: contain; display: block; transition: transform 0.2s; }
+@media (max-width: 850px) {
+.header-text h2 { font-size: 36px; }
+.header-logo-left img, .header-logo-right img { height: 110px; }
+}
+@media (max-width: 650px) {
+header { flex-direction: column; text-align: center; gap: 16px; }
+.header-text h2 { font-size: 28px; }
+.header-logo-left img, .header-logo-right img { height: 85px; }
+}
+
+/* nav */
+nav { background: var(--primary); position: sticky; top: 0; z-index: 1000; }
+.nav-inner { max-width: 1300px; margin: 0 auto; display: flex; align-items: stretch; flex-wrap: wrap; }
+.nav-item { position: relative; }
+.nav-item > a, .nav-item > span {
+display: flex; align-items: center;
+padding: 14px 18px; color: #fff;
+font-size: 13px; font-weight: 700; letter-spacing: 0.5px;
+text-transform: uppercase; cursor: pointer;
+transition: background 0.2s; white-space: nowrap;
+}
+.nav-item > a:hover, .nav-item > span:hover,
+.nav-item.active > a, .nav-item.active > span { background: var(--accent); color: #fff; }
+.nav-item > span::after { content: ' ▾'; font-size: 10px; margin-left: 4px; }
+.dropdown { display: none; position: absolute; top: 100%; left: 0; background: #fff; min-width: 240px; box-shadow: 0 6px 20px rgba(0,0,0,0.15); z-index: 999; }
+.dropdown.two-col { display: none; min-width: 520px; flex-wrap: wrap; }
+.dropdown-col { flex: 1; min-width: 220px; }
+.dropdown-heading { background: var(--light-gray); padding: 8px 16px; font-size: 10px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--primary); border-bottom: 1px solid var(--mid-gray); }
+.dropdown a { display: block; padding: 9px 16px; font-size: 13px; color: var(--text); border-bottom: 1px solid #f0f0f0; transition: background 0.15s, color 0.15s; }
+.dropdown a:hover { background: var(--primary); color: #fff; }
+.nav-item:hover .dropdown { display: flex; }
+.nav-item:hover .dropdown:not(.two-col) { display: block; }
+
+/* Hero section */
+.hero-admin {
+position: relative;
+background: linear-gradient(135deg, #0a2f1a 0%, #1a5a3a 100%);
+min-height: 220px;
+display: flex;
+align-items: center;
+justify-content: center;
+text-align: center;
+padding: 60px 20px;
+}
+.hero-admin h1 {
+font-family: 'Merriweather', serif;
+font-size: 42px;
+color: white;
+font-weight: 800;
+letter-spacing: -0.5px;
+text-shadow: 0 2px 12px rgba(0,0,0,0.2);
+}
+.hero-admin p {
+color: rgba(255,255,255,0.85);
+font-size: 18px;
+margin-top: 12px;
+max-width: 700px;
+}
+@media (max-width: 768px) {
+.hero-admin h1 { font-size: 28px; }
+.hero-admin { padding: 40px 20px; }
+}
+
+/* gallery / images section */
+.gallery-section {
+padding: 50px 20px 70px;
+background: #fefef7;
+}
+.gallery-container {
+max-width: 1300px;
+margin: 0 auto;
+}
+.gallery-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+gap: 40px;
+}
+.gallery-card {
+background: #fff;
+border-radius: 24px;
+overflow: hidden;
+box-shadow: 0 16px 32px rgba(0,0,0,0.1);
+transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.gallery-card:hover {
+transform: translateY(-8px);
+box-shadow: 0 24px 48px rgba(0,0,0,0.15);
+}
+.gallery-card img {
+width: 100%;
+height: 380px;
+object-fit: cover;
+display: block;
+transition: transform 0.4s ease;
+}
+.gallery-card:hover img {
+transform: scale(1.03);
+}
+.gallery-caption {
+padding: 18px 24px 24px;
+background: #fff;
+text-align: center;
+border-top: 3px solid var(--accent);
+}
+.gallery-caption h3 {
+font-family: 'Merriweather', serif;
+font-size: 18px;
+color: var(--primary);
+margin-bottom: 6px;
+font-weight: 700;
+}
+.gallery-caption p {
+font-size: 13px;
+color: #666;
+letter-spacing: 0.3px;
+}
+/* single image full width option (if needed, but we use grid) */
+@media (max-width: 768px) {
+.gallery-grid { gap: 24px; }
+.gallery-card img { height: 280px; }
+}
+
+/* footer */
+footer { background: var(--dark); color: rgba(255,255,255,0.8); }
+.footer-top { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 40px; max-width: 1200px; margin: 0 auto; padding: 50px 20px 30px; }
+.footer-col h4 { font-family: 'Merriweather', serif; color: #fff; font-size: 15px; margin-bottom: 18px; padding-bottom: 10px; border-bottom: 2px solid var(--accent); }
+.footer-col p, .footer-col address { font-size: 13px; line-height: 1.9; font-style: normal; text-align: justify; }
+.footer-col ul { list-style: none; }
+.footer-col ul li a { font-size: 13px; color: rgba(255,255,255,0.75); transition: color 0.2s; }
+.footer-contacts span { color: var(--accent-light); font-weight: 600; }
+.footer-bottom { background: #111; text-align: center; padding: 14px; font-size: 12px; }
+
+/* anti-corruption banner */
+.anti-corruption-banner {
+background: var(--red);
+color: #fff;
+text-align: center;
+padding: 28px 20px;
+}
+.anti-corruption-banner h3 {
+font-family: 'Merriweather', serif;
+font-size: 20px;
+margin-bottom: 6px;
+}
+.anti-corruption-banner p {
+font-size: 13px;
+opacity: 0.9;
+}
+
+@media (max-width: 768px) {
+.footer-top { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-logo-left"><img src="http://molgtest.ccm77.org/mo/wp-content/uploads/2025/09/MoLG-2.jpg" alt="Ministry of Local Government"></div>
+  <div class="header-text">
+    <h2>KARUGUTU TOWN COUNCIL</h2>
+    <h1>"Serving The Community With Integrity"</h1>
+  </div>
+  <div class="header-logo-right"><img src="logoo.jpeg" alt="Karugutu Town Council Logo"></div>
+</header>
+
+<nav>
+  <div class="nav-inner">
+    <div class="nav-item"><a href="index.html">Home</a></div>
+    <div class="nav-item">
+      <span>Who We Are</span>
+      <div class="dropdown two-col">
+        <div class="dropdown-col col-profile">
+          <div class="dropdown-heading">Karugutu Town Council Profile</div>
+          <a href="historical.html">Historical and Contextual Background</a>
+          <a href="values.html">Core Values</a>
+          <a href="political.html">Political Leadership</a>
+          <a href="technical.html">Technical Leadership</a>
+          <a href="administration.html">Administration</a>
+        </div>
+        <div class="dropdown-col col-services">
+          <div class="dropdown-heading">Departments</div>
+          <a href="#">Production &amp; Marketing</a>
+          <a href="#">Internal Audit</a>
+          <a href="#">Finance &amp; Planning</a>
+          <a href="#">Public Health Services</a>
+          <a href="#">Administration and Management Support Services</a>
+          <a href="#">Education &amp; Sports Services</a>
+          <a href="#">Works &amp; Technical Services</a>
+          <a href="#">Physical Planning Services</a>
+          <a href="#">Community-Based Services</a>
+          <a href="#">Natural Resources Management</a>
+          <a href="#">Trade, Industry and Local Economic Development</a>
+        </div>
+      </div>
+    </div>
+    <div class="nav-item">
+      <span>Services</span>
+      <div class="dropdown two-col">
+        <div class="dropdown-col">
+          <div class="dropdown-heading">Core Services</div>
+          <a href="#">Administration &amp; Management</a>
+          <a href="#">Public Health Services</a>
+          <a href="#">Works &amp; Technical Services</a>
+          <a href="#">Physical Planning</a>
+          <a href="#">Finance &amp; Planning</a>
+        </div>
+        <div class="dropdown-col">
+          <div class="dropdown-heading">Community &amp; Development</div>
+          <a href="#">Production &amp; Marketing</a>
+          <a href="#">Community-Based Services</a>
+          <a href="#">Trade, Industry &amp; LED</a>
+          <a href="#">Natural Resources Management</a>
+          <a href="#">Audit Services</a>
+        </div>
+      </div>
+    </div>
+    <div class="nav-item">
+      <span>Resources</span>
+      <div class="dropdown">
+        <div class="dropdown-heading">Publications</div>
+        <a href="#">Latest News</a>
+        <a href="#">Reports</a>
+        <a href="#">Performance Assessment FY 2025–2026</a>
+        <a href="#">Policies</a>
+      </div>
+    </div>
+    <div class="nav-item"><a href="#">Gallery</a></div>
+    <div class="nav-item"><a href="contact.html">Contact Us</a></div>
+  </div>
+</nav>
+
+<!-- Hero Section -->
+<div class="hero-admin">
+  <div>
+    <h1>Administration & Support Management</h1>
+    <p>Office of the Town Clerk • Administrative Excellence • Service Delivery Coordination</p>
+  </div>
+</div>
+
+<!-- IMAGES SECTION: Assistant Senior Town Clerk + two department images -->
+<section class="gallery-section">
+  <div class="gallery-container">
+    <div class="gallery-grid">
+      <!-- Image 1: Assistant Senior Town Clerk -->
+      <div class="gallery-card">
+        <img src="assistant_senior_town_clerk.jpg" alt="Assistant Senior Town Clerk - Karugutu Town Council Administration">
+        <div class="gallery-caption">
+          <h3>Assistant Senior Town Clerk</h3>
+          <p>Office of the Town Clerk • Deputy Head of Administration</p>
+        </div>
+      </div>
+      <!-- Image 2: Administration & Management Support Department (first image) -->
+      <div class="gallery-card">
+        <img src="admin_support_1.jpg" alt="Administration and Management Support Department - Karugutu Town Council">
+        <div class="gallery-caption">
+          <h3>Administration & Management Support</h3>
+          <p>Human Resources • Records Management • Council Coordination</p>
+        </div>
+      </div>
+      <!-- Image 3: Administration & Management Support Department (second image) -->
+      <div class="gallery-card">
+        <img src="admin_support_2.jpg" alt="Administration Department Operations - Karugutu Town Council">
+        <div class="gallery-caption">
+          <h3>Administrative Operations</h3>
+          <p>Service Delivery • Strategic Planning • Staff Welfare</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Anti-corruption banner -->
+<div class="anti-corruption-banner">
+  <h3>Karugutu Town Council Condemns Any Form of Corruption at All Levels</h3>
+  <p>Report any form of corruption to the Council. Together we build a transparent and accountable government.</p>
+</div>
+
+<footer>
+  <div class="footer-top">
+    <div class="footer-col">
+      <h4>Find Us At</h4>
+      <address>P.O. Box 568, Fort Portal<br>Fort Portal–Bundibugyo Road<br>Karugutu, Ntoroko District<br>Western Region, Uganda<br><br><a href="mailto:karugututowncouncil033@gmail.com" style="color: rgba(255,255,255,0.75);">karugututowncouncil033@gmail.com</a></address>
+    </div>
+    <div class="footer-col">
+      <h4>Key Contacts</h4>
+      <div class="footer-contacts">
+        <div><span>Town Clerk:</span> +256 785 221 110</div>
+        <div><span>Sr. Asst. Town Clerk:</span> +256 773 899 959</div>
+        <div><span>LC III Chairperson:</span> +256 782 431 733</div>
+        <div><span>Senior CDO:</span> +256 775 512 770</div>
+        <div><span>Sr. Internal Auditor:</span> +256 772 823 466</div>
+        <div><span>Town Treasurer:</span> +256 772 303 176</div>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="https://www.ntoroko.go.ug/">Ntoroko District Local Government</a></li>
+        <li><a href="#">Lower Local Government</a></li>
+        <li><a href="#">Performance Assessment FY 2025–2026</a></li>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">All Rights Reserved &copy; Karugutu Town Council, Ntoroko District, Uganda.</div>
+</footer>
+
+<script>
+  // dropdown behaviour
+  document.querySelectorAll('.nav-item').forEach(item => {
+    const drop = item.querySelector('.dropdown');
+    if (!drop) return;
+    item.addEventListener('mouseenter', () => {
+      if (drop.classList.contains('two-col')) drop.style.display = 'flex';
+      else drop.style.display = 'block';
+    });
+    item.addEventListener('mouseleave', () => drop.style.display = '');
+  });
+</script>
+</body>
+</html>
