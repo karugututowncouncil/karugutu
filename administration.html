@@ -120,7 +120,10 @@ text-shadow: 0 2px 12px rgba(0,0,0,0.2);
 
 /* IMAGES SECTION — SPACING BETWEEN IMAGES + MARGIN 60PX LEFT & RIGHT ON LARGE SCREENS
    For medium screens (tablet) margin 40px left/right, small screens full width with margin 16px
-   but ensure clear gap between images */
+   but ensure clear gap between images.
+   Additionally, all images are now reduced in display size by 25% (using max-width: 75% for each image-row,
+   while keeping responsive margins and centered layout). The images container centers the scaled images
+   and retains original gap structure. */
 .images-section {
 padding: 0;
 background: #fefef7;
@@ -129,9 +132,9 @@ margin: 0;
 .images-container {
 max-width: 100%;
 margin: 0 auto;
-display: block;
-line-height: 0;
-font-size: 0;
+display: flex;
+flex-direction: column;
+align-items: center; /* centers the scaled image rows horizontally */
 background: #fefef7;
 }
 /* For large screens (≥1024px): 60px left + 60px right margin applied via padding to keep background continuous */
@@ -156,17 +159,36 @@ background: #fefef7;
   }
 }
 
-/* Image rows: spacing between images (margin-bottom) except last child */
+/* Image rows: reduced size by 25% relative to original full-width. 
+   Each image row now takes 75% of its parent container width, keeping consistent spacing.
+   On small screens, width slightly increased for better legibility but still reduced overall.
+   Border radius, shadows and gaps preserved. */
 .image-row {
 margin: 0;
 padding: 0;
-border-radius: 0;
+border-radius: 12px;
 overflow: hidden;
 box-shadow: 0 4px 12px rgba(0,0,0,0.08);
 background: #fff;
 display: block;
 line-height: 0;
 transition: box-shadow 0.2s ease;
+width: 75%; /* reduced to 75% = 25% reduction from full width */
+max-width: 75%;
+}
+/* For medium screens: maintain reduced size but slightly larger for readability */
+@media (max-width: 1023px) {
+  .image-row {
+    width: 85%;
+    max-width: 85%;
+  }
+}
+/* On small tablets and mobiles, we keep reduction but ensure decent visibility */
+@media (max-width: 767px) {
+  .image-row {
+    width: 95%;
+    max-width: 95%;
+  }
 }
 /* Add vertical gap between images */
 .image-row:not(:last-child) {
@@ -182,22 +204,15 @@ height: auto;
 display: block;
 object-fit: contain;
 background: #fafaf5;
-max-width: 100%;
 border: none;
 margin: 0;
 padding: 0;
 vertical-align: bottom;
+border-radius: 12px;
 }
 /* Slight hover effect for better UX (optional) */
 .image-row:hover {
 box-shadow: 0 12px 24px rgba(0,0,0,0.12);
-}
-/* Additional subtle rounded corners for modern look (non-intrusive) */
-.image-row {
-border-radius: 12px;
-}
-.image-row img {
-border-radius: 12px;
 }
 
 /* footer */
@@ -324,8 +339,10 @@ margin-bottom: 24px;
   </div>
 </div>
 
-<!-- IMAGES SECTION: TWO IMAGES WITH SPACING (gap between images) + 60px LEFT/RIGHT MARGIN ON LARGE SCREENS 
-     and clear vertical separation between each image row. -->
+<!-- IMAGES SECTION: ALL THREE IMAGES REDUCED IN SIZE BY 25% (display width reduced relative to container)
+     Each image row width set to 75% of its parent container, creating a clear reduction from full width.
+     Also margins left/right adapt to screens. Gap between images maintained (40px vertical spacing)
+     and consistent horizontal centering ensures visual balance. -->
 <section class="images-section">
   <div class="images-container">
     <!-- First Image: Administration & Management Support Department -->
@@ -396,4 +413,4 @@ margin-bottom: 24px;
   });
 </script>
 </body>
-   </html>
+     </html>
