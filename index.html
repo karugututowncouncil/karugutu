@@ -106,38 +106,60 @@ transition: background 0.2s; white-space: nowrap;
 .dropdown-col.col-services { background: #fff; }
 .dropdown-col.col-services .dropdown-heading { background: var(--light-gray); color: var(--primary); }
 
-/* ── hero (slideshow active) ── */
-.hero { position: relative; overflow: hidden; height: 520px; background: #0a2f1a; }
-.slide { position: absolute; inset: 0; opacity: 0; transition: opacity 1s ease; background-size: cover; background-position: center 30%; background-repeat: no-repeat; }
-.slide.active { opacity: 1; }
-.slide-overlay { 
-    position: absolute; 
-    inset: 0; 
-    background: rgba(0,0,0,0.45);
-    display: flex; 
-    align-items: flex-end; 
-    padding: 50px 60px; 
+/* ── HERO SLIDER — slide left/right animation ── */
+.hero {
+  position: relative;
+  overflow: hidden;
+  height: 520px;
+  background: #0a2f1a;
+}
+
+/* Track holds all slides side by side */
+.slides-track {
+  display: flex;
+  height: 100%;
+  /* width set by JS after slide count known */
+  transition: transform 1.2s cubic-bezier(0.77, 0, 0.18, 1);
+  will-change: transform;
+}
+
+.slide {
+  flex: 0 0 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center 30%;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+.slide-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  display: flex;
+  align-items: flex-end;
+  padding: 50px 60px;
 }
 .slide-caption { max-width: 680px; color: #fff; }
-.slide-caption h2 { 
-    font-family: 'Merriweather', serif; 
-    font-size: 26px; 
-    line-height: 1.4; 
-    text-shadow: 0 2px 12px rgba(0,0,0,0.8); 
-    margin-bottom: 20px; 
-    font-weight: 700; 
-    text-align: left;
-    background: transparent;
+.slide-caption h2 {
+  font-family: 'Merriweather', serif;
+  font-size: 26px;
+  line-height: 1.4;
+  text-shadow: 0 2px 12px rgba(0,0,0,0.8);
+  margin-bottom: 20px;
+  font-weight: 700;
+  text-align: left;
+  background: transparent;
 }
-.slide-caption a { 
-    display: inline-block; 
-    padding: 12px 32px; 
-    background: var(--accent); 
-    color: #fff; 
-    font-size: 14px; 
-    font-weight: 700; 
-    border-radius: 4px; 
-    transition: opacity 0.2s; 
+.slide-caption a {
+  display: inline-block;
+  padding: 12px 32px;
+  background: var(--accent);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  border-radius: 4px;
+  transition: opacity 0.2s;
 }
 .slide-caption a:hover { opacity: 0.85; background: #c96e00; }
 .slider-dots { position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); display: flex; gap: 10px; z-index: 15; }
@@ -150,16 +172,16 @@ transition: background 0.2s; white-space: nowrap;
 
 /* ── section common ── */
 section { padding: 60px 20px; }
-.section-title { 
-    font-family: 'Merriweather', serif; 
-    font-size: 28px; 
-    color: var(--primary); 
-    text-align: center; 
-    margin-bottom: 12px; 
-    position: relative; 
-    display: inline-block; 
-    left: 50%; 
-    transform: translateX(-50%);
+.section-title {
+  font-family: 'Merriweather', serif;
+  font-size: 28px;
+  color: var(--primary);
+  text-align: center;
+  margin-bottom: 12px;
+  position: relative;
+  display: inline-block;
+  left: 50%;
+  transform: translateX(-50%);
 }
 .section-title::after { content: ''; display: block; width: 70px; height: 3px; background: var(--accent); margin: 12px auto 0; }
 .container { max-width: 1200px; margin: 0 auto; }
@@ -195,7 +217,7 @@ flex-direction: column;
 @media (max-width: 900px) { .leadership-grid { grid-template-columns: repeat(3, 1fr); gap: 24px; } }
 @media (max-width: 650px) { .leadership-grid { grid-template-columns: 1fr; max-width: 380px; } .leader-card-image { aspect-ratio: 4 / 3; } }
 
-/* vision mission cards - enhanced for full vision 2040 */
+/* vision mission cards */
 .vision-mission-grid { display: flex; flex-direction: column; gap: 40px; margin-top: 40px; }
 .vm-card { display: flex; align-items: center; gap: 40px; background: #fff; border-radius: 16px; box-shadow: 0 8px 24px rgba(0,0,0,0.08); overflow: hidden; transition: transform 0.2s, box-shadow 0.2s; }
 .vm-card:hover { transform: translateY(-5px); box-shadow: 0 12px 32px rgba(0,0,0,0.12); }
@@ -209,7 +231,7 @@ flex-direction: column;
 .vm-content p { font-size: 15px; line-height: 1.7; color: #2c3e2f; margin-bottom: 14px; text-align: justify; }
 .vm-badge-alt { display: inline-block; margin-top: 12px; padding: 6px 16px; background: var(--primary); color: #fff; font-size: 12px; font-weight: 700; border-radius: 40px; letter-spacing: 0.5px; }
 
-/* full vision 2040 expanded styling */
+/* full vision 2040 */
 .full-vision-container {
 margin-top: 30px;
 background: #fef9e6;
@@ -262,37 +284,12 @@ color: var(--primary);
 margin-bottom: 12px;
 font-family: 'Merriweather', serif;
 }
-.pillar-card ul {
-margin-left: 20px;
-margin-top: 6px;
-}
-.pillar-card li {
-font-size: 13px;
-margin-bottom: 8px;
-line-height: 1.5;
-text-align: justify;
-}
-.desired-future {
-background: #eef3ea;
-border-radius: 20px;
-padding: 20px 26px;
-margin-top: 20px;
-}
-.desired-future h4 {
-font-family: 'Merriweather', serif;
-font-size: 20px;
-color: var(--primary);
-margin-bottom: 16px;
-}
-.desired-future ul {
-margin-left: 24px;
-margin-top: 10px;
-}
-.desired-future li {
-margin-bottom: 10px;
-font-size: 14px;
-line-height: 1.6;
-}
+.pillar-card ul { margin-left: 20px; margin-top: 6px; }
+.pillar-card li { font-size: 13px; margin-bottom: 8px; line-height: 1.5; text-align: justify; }
+.desired-future { background: #eef3ea; border-radius: 20px; padding: 20px 26px; margin-top: 20px; }
+.desired-future h4 { font-family: 'Merriweather', serif; font-size: 20px; color: var(--primary); margin-bottom: 16px; }
+.desired-future ul { margin-left: 24px; margin-top: 10px; }
+.desired-future li { margin-bottom: 10px; font-size: 14px; line-height: 1.6; }
 .read-more-btn {
 display: inline-block;
 margin: 16px 0 8px;
@@ -309,7 +306,7 @@ font-family: 'Open Sans', sans-serif;
 }
 .read-more-btn:hover { background: #c96e00; transform: scale(1.02); }
 
-/* mandate - updated with four distinct paragraphs */
+/* mandate */
 .mandate-standalone {
 background: linear-gradient(135deg, var(--primary) 0%, #0e4a2c 100%);
 color: #fff;
@@ -319,13 +316,13 @@ margin-top: 30px;
 margin-bottom: 30px;
 box-shadow: 0 10px 30px rgba(0,0,0,0.1);
 }
-.mandate-standalone h3 { 
-    font-family: 'Merriweather', serif; 
-    font-size: 28px; 
-    margin-bottom: 20px; 
-    color: #FFD966;
-    text-align: center;
-    letter-spacing: 1px;
+.mandate-standalone h3 {
+  font-family: 'Merriweather', serif;
+  font-size: 28px;
+  margin-bottom: 20px;
+  color: #FFD966;
+  text-align: center;
+  letter-spacing: 1px;
 }
 .mandate-text-green {
 color: #1a6b3a;
@@ -338,22 +335,11 @@ font-size: 15px;
 line-height: 1.8;
 text-align: justify;
 }
+
 /* stats */
-.stats-image-section {
-    background: #fff; 
-    padding: 40px 20px;
-}
-.stats-title-wrapper {
-    text-align: center;
-    margin-bottom: 28px;
-}
-.stats-title-wrapper .section-title {
-    display: inline-block;
-    float: none;
-    left: auto;
-    transform: none;
-    margin: 0 auto;
-}
+.stats-image-section { background: #fff; padding: 40px 20px; }
+.stats-title-wrapper { text-align: center; margin-bottom: 28px; }
+.stats-title-wrapper .section-title { display: inline-block; float: none; left: auto; transform: none; margin: 0 auto; }
 .stats-image-wrapper { max-width: 1200px; margin: 0 auto; border-radius: 20px; overflow: hidden; box-shadow: 0 12px 30px rgba(0,0,0,0.1); }
 .stats-image-wrapper img { width: 100%; height: auto; display: block; transition: transform 0.3s ease; }
 .stats-image-caption { margin-top: 16px; font-size: 13px; color: #666; font-style: italic; }
@@ -370,19 +356,19 @@ text-align: justify;
 .news-body p { font-size: 13px; color: #666; line-height: 1.7; margin-bottom: 14px; text-align: justify; }
 .news-body a.read-more { font-size: 13px; font-weight: 600; color: var(--primary); border-bottom: 2px solid var(--accent); }
 
-/* partners - ENHANCED: BIGGER LOGOS, ORIGINAL COLORS */
+/* partners */
 .partners { background: var(--light-gray); overflow: hidden; }
 .partners-intro { text-align: center; font-size: 14px; color: #666; margin-top: 12px; margin-bottom: 36px; }
 .partners-track-wrap { overflow: hidden; margin: 20px 0; }
 .partners-track { display: flex; gap: 80px; align-items: center; animation: scroll-partners 30s linear infinite; white-space: nowrap; }
-.partners-track img { 
-    height: 110px; 
-    width: auto; 
-    object-fit: contain; 
-    filter: none !important; 
-    opacity: 1 !important; 
-    transition: transform 0.3s ease;
-    display: inline-block;
+.partners-track img {
+  height: 110px;
+  width: auto;
+  object-fit: contain;
+  filter: none !important;
+  opacity: 1 !important;
+  transition: transform 0.3s ease;
+  display: inline-block;
 }
 .partners-track img:hover { transform: scale(1.05); }
 @keyframes scroll-partners { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
@@ -485,15 +471,27 @@ footer { background: var(--dark); color: rgba(255,255,255,0.8); }
   </div>
 </nav>
 
-<!-- Hero slider with 5 images: hero.jpg, hero1.jpg, hero2.jpg, hero3.jpg, hero4.jpg and no greenish overlay -->
-<div class="hero">
-  <div class="slide active" style="background-image: url('hero.jpg'); background-size: cover; background-position: center;"><div class="slide-overlay"><div class="slide-caption"><h2>Welcome to Karugutu Town Council — A Strategic Urban Growth Centre in Ntoroko District, Western Uganda.</h2><a href="#">Learn More</a></div></div></div>
-  <div class="slide" style="background-image: url('hero1.jpg'); background-size: cover; background-position: center;"><div class="slide-overlay"><div class="slide-caption"><h2>Elevated to Urban Status in 2010 — Driving Local Governance &amp; Socio-Economic Transformation for 19,070 Residents Across 5 Wards.</h2><a href="#">Our Services</a></div></div></div>
-  <div class="slide" style="background-image: url('hero2.jpg'); background-size: cover; background-position: center;"><div class="slide-overlay"><div class="slide-caption"><h2>Serving 87 km² Bordering Toro-Semliki National Park — Committed to Quality, Equitable &amp; Sustainable Service Delivery.</h2><a href="#">Contact Us</a></div></div></div>
-  <div class="slide" style="background-image: url('hero3.jpg'); background-size: cover; background-position: center;"><div class="slide-overlay"><div class="slide-caption"><h2>Empowering local businesses and farmers — Karugutu's vision for inclusive economic growth.</h2><a href="#">Development Plans</a></div></div></div>
-  <div class="slide" style="background-image: url('hero4.jpg'); background-size: cover; background-position: center;"><div class="slide-overlay"><div class="slide-caption"><h2>Investing in infrastructure, health, and education — Building a resilient community for all.</h2><a href="#">Our Projects</a></div></div></div>
-  <button class="slider-arrow arrow-prev" onclick="changeSlide(-1)">&#8249;</button>
-  <button class="slider-arrow arrow-next" onclick="changeSlide(1)">&#8250;</button>
+<!-- Hero Slider — slides move right-to-left -->
+<div class="hero" id="heroSlider">
+  <div class="slides-track" id="slidesTrack">
+    <div class="slide" style="background-image: url('hero.jpg');">
+      <div class="slide-overlay"><div class="slide-caption"><h2>Welcome to Karugutu Town Council — A Strategic Urban Growth Centre in Ntoroko District, Western Uganda.</h2><a href="#">Learn More</a></div></div>
+    </div>
+    <div class="slide" style="background-image: url('hero1.jpg');">
+      <div class="slide-overlay"><div class="slide-caption"><h2>Elevated to Urban Status in 2010 — Driving Local Governance &amp; Socio-Economic Transformation for 19,070 Residents Across 5 Wards.</h2><a href="#">Our Services</a></div></div>
+    </div>
+    <div class="slide" style="background-image: url('hero2.jpg');">
+      <div class="slide-overlay"><div class="slide-caption"><h2>Serving 87 km² Bordering Toro-Semliki National Park — Committed to Quality, Equitable &amp; Sustainable Service Delivery.</h2><a href="#">Contact Us</a></div></div>
+    </div>
+    <div class="slide" style="background-image: url('hero3.jpg');">
+      <div class="slide-overlay"><div class="slide-caption"><h2>Empowering local businesses and farmers — Karugutu's vision for inclusive economic growth.</h2><a href="#">Development Plans</a></div></div>
+    </div>
+    <div class="slide" style="background-image: url('hero4.jpg');">
+      <div class="slide-overlay"><div class="slide-caption"><h2>Investing in infrastructure, health, and education — Building a resilient community for all.</h2><a href="#">Our Projects</a></div></div>
+    </div>
+  </div>
+  <button class="slider-arrow arrow-prev" id="prevBtn">&#8249;</button>
+  <button class="slider-arrow arrow-next" id="nextBtn">&#8250;</button>
   <div class="slider-dots" id="dots"></div>
 </div>
 
@@ -506,7 +504,7 @@ footer { background: var(--dark); color: rgba(255,255,255,0.8); }
       Karugutu Town Council is the legally established governing authority for Karugutu Town. Created by Statutory Instrument No. 48 of 2017 under the Local Governments (Rating) Act, 2005, Karugutu Town Council operates as a lower local government within Ntoroko District.
     </div>
     <div class="mandate-text-green">
-      In accordance with the Local Governments Act (Cap 243), it is mandated to manage urban areas on behalf of both the District and Central Governments. Karugutu Town Council’s core role is to decentralize service delivery, promote democratic participation in decision-making, and drive local economic development within its jurisdiction.
+      In accordance with the Local Governments Act (Cap 243), it is mandated to manage urban areas on behalf of both the District and Central Governments. Karugutu Town Council's core role is to decentralize service delivery, promote democratic participation in decision-making, and drive local economic development within its jurisdiction.
     </div>
     <div class="mandate-text-green">
       In fulfilling this mandate, the Council provides essential public services such as primary education, primary health care, sanitation, waste management, and local transport infrastructure. It is also responsible for planning and implementing development programmes, including physical planning, land use regulation, and enforcement of building standards to ensure orderly urban growth.
@@ -540,17 +538,78 @@ footer { background: var(--dark); color: rgba(255,255,255,0.8); }
 <footer><div class="footer-top"><div class="footer-col"><h4>Find Us At</h4><address>P.O. Box 568, Fort Portal<br>Fort Portal–Bundibugyo Road<br>Karugutu, Ntoroko District<br>Western Region, Uganda<br><br><a href="mailto:karugututowncouncil033@gmail.com" style="color: rgba(255,255,255,0.75);">karugututowncouncil033@gmail.com</a></address></div><div class="footer-col"><h4>Key Contacts</h4><div class="footer-contacts"><div><span>Town Clerk:</span> +256 785 221 110</div><div><span>Sr. Asst. Town Clerk:</span> +256 773 899 959</div><div><span>LC III Chairperson:</span> +256 782 431 733</div><div><span>Senior CDO:</span> +256 775 512 770</div><div><span>Sr. Internal Auditor:</span> +256 772 823 466</div><div><span>Town Treasurer:</span> +256 772 303 176</div></div></div><div class="footer-col"><h4>Quick Links</h4><ul><li><a href="https://www.ntoroko.go.ug/">Ntoroko District Local Government</a></li><li><a href="#">Lower Local Government</a></li><li><a href="#">Performance Assessment FY 2025–2026</a></li><li><a href="#">Home</a></li><li><a href="#">Services</a></li><li><a href="#">Contact Us</a></li></ul></div></div><div class="footer-bottom">All Rights Reserved &copy; Karugutu Town Council, Ntoroko District, Uganda.</div></footer>
 
 <script>
-const slides = document.querySelectorAll('.slide'); const dotsContainer = document.getElementById('dots'); let current = 0, timer;
-if(slides.length) {
-slides.forEach((_, i) => { const d = document.createElement('button'); d.className = 'dot' + (i === 0 ? ' active' : ''); d.addEventListener('click', () => goTo(i)); dotsContainer.appendChild(d); });
-function goTo(n) { slides[current].classList.remove('active'); if(dotsContainer.children[current]) dotsContainer.children[current].classList.remove('active'); current = (n + slides.length) % slides.length; slides[current].classList.add('active'); if(dotsContainer.children[current]) dotsContainer.children[current].classList.add('active'); resetTimer(); }
-window.changeSlide = function(dir) { goTo(current + dir); };
-function resetTimer() { if(timer) clearInterval(timer); timer = setInterval(() => goTo(current + 1), 5000); }
-resetTimer();
+(function () {
+  const track = document.getElementById('slidesTrack');
+  const dotsContainer = document.getElementById('dots');
+  const slides = track.querySelectorAll('.slide');
+  const total = slides.length;
+  let current = 0;
+  let timer;
+  let isAnimating = false;
+
+  /* Set track width to hold all slides in a row */
+  track.style.width = (total * 100) + '%';
+  slides.forEach(s => { s.style.width = (100 / total) + '%'; });
+
+  /* Build dots */
+  slides.forEach(function (_, i) {
+    const d = document.createElement('button');
+    d.className = 'dot' + (i === 0 ? ' active' : '');
+    d.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+    d.addEventListener('click', function () { goTo(i); });
+    dotsContainer.appendChild(d);
+  });
+
+  function updateDots() {
+    dotsContainer.querySelectorAll('.dot').forEach(function (d, i) {
+      d.classList.toggle('active', i === current);
+    });
+  }
+
+  function goTo(n) {
+    if (isAnimating || n === current) return;
+    isAnimating = true;
+    current = ((n % total) + total) % total;
+    /* Translate the track: shift left by current * viewport width */
+    track.style.transform = 'translateX(-' + (current * (100 / total)) + '%)';
+    updateDots();
+    clearInterval(timer);
+    /* Unlock after transition (matches CSS 1.2s) */
+    setTimeout(function () { isAnimating = false; startTimer(); }, 1250);
+  }
+
+  function startTimer() {
+    clearInterval(timer);
+    timer = setInterval(function () { goTo(current + 1); }, 6000);
+  }
+
+  document.getElementById('prevBtn').addEventListener('click', function () { goTo(current - 1); });
+  document.getElementById('nextBtn').addEventListener('click', function () { goTo(current + 1); });
+
+  startTimer();
+})();
+
+/* Nav dropdowns */
+document.querySelectorAll('.nav-item').forEach(function (item) {
+  const drop = item.querySelector('.dropdown');
+  if (!drop) return;
+  item.addEventListener('mouseenter', function () {
+    drop.style.display = drop.classList.contains('two-col') ? 'flex' : 'block';
+  });
+  item.addEventListener('mouseleave', function () { drop.style.display = ''; });
+});
+
+/* Vision read-more toggle */
+const readBtn = document.getElementById('readMoreVisionBtn');
+const fullDiv = document.getElementById('fullVisionContainer');
+if (readBtn && fullDiv) {
+  fullDiv.style.display = 'none';
+  readBtn.addEventListener('click', function () {
+    const visible = fullDiv.style.display !== 'none';
+    fullDiv.style.display = visible ? 'none' : 'block';
+    readBtn.textContent = visible ? '📖 Read Full Vision 2040' : '📖 Read Less Vision 2040';
+  });
 }
-document.querySelectorAll('.nav-item').forEach(item => { const drop = item.querySelector('.dropdown'); if (!drop) return; item.addEventListener('mouseenter', () => { if (drop.classList.contains('two-col')) drop.style.display = 'flex'; else drop.style.display = 'block'; }); item.addEventListener('mouseleave', () => drop.style.display = ''); });
-const readBtn = document.getElementById('readMoreVisionBtn'), fullDiv = document.getElementById('fullVisionContainer');
-if(readBtn && fullDiv) { readBtn.addEventListener('click', () => { if(fullDiv.style.display === 'none' || !fullDiv.style.display) { fullDiv.style.display = 'block'; readBtn.textContent = '📖 Read Less Vision 2040'; } else { fullDiv.style.display = 'none'; readBtn.textContent = '📖 Read Full Vision 2040'; } }); fullDiv.style.display = 'none'; }
 </script>
 </body>
-    </html>
+</html>
