@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>Karugutu Town Council – Administration</title>
+<title>Karugutu Town Council – Administration & Support Management</title>
 <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&family=Open+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -118,27 +118,30 @@ text-shadow: 0 2px 12px rgba(0,0,0,0.2);
 .hero-admin { padding: 40px 20px; min-height: 140px; }
 }
 
-/* images section - each image in its own full row, no cropping, full visibility */
+/* IMAGES SECTION — NO SPACE BETWEEN IMAGES, ZERO GAP, FULL VISIBILITY */
 .images-section {
-padding: 50px 20px 70px;
+padding: 0;               /* remove any surrounding padding */
 background: #fefef7;
+margin: 0;
 }
 .images-container {
-max-width: 1400px;
+max-width: 100%;
 margin: 0 auto;
+padding: 0;
+display: block;
+line-height: 0;          /* kill any inline spacing */
+font-size: 0;            /* ensure no whitespace between elements */
 }
 .image-row {
-margin-bottom: 48px;
-border-radius: 28px;
+margin: 0;
+padding: 0;
+border-radius: 0;
 overflow: hidden;
-box-shadow: 0 20px 40px rgba(0,0,0,0.12);
-transition: transform 0.3s ease, box-shadow 0.3s ease;
-background: #fff;
+box-shadow: none;
+background: transparent;
 display: block;
-}
-.image-row:hover {
-transform: translateY(-6px);
-box-shadow: 0 28px 50px rgba(0,0,0,0.18);
+line-height: 0;
+transition: none;
 }
 .image-row img {
 width: 100%;
@@ -146,15 +149,23 @@ height: auto;
 display: block;
 object-fit: contain;
 background: #fafaf5;
-/* Ensure full image visibility without any hidden clipping */
 max-width: 100%;
+border: none;
+margin: 0;
+padding: 0;
+vertical-align: bottom;   /* removes bottom gap */
 }
-/* No max-height restrictions - full image shows completely */
-.image-row img {
-max-height: none;
+/* No spacing, no margins, no padding between rows */
+.image-row:first-child {
+margin-bottom: 0;
 }
-@media (max-width: 768px) {
-.image-row { margin-bottom: 32px; }
+.image-row:last-child {
+margin-top: 0;
+}
+/* additional safety: no hover transform to avoid unexpected shifts */
+.image-row:hover {
+transform: none;
+box-shadow: none;
 }
 
 /* footer */
@@ -273,14 +284,14 @@ opacity: 0.9;
   </div>
 </div>
 
-<!-- IMAGES SECTION: Two images only (removed assistant image). Each image full width, full visibility, no hidden cropping -->
+<!-- IMAGES SECTION: TWO IMAGES, NO SPACE BETWEEN THEM, NO GAPS, FULL WIDTH, FULL VISIBILITY -->
 <section class="images-section">
   <div class="images-container">
-    <!-- Image 1: Administration & Management Support Department (first image) -->
+    <!-- Image 1: Administration & Management Support Department (first image) - NO BOTTOM SPACE -->
     <div class="image-row">
       <img src="ad.jpg" alt="Administration and Management Support Department - Karugutu Town Council">
     </div>
-    <!-- Image 2: Administration & Management Support Department (second image) -->
+    <!-- Image 2: Administration & Management Support Department (second image) - DIRECTLY TOUCHING FIRST IMAGE, ZERO MARGIN/PADDING -->
     <div class="image-row">
       <img src="add.jpg" alt="Administration Department Operations - Karugutu Town Council">
     </div>
@@ -326,7 +337,7 @@ opacity: 0.9;
 </footer>
 
 <script>
-  // dropdown behaviour
+  // dropdown behaviour – ensures proper display on hover
   document.querySelectorAll('.nav-item').forEach(item => {
     const drop = item.querySelector('.dropdown');
     if (!drop) return;
@@ -338,4 +349,4 @@ opacity: 0.9;
   });
 </script>
 </body>
-    </html>
+  </html>
