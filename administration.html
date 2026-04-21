@@ -118,9 +118,9 @@ text-shadow: 0 2px 12px rgba(0,0,0,0.2);
 .hero-admin { padding: 40px 20px; min-height: 140px; }
 }
 
-/* IMAGES SECTION — NO SPACE BETWEEN IMAGES, ZERO GAP, FULL VISIBILITY */
+/* IMAGES SECTION — REDUCED WIDTH ON LARGE SCREENS (40px left + 40px right) */
 .images-section {
-padding: 0;               /* remove any surrounding padding */
+padding: 0;
 background: #fefef7;
 margin: 0;
 }
@@ -129,9 +129,32 @@ max-width: 100%;
 margin: 0 auto;
 padding: 0;
 display: block;
-line-height: 0;          /* kill any inline spacing */
-font-size: 0;            /* ensure no whitespace between elements */
+line-height: 0;
+font-size: 0;
 }
+/* For large screens: add 40px left/right padding to the container, 
+   and inner rows respect that boundary */
+@media (min-width: 1024px) {
+  .images-container {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+}
+/* For medium/large screens, maintain the side reduction but keep background seamless */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .images-container {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+}
+/* Small screens: full width (no side reduction) as requested */
+@media (max-width: 767px) {
+  .images-container {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
 .image-row {
 margin: 0;
 padding: 0;
@@ -153,7 +176,7 @@ max-width: 100%;
 border: none;
 margin: 0;
 padding: 0;
-vertical-align: bottom;   /* removes bottom gap */
+vertical-align: bottom;
 }
 /* No spacing, no margins, no padding between rows */
 .image-row:first-child {
@@ -162,10 +185,14 @@ margin-bottom: 0;
 .image-row:last-child {
 margin-top: 0;
 }
-/* additional safety: no hover transform to avoid unexpected shifts */
+/* No hover transform shift */
 .image-row:hover {
 transform: none;
 box-shadow: none;
+}
+/* Ensure images remain contiguous without gap */
+.images-container .image-row + .image-row {
+margin-top: 0;
 }
 
 /* footer */
@@ -284,21 +311,20 @@ opacity: 0.9;
   </div>
 </div>
 
-<!-- IMAGES SECTION: TWO IMAGES, NO SPACE BETWEEN THEM, NO GAPS, FULL WIDTH, FULL VISIBILITY -->
+<!-- IMAGES SECTION: TWO IMAGES WITH 40px LEFT/RIGHT REDUCTION ON LARGE SCREENS, ZERO GAP BETWEEN IMAGES, FULL VISIBILITY -->
 <section class="images-section">
   <div class="images-container">
-    <!-- Image 1: Administration & Management Support Department (first image) - NO BOTTOM SPACE -->
+    <!-- First Image: Administration & Management Support Department -->
     <div class="image-row">
       <img src="admin5.jpg" alt="Administration and Management Support Department - Karugutu Town Council">
     </div>
-    <br>
+    <!-- Second Image: Administration Department Operations - no gap -->
     <div class="image-row">
       <img src="admin6.jpg" alt="Administration Department Operations - Karugutu Town Council">
     </div>
-    <br>
-    <!-- Image 2: Administration & Management Support Department (second image) - DIRECTLY TOUCHING FIRST IMAGE, ZERO MARGIN/PADDING -->
+    <!-- Third Image: add.jpg / Additional administration image - touches directly without any margin -->
     <div class="image-row">
-      <img src="add.jpg" alt="Administration Department Operations - Karugutu Town Council">
+      <img src="add.jpg" alt="Administration Department Support Services - Karugutu Town Council">
     </div>
   </div>
 </section>
