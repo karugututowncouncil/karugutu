@@ -21,7 +21,7 @@
 }
 body { font-family: 'Open Sans', sans-serif; color: var(--text); background: #fff; }
 a { text-decoration: none; color: inherit; }
-p, .vm-content p, .mandate-text-green, .service-card p, .news-body p, .footer-col p, .footer-contacts div, address, .vision-narrative p, .strategic-pillars p, .pillar-list li, .desired-future p { text-align: justify; }
+p, .vm-content p, .mandate-text-single p, .service-card p, .news-body p, .footer-col p, .footer-contacts div, address, .vision-narrative p, .strategic-pillars p, .pillar-list li, .desired-future p { text-align: justify; }
 .slide-caption h2, .section-title, .leader-card-body h3, .vm-content h3, .news-body h3, .footer-col h4 { text-align: left; }
 .mandate-standalone h3, .mandate-standalone p, .anti-corruption h2, .anti-corruption p, .stats-image-caption, .partners-intro { text-align: center; }
 .header-text h1, .header-text h2 { text-align: center; }
@@ -127,7 +127,6 @@ transition: background 0.2s; white-space: nowrap;
     background-size: cover;
     background-position: center 30%;
     background-repeat: no-repeat;
-    /* SLIDING ANIMATION: from right to left */
     transform: translateX(100%);
     opacity: 0;
     transition: transform 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.8s ease;
@@ -138,7 +137,6 @@ transition: background 0.2s; white-space: nowrap;
     opacity: 1;
     z-index: 10;
 }
-/* previous slide that exits slides to left */
 .slide.exit-left {
     transform: translateX(-100%);
     opacity: 0;
@@ -344,7 +342,7 @@ font-family: 'Open Sans', sans-serif;
 }
 .read-more-btn:hover { background: #c96e00; transform: scale(1.02); }
 
-/* mandate - updated with four distinct paragraphs */
+/* MANDATE - NOW A SINGLE COHESIVE BLOCK */
 .mandate-standalone {
 background: linear-gradient(135deg, var(--primary) 0%, #0e4a2c 100%);
 color: #fff;
@@ -357,21 +355,28 @@ box-shadow: 0 10px 30px rgba(0,0,0,0.1);
 .mandate-standalone h3 { 
     font-family: 'Merriweather', serif; 
     font-size: 28px; 
-    margin-bottom: 20px; 
+    margin-bottom: 24px; 
     color: #FFD966;
     text-align: center;
     letter-spacing: 1px;
 }
-.mandate-text-green {
-color: #1a6b3a;
-background: #e8f5ee;
-border-left: 4px solid #1a6b3a;
-padding: 18px 22px;
-border-radius: 0 8px 8px 0;
-margin: 12px 0;
-font-size: 15px;
-line-height: 1.8;
-text-align: justify;
+/* SINGLE PARAGRAPH WRAPPER - all mandate content flows as one continuous block */
+.mandate-text-single {
+    background: #e8f5ee;
+    color: #1a6b3a;
+    border-left: 4px solid #1a6b3a;
+    padding: 28px 32px;
+    border-radius: 0 16px 16px 0;
+    font-size: 15px;
+    line-height: 1.8;
+    text-align: justify;
+    margin: 0;
+}
+.mandate-text-single p {
+    margin-bottom: 1.2em;
+}
+.mandate-text-single p:last-child {
+    margin-bottom: 0;
 }
 /* stats */
 .stats-image-section {
@@ -520,7 +525,7 @@ footer { background: var(--dark); color: rgba(255,255,255,0.8); }
   </div>
 </nav>
 
-<!-- Hero slider with smooth right-to-left sliding animation -->
+<!-- Hero slider -->
 <div class="hero">
   <div class="slide-container">
     <div class="slide active" style="background-image: url('hero.jpg');"><div class="slide-overlay"><div class="slide-caption"><h2>Welcome to Karugutu Town Council — A Strategic Urban Growth Centre in Ntoroko District, Western Uganda.</h2><a href="#">Learn More</a></div></div></div>
@@ -536,7 +541,17 @@ footer { background: var(--dark); color: rgba(255,255,255,0.8); }
 
 <section id="leadershipSection" class="leadership"><div class="container"><h2 class="section-title">Our Leadership</h2><div class="leadership-grid"><div class="leader-card"><div class="leader-card-image"><img src="Mayor.jpg" alt="Mayor Hon Maate Raphael G"></div><div class="leader-card-body"><h3>Hon. Maate Raphael G</h3><p>Mayor</p></div></div><div class="leader-card"><div class="leader-card-image"><img src="clerk.jpg" alt="Town Clerk Mr. Sekanabo Wilfred"></div><div class="leader-card-body"><h3>Mr. Sekanabo Wilfred</h3><p>Town Clerk</p></div></div><div class="leader-card"><div class="leader-card-image"><img src="http://molgtest.ccm77.org/mo/wp-content/uploads/2025/10/PS-300x300.jpg" alt="Senior Treasurer Mr. Nzeghale Enoch"></div><div class="leader-card-body"><h3>Mr. Nzeghale Enoch</h3><p>Senior Treasurer</p></div></div></div></div></section>
 
-<div id="mandateContainer" class="container"><div class="mandate-standalone"><h3>Karugutu Town Council Mandate</h3><div class="mandate-text-green">Karugutu Town Council is the legally established governing authority for Karugutu Town. Created by Statutory Instrument No. 48 of 2017 under the Local Governments (Rating) Act, 2005, Karugutu Town Council operates as a lower local government within Ntoroko District.</div><div class="mandate-text-green">In accordance with the Local Governments Act (Cap 243), it is mandated to manage urban areas on behalf of both the District and Central Governments. Karugutu Town Council’s core role is to decentralize service delivery, promote democratic participation in decision-making, and drive local economic development within its jurisdiction.</div><div class="mandate-text-green">In fulfilling this mandate, the Council provides essential public services such as primary education, primary health care, sanitation, waste management, and local transport infrastructure. It is also responsible for planning and implementing development programmes, including physical planning, land use regulation, and enforcement of building standards to ensure orderly urban growth.</div><div class="mandate-text-green">In addition, the Town Council exercises legislative and administrative authority through the formulation of byelaws, the collection of local revenues, and immediate oversight of public service delivery points within its jurisdiction. Karugutu Town Council manages urban systems such as markets, street lighting, and environmental health services while ensuring accountability and coordination across sectors.</div></div></div>
+<!-- MANDATE SECTION: NOW WRAPPED AS A SINGLE COHERENT DIV WITH ONE TEXT BLOCK (no separate divs) -->
+<div id="mandateContainer" class="container">
+  <div class="mandate-standalone">
+    <h3>Karugutu Town Council Mandate</h3>
+    <div class="mandate-text-single">
+      <p>Karugutu Town Council is the legally established governing authority for Karugutu Town. Created by Statutory Instrument No. 48 of 2017 under the Local Governments (Rating) Act, 2005, Karugutu Town Council operates as a lower local government within Ntoroko District. In accordance with the Local Governments Act (Cap 243), it is mandated to manage urban areas on behalf of both the District and Central Governments. Karugutu Town Council’s core role is to decentralize service delivery, promote democratic participation in decision-making, and drive local economic development within its jurisdiction.</p>
+      <p>In fulfilling this mandate, the Council provides essential public services such as primary education, primary health care, sanitation, waste management, and local transport infrastructure. It is also responsible for planning and implementing development programmes, including physical planning, land use regulation, and enforcement of building standards to ensure orderly urban growth.</p>
+      <p>In addition, the Town Council exercises legislative and administrative authority through the formulation of byelaws, the collection of local revenues, and immediate oversight of public service delivery points within its jurisdiction. Karugutu Town Council manages urban systems such as markets, street lighting, and environmental health services while ensuring accountability and coordination across sectors.</p>
+    </div>
+  </div>
+</div>
 
 <section class="mandate-vision"><div class="container"><h2 class="section-title">Vision, Mission &amp; Strategic Pillars</h2><div class="vision-mission-grid"><div class="vm-card"><div class="vm-image"><img src="vision.jpg" alt="Vision 2040 Pillars"></div><div class="vm-content"><h3>Vision 2040</h3><p><strong>Karugutu Vision 2040:</strong> "A vibrant, inclusive, climate-resilient and well-governed town with sustainable economic growth and improved quality of life for all."</p><button id="readMoreVisionBtn" class="read-more-btn">📖 Read Full Vision 2040</button><div id="fullVisionContainer" class="full-vision-container" style="display: none;"><div class="vision-headline">Karugutu Town Council – Vision 2040</div><div class="vision-quote">"A vibrant, inclusive, climate-resilient and well-governed town with sustainable economic growth and improved quality of life for all."</div><div class="vision-narrative"><p><strong>Vision Narrative</strong><br>By 2040, Karugutu Town Council will stand as a model of balanced and people-centered development, where economic opportunity, social inclusion, environmental sustainability, and good governance are not aspirations, but lived realities.</p><p>Karugutu will be a thriving economic hub, powered by local enterprise, modern agriculture, small industries, and innovation. Markets will be vibrant, businesses supported, and youth and women fully engaged in productive livelihoods. Infrastructure—roads, energy, and communication—will enable seamless connectivity within and beyond the town.</p><p>The town will embody an inclusive society, where all people—regardless of age, gender, or ability, have access to quality social services. Education, healthcare, and community support systems will be accessible, equitable, and responsive, ensuring that no one is left behind.</p><p>As a climate-resilient community, Karugutu will embrace clean energy, sustainable land use, and environmental conservation. Solar energy, water management systems, and green landscapes will define the town's commitment to protecting its natural resources while adapting to climate change.</p><p>Karugutu will champion a sustainable future, where development today does not compromise tomorrow. Natural ecosystems will be preserved, waste will be managed responsibly, and growth will align with environmental stewardship.</p><p>At the core of this transformation will be good governance, transparent, accountable, and participatory leadership. Citizens will actively engage in decision-making, institutions will be efficient and service-oriented, and justice and rule of law will guide all actions.</p></div><div class="strategic-pillars"><strong style="font-size: 20px; color: var(--primary); display: block; margin: 24px 0 16px;">Strategic Pillars of Vision 2040</strong><div class="pillar-list"><div class="pillar-card"><strong>Economic Growth</strong><ul><li>Expansion of trade, agriculture, and local industries</li><li>Promotion of entrepreneurship and job creation</li><li>Investment in infrastructure and technology</li></ul></div><div class="pillar-card"><strong>Inclusive Services</strong><ul><li>Universal access to education, healthcare, and social protection</li><li>Empowerment of vulnerable and marginalized groups</li><li>Strengthening community-based development programs</li></ul></div><div class="pillar-card"><strong>Climate Resilience</strong><ul><li>Adoption of renewable energy solutions</li><li>Climate-smart agriculture and environmental conservation</li><li>Disaster preparedness and sustainable water management</li></ul></div><div class="pillar-card"><strong>Sustainable Resource Management</strong><ul><li>Efficient use of land and natural resources</li><li>Protection of ecosystems and biodiversity</li><li>Sustainable urban planning and development</li></ul></div><div class="pillar-card"><strong>Good Governance</strong><ul><li>Transparency, accountability, and citizen participation</li><li>Strengthening institutional capacity</li><li>Upholding justice, equity, and the rule of law</li></ul></div></div></div><div class="desired-future"><h4>The Desired Future</h4><p>By 2040, Karugutu will be a town where:</p><ul><li>Businesses flourish and livelihoods are secure</li><li>Communities are united, empowered, and inclusive</li><li>The environment is protected and resilient</li><li>Public services are efficient and accessible</li><li>Leadership is trusted and accountable</li></ul></div></div></div></div><div class="vm-card"><div class="vm-image"><img src="mission.jpg" alt="Mission Statement"></div><div class="vm-content"><h3>Our Mission</h3><p>"To improve the quality of life for all through inclusive planning, efficient service delivery, and sustainable use of local resources."</p><div class="vm-badge-alt">Guiding Principle</div></div></div></div></div></section>
 
@@ -551,7 +566,7 @@ footer { background: var(--dark); color: rgba(255,255,255,0.8); }
 <footer><div class="footer-top"><div class="footer-col"><h4>Find Us At</h4><address>P.O. Box 568, Fort Portal<br>Fort Portal–Bundibugyo Road<br>Karugutu, Ntoroko District<br>Western Region, Uganda<br><br><a href="mailto:karugututowncouncil033@gmail.com" style="color: rgba(255,255,255,0.75);">karugututowncouncil033@gmail.com</a></address></div><div class="footer-col"><h4>Key Contacts</h4><div class="footer-contacts"><div><span>Town Clerk:</span> +256 785 221 110</div><div><span>Sr. Asst. Town Clerk:</span> +256 773 899 959</div><div><span>LC III Chairperson:</span> +256 782 431 733</div><div><span>Senior CDO:</span> +256 775 512 770</div><div><span>Sr. Internal Auditor:</span> +256 772 823 466</div><div><span>Town Treasurer:</span> +256 772 303 176</div></div></div><div class="footer-col"><h4>Quick Links</h4><ul><li><a href="https://www.ntoroko.go.ug/">Ntoroko District Local Government</a></li><li><a href="#">Lower Local Government</a></li><li><a href="#">Performance Assessment FY 2025–2026</a></li><li><a href="#">Home</a></li><li><a href="#">Services</a></li><li><a href="#">Contact Us</a></li></ul></div></div><div class="footer-bottom">All Rights Reserved &copy; Karugutu Town Council, Ntoroko District, Uganda.</div></footer>
 
 <script>
-// Enhanced SLIDING CAROUSEL (Right-to-Left transition with smooth exit)
+// Enhanced SLIDING CAROUSEL
 const slides = Array.from(document.querySelectorAll('.hero .slide'));
 const dotsContainer = document.getElementById('dots');
 let currentIndex = 0;
@@ -567,7 +582,6 @@ function createDots() {
         dotsContainer.appendChild(dot);
     });
 }
-
 function updateDots() {
     const dots = document.querySelectorAll('.dot');
     dots.forEach((dot, idx) => {
@@ -575,35 +589,24 @@ function updateDots() {
         else dot.classList.remove('active');
     });
 }
-
 function resetInterval() {
     if(slideInterval) clearInterval(slideInterval);
     slideInterval = setInterval(() => nextSlide(), 5500);
 }
-
-// Sliding transition: new slide enters from right, old exits to left
 function goToSlide(newIndex) {
     if(newIndex === currentIndex) return;
     const currentSlide = slides[currentIndex];
     const nextSlide = slides[newIndex];
-    
-    // add exit-left class to current slide for smooth left exit
     currentSlide.classList.remove('active');
     currentSlide.classList.add('exit-left');
-    
-    // prepare next slide: start from right (transform: translateX(100%))
     nextSlide.classList.remove('exit-left');
-    // force reflow to ensure transition works
     void nextSlide.offsetWidth;
     nextSlide.style.transform = 'translateX(100%)';
     nextSlide.style.opacity = '0';
     nextSlide.classList.add('active');
-    // trigger reflow before applying transform: translateX(0)
     void nextSlide.offsetWidth;
     nextSlide.style.transform = 'translateX(0)';
     nextSlide.style.opacity = '1';
-    
-    // remove exit-left class after animation completes
     setTimeout(() => {
         if(currentSlide.classList.contains('exit-left')) {
             currentSlide.classList.remove('exit-left');
@@ -611,48 +614,27 @@ function goToSlide(newIndex) {
             currentSlide.style.opacity = '';
         }
     }, 900);
-    
     currentIndex = newIndex;
     updateDots();
     resetInterval();
 }
-
-function nextSlide() {
-    let next = (currentIndex + 1) % totalSlides;
-    goToSlide(next);
-}
-
-function prevSlide() {
-    let prev = (currentIndex - 1 + totalSlides) % totalSlides;
-    goToSlide(prev);
-}
-
-// initial setup: ensure all slides have initial transform states
+function nextSlide() { goToSlide((currentIndex + 1) % totalSlides); }
+function prevSlide() { goToSlide((currentIndex - 1 + totalSlides) % totalSlides); }
 function initSlides() {
     slides.forEach((slide, idx) => {
-        if(idx === 0) {
-            slide.classList.add('active');
-            slide.style.transform = 'translateX(0)';
-            slide.style.opacity = '1';
-        } else {
-            slide.classList.remove('active');
-            slide.style.transform = 'translateX(100%)';
-            slide.style.opacity = '0';
-        }
+        if(idx === 0) { slide.classList.add('active'); slide.style.transform = 'translateX(0)'; slide.style.opacity = '1'; }
+        else { slide.classList.remove('active'); slide.style.transform = 'translateX(100%)'; slide.style.opacity = '0'; }
         slide.classList.remove('exit-left');
     });
     currentIndex = 0;
     updateDots();
     resetInterval();
 }
-
 document.getElementById('prevSlideBtn').addEventListener('click', () => { prevSlide(); resetInterval(); });
 document.getElementById('nextSlideBtn').addEventListener('click', () => { nextSlide(); resetInterval(); });
-
 createDots();
 initSlides();
 
-// nav dropdowns
 document.querySelectorAll('.nav-item').forEach(item => {
     const drop = item.querySelector('.dropdown');
     if (!drop) return;
