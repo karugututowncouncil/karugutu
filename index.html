@@ -525,10 +525,15 @@ footer { background: var(--dark); color: rgba(255,255,255,0.8); }
   </div>
 </nav>
 
-<!-- Hero slider -->
+<!-- Hero slider: new images welcome.jpg, welcome1.jpg, welcome2.jpg inserted at beginning, existing ones follow in correct order -->
 <div class="hero">
   <div class="slide-container">
-    <div class="slide active" style="background-image: url('hero.jpg');"><div class="slide-overlay"><div class="slide-caption"><h2>Welcome to Karugutu Town Council — A Strategic Urban Growth Centre in Ntoroko District, Western Uganda.</h2><a href="#">Learn More</a></div></div></div>
+    <!-- Three new images inserted as first slides (starting order: welcome, welcome1, welcome2, then original sequence) -->
+    <div class="slide active" style="background-image: url('welcome.jpg');"><div class="slide-overlay"><div class="slide-caption"><h2>Welcome to Karugutu — Gateway to opportunity, unity, and sustainable development in Western Uganda.</h2><a href="#">Discover More</a></div></div></div>
+    <div class="slide" style="background-image: url('welcome1.jpg');"><div class="slide-overlay"><div class="slide-caption"><h2>Empowering communities, transforming lives — Karugutu Town Council at the heart of change.</h2><a href="#">Learn About Us</a></div></div></div>
+    <div class="slide" style="background-image: url('welcome2.jpg');"><div class="slide-overlay"><div class="slide-caption"><h2>Building a resilient urban future — Together we grow, together we thrive.</h2><a href="#">Our Vision</a></div></div></div>
+    <!-- Original existing hero images follow after the new ones -->
+    <div class="slide" style="background-image: url('hero.jpg');"><div class="slide-overlay"><div class="slide-caption"><h2>Welcome to Karugutu Town Council — A Strategic Urban Growth Centre in Ntoroko District, Western Uganda.</h2><a href="#">Learn More</a></div></div></div>
     <div class="slide" style="background-image: url('hero1.jpg');"><div class="slide-overlay"><div class="slide-caption"><h2>Elevated to Urban Status in 2010 — Driving Local Governance &amp; Socio-Economic Transformation for 19,070 Residents Across 5 Wards.</h2><a href="#">Our Services</a></div></div></div>
     <div class="slide" style="background-image: url('hero2.jpg');"><div class="slide-overlay"><div class="slide-caption"><h2>Serving 87 km² Bordering Toro-Semliki National Park — Committed to Quality, Equitable &amp; Sustainable Service Delivery.</h2><a href="#">Contact Us</a></div></div></div>
     <div class="slide" style="background-image: url('hero3.jpg');"><div class="slide-overlay"><div class="slide-caption"><h2>Empowering local businesses and farmers — Karugutu's vision for inclusive economic growth.</h2><a href="#">Development Plans</a></div></div></div>
@@ -541,7 +546,7 @@ footer { background: var(--dark); color: rgba(255,255,255,0.8); }
 
 <section id="leadershipSection" class="leadership"><div class="container"><h2 class="section-title">Our Leadership</h2><div class="leadership-grid"><div class="leader-card"><div class="leader-card-image"><img src="Mayor.jpg" alt="Mayor Hon Maate Raphael G"></div><div class="leader-card-body"><h3>Hon. Maate Raphael G</h3><p>Mayor</p></div></div><div class="leader-card"><div class="leader-card-image"><img src="clerk.jpg" alt="Town Clerk Mr. Sekanabo Wilfred"></div><div class="leader-card-body"><h3>Mr. Sekanabo Wilfred</h3><p>Town Clerk</p></div></div><div class="leader-card"><div class="leader-card-image"><img src="http://molgtest.ccm77.org/mo/wp-content/uploads/2025/10/PS-300x300.jpg" alt="Senior Treasurer Mr. Nzeghale Enoch"></div><div class="leader-card-body"><h3>Mr. Nzeghale Enoch</h3><p>Senior Treasurer</p></div></div></div></div></section>
 
-<!-- MANDATE SECTION: NOW WRAPPED AS A SINGLE COHERENT DIV WITH ONE TEXT BLOCK (no separate divs) -->
+<!-- MANDATE SECTION: NOW WRAPPED AS A SINGLE COHERENT DIV WITH ONE TEXT BLOCK -->
 <div id="mandateContainer" class="container">
   <div class="mandate-standalone">
     <h3>Karugutu Town Council Mandate</h3>
@@ -566,7 +571,7 @@ footer { background: var(--dark); color: rgba(255,255,255,0.8); }
 <footer><div class="footer-top"><div class="footer-col"><h4>Find Us At</h4><address>P.O. Box 568, Fort Portal<br>Fort Portal–Bundibugyo Road<br>Karugutu, Ntoroko District<br>Western Region, Uganda<br><br><a href="mailto:karugututowncouncil033@gmail.com" style="color: rgba(255,255,255,0.75);">karugututowncouncil033@gmail.com</a></address></div><div class="footer-col"><h4>Key Contacts</h4><div class="footer-contacts"><div><span>Town Clerk:</span> +256 785 221 110</div><div><span>Sr. Asst. Town Clerk:</span> +256 773 899 959</div><div><span>LC III Chairperson:</span> +256 782 431 733</div><div><span>Senior CDO:</span> +256 775 512 770</div><div><span>Sr. Internal Auditor:</span> +256 772 823 466</div><div><span>Town Treasurer:</span> +256 772 303 176</div></div></div><div class="footer-col"><h4>Quick Links</h4><ul><li><a href="https://www.ntoroko.go.ug/">Ntoroko District Local Government</a></li><li><a href="#">Lower Local Government</a></li><li><a href="#">Performance Assessment FY 2025–2026</a></li><li><a href="#">Home</a></li><li><a href="#">Services</a></li><li><a href="#">Contact Us</a></li></ul></div></div><div class="footer-bottom">All Rights Reserved &copy; Karugutu Town Council, Ntoroko District, Uganda.</div></footer>
 
 <script>
-// Enhanced SLIDING CAROUSEL
+// Enhanced SLIDING CAROUSEL with new images order (welcome, welcome1, welcome2 first, then original ones)
 const slides = Array.from(document.querySelectorAll('.hero .slide'));
 const dotsContainer = document.getElementById('dots');
 let currentIndex = 0;
@@ -622,8 +627,15 @@ function nextSlide() { goToSlide((currentIndex + 1) % totalSlides); }
 function prevSlide() { goToSlide((currentIndex - 1 + totalSlides) % totalSlides); }
 function initSlides() {
     slides.forEach((slide, idx) => {
-        if(idx === 0) { slide.classList.add('active'); slide.style.transform = 'translateX(0)'; slide.style.opacity = '1'; }
-        else { slide.classList.remove('active'); slide.style.transform = 'translateX(100%)'; slide.style.opacity = '0'; }
+        if(idx === 0) { 
+            slide.classList.add('active'); 
+            slide.style.transform = 'translateX(0)'; 
+            slide.style.opacity = '1'; 
+        } else { 
+            slide.classList.remove('active'); 
+            slide.style.transform = 'translateX(100%)'; 
+            slide.style.opacity = '0'; 
+        }
         slide.classList.remove('exit-left');
     });
     currentIndex = 0;
@@ -660,4 +672,4 @@ if(readBtn && fullDiv) {
 }
 </script>
 </body>
-</html>
+    </html>
