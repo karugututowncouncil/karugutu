@@ -106,7 +106,7 @@ transition: background 0.2s; white-space: nowrap;
 .dropdown-col.col-services { background: #fff; }
 .dropdown-col.col-services .dropdown-heading { background: var(--light-gray); color: var(--primary); }
 
-/* ── hero ── */
+/* ── hero (captions removed) ── */
 .hero {
     position: relative;
     overflow: hidden;
@@ -133,8 +133,8 @@ transition: background 0.2s; white-space: nowrap;
     z-index: 1;
 }
 
-/* For the slide that might need contain (background overlay consistency) */
-.slide.contain-fit {
+/* wel.jpg slide: show the whole image without cropping */
+.slide.slide-wel {
     background-size: contain;
     background-position: center center;
     background-color: #0a2f1a;
@@ -151,42 +151,14 @@ transition: background 0.2s; white-space: nowrap;
     transition: transform 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.8s ease;
     z-index: 5;
 }
+/* Overlay remains but no text inside */
 .slide-overlay {
     position: absolute;
     inset: 0;
-    background: rgba(0,0,0,0.45);
-    display: flex;
-    align-items: flex-end;
-    padding: 50px 60px;
+    background: rgba(0,0,0,0.3);
+    /* No text, just subtle overlay for readability */
 }
-
-/* Gentle overlay for clarity */
-.slide.contain-fit .slide-overlay {
-    background: rgba(0,0,0,0.25);
-}
-
-.slide-caption { max-width: 680px; color: #fff; }
-.slide-caption h2 {
-    font-family: 'Merriweather', serif;
-    font-size: 26px;
-    line-height: 1.4;
-    text-shadow: 0 2px 12px rgba(0,0,0,0.8);
-    margin-bottom: 20px;
-    font-weight: 700;
-    text-align: left;
-    background: transparent;
-}
-.slide-caption a {
-    display: inline-block;
-    padding: 12px 32px;
-    background: var(--accent);
-    color: #fff;
-    font-size: 14px;
-    font-weight: 700;
-    border-radius: 4px;
-    transition: opacity 0.2s;
-}
-.slide-caption a:hover { opacity: 0.85; background: #c96e00; }
+/* No caption styling needed as we removed .slide-caption */
 .slider-dots { position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); display: flex; gap: 10px; z-index: 20; }
 .dot { width: 12px; height: 12px; border-radius: 50%; background: rgba(255,255,255,0.5); cursor: pointer; border: none; transition: background 0.3s; }
 .dot.active { background: var(--accent); transform: scale(1.1); }
@@ -418,7 +390,7 @@ footer { background: var(--dark); color: rgba(255,255,255,0.8); }
 .footer-bottom { background: #111; text-align: center; padding: 14px; font-size: 12px; }
 
 @media (max-width: 900px) { .vm-card { flex-direction: column; } .vm-card .vm-content { padding: 28px; } .vm-image { width: 100%; min-height: 240px; } .pillar-list { grid-template-columns: 1fr; } }
-@media (max-width: 768px) { .footer-top { grid-template-columns: 1fr; } .hero { height: 360px; } .slide-caption h2 { font-size: 18px; } .nav-inner { overflow-x: auto; flex-wrap: nowrap; } .dropdown.two-col { min-width: 280px; flex-direction: column; } .partners-track img { height: 80px; } }
+@media (max-width: 768px) { .footer-top { grid-template-columns: 1fr; } .hero { height: 360px; } .nav-inner { overflow-x: auto; flex-wrap: nowrap; } .dropdown.two-col { min-width: 280px; flex-direction: column; } .partners-track img { height: 80px; } }
 @media (max-width: 550px) { .header-text h2 { font-size: 24px; } .header-text h1 { font-size: 11px; } .header-logo-left img, .header-logo-right img { height: 85px; } .partners-track img { height: 70px; } }
 </style>
 </head>
@@ -498,16 +470,17 @@ footer { background: var(--dark); color: rgba(255,255,255,0.8); }
   </div>
 </nav>
 
-<!-- Hero slider: removed any textual statements about images. Only slide background images remain. -->
+<!-- Hero slider: all captions (h2 and buttons) are removed, images only -->
 <div class="hero">
   <div class="slide-container">
-    <div class="slide active" style="background-image: url('welcome.jpg');"><div class="slide-overlay"><div class="slide-caption"><h2>Welcome to Karugutu — Gateway to opportunity, unity, and sustainable development in Western Uganda.</h2><a href="#">Discover More</a></div></div></div>
-    <div class="slide contain-fit" style="background-image: url('wel.jpg');"><div class="slide-overlay"><div class="slide-caption"><h2>Empowering communities, transforming lives — Karugutu Town Council at the heart of change.</h2><a href="#">Learn About Us</a></div></div></div>
-    <div class="slide" style="background-image: url('hero.jpg');"><div class="slide-overlay"><div class="slide-caption"><h2>Welcome to Karugutu Town Council — A Strategic Urban Growth Centre in Ntoroko District, Western Uganda.</h2><a href="#">Learn More</a></div></div></div>
-    <div class="slide" style="background-image: url('hero1.jpg');"><div class="slide-overlay"><div class="slide-caption"><h2>Elevated to Urban Status in 2010 — Driving Local Governance &amp; Socio-Economic Transformation for 19,070 Residents Across 5 Wards.</h2><a href="#">Our Services</a></div></div></div>
-    <div class="slide" style="background-image: url('hero2.jpg');"><div class="slide-overlay"><div class="slide-caption"><h2>Serving 87 km² Bordering Toro-Semliki National Park — Committed to Quality, Equitable &amp; Sustainable Service Delivery.</h2><a href="#">Contact Us</a></div></div></div>
-    <div class="slide" style="background-image: url('hero3.jpg');"><div class="slide-overlay"><div class="slide-caption"><h2>Empowering local businesses and farmers — Karugutu's vision for inclusive economic growth.</h2><a href="#">Development Plans</a></div></div></div>
-    <div class="slide" style="background-image: url('hero4.jpg');"><div class="slide-overlay"><div class="slide-caption"><h2>Investing in infrastructure, health, and education — Building a resilient community for all.</h2><a href="#">Our Projects</a></div></div></div>
+    <!-- All slides: no .slide-caption elements, just the overlay with no text -->
+    <div class="slide active" style="background-image: url('welcome.jpg');"><div class="slide-overlay"></div></div>
+    <div class="slide slide-wel" style="background-image: url('wel.jpg');"><div class="slide-overlay"></div></div>
+    <div class="slide" style="background-image: url('hero.jpg');"><div class="slide-overlay"></div></div>
+    <div class="slide" style="background-image: url('hero1.jpg');"><div class="slide-overlay"></div></div>
+    <div class="slide" style="background-image: url('hero2.jpg');"><div class="slide-overlay"></div></div>
+    <div class="slide" style="background-image: url('hero3.jpg');"><div class="slide-overlay"></div></div>
+    <div class="slide" style="background-image: url('hero4.jpg');"><div class="slide-overlay"></div></div>
   </div>
   <button class="slider-arrow arrow-prev" id="prevSlideBtn">&#8249;</button>
   <button class="slider-arrow arrow-next" id="nextSlideBtn">&#8250;</button>
