@@ -133,11 +133,11 @@ transition: background 0.2s; white-space: nowrap;
     z-index: 1;
 }
 
-/* ── wel.jpg slide: show the whole image, no cropping ── */
-.slide.slide-wel {
+/* For the slide that might need contain (background overlay consistency) */
+.slide.contain-fit {
     background-size: contain;
     background-position: center center;
-    background-color: #0a2f1a; /* dark green fill for letterbox bars */
+    background-color: #0a2f1a;
 }
 
 .slide.active {
@@ -160,8 +160,8 @@ transition: background 0.2s; white-space: nowrap;
     padding: 50px 60px;
 }
 
-/* For the wel.jpg slide, reduce overlay opacity so the full image is clearly visible */
-.slide.slide-wel .slide-overlay {
+/* Gentle overlay for clarity */
+.slide.contain-fit .slide-overlay {
     background: rgba(0,0,0,0.25);
 }
 
@@ -498,14 +498,11 @@ footer { background: var(--dark); color: rgba(255,255,255,0.8); }
   </div>
 </nav>
 
-<!-- Hero slider -->
+<!-- Hero slider: removed any textual statements about images. Only slide background images remain. -->
 <div class="hero">
   <div class="slide-container">
     <div class="slide active" style="background-image: url('welcome.jpg');"><div class="slide-overlay"><div class="slide-caption"><h2>Welcome to Karugutu — Gateway to opportunity, unity, and sustainable development in Western Uganda.</h2><a href="#">Discover More</a></div></div></div>
-
-    <!-- wel.jpg: background-size:contain so the whole image is visible; class slide-wel overrides cover -->
-    <div class="slide slide-wel" style="background-image: url('wel.jpg');"><div class="slide-overlay"><div class="slide-caption"><h2>Empowering communities, transforming lives — Karugutu Town Council at the heart of change.</h2><a href="#">Learn About Us</a></div></div></div>
-
+    <div class="slide contain-fit" style="background-image: url('wel.jpg');"><div class="slide-overlay"><div class="slide-caption"><h2>Empowering communities, transforming lives — Karugutu Town Council at the heart of change.</h2><a href="#">Learn About Us</a></div></div></div>
     <div class="slide" style="background-image: url('hero.jpg');"><div class="slide-overlay"><div class="slide-caption"><h2>Welcome to Karugutu Town Council — A Strategic Urban Growth Centre in Ntoroko District, Western Uganda.</h2><a href="#">Learn More</a></div></div></div>
     <div class="slide" style="background-image: url('hero1.jpg');"><div class="slide-overlay"><div class="slide-caption"><h2>Elevated to Urban Status in 2010 — Driving Local Governance &amp; Socio-Economic Transformation for 19,070 Residents Across 5 Wards.</h2><a href="#">Our Services</a></div></div></div>
     <div class="slide" style="background-image: url('hero2.jpg');"><div class="slide-overlay"><div class="slide-caption"><h2>Serving 87 km² Bordering Toro-Semliki National Park — Committed to Quality, Equitable &amp; Sustainable Service Delivery.</h2><a href="#">Contact Us</a></div></div></div>
