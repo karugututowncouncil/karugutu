@@ -106,11 +106,11 @@ transition: background 0.2s; white-space: nowrap;
 .dropdown-col.col-services { background: #fff; }
 .dropdown-col.col-services .dropdown-heading { background: var(--light-gray); color: var(--primary); }
 
-/* ── hero slideshow WITH SLIDING ANIMATION (right to left) ── */
+/* ── hero slideshow WITH SLIDING ANIMATION (right to left) AND OPTIMAL FULL IMAGE VISIBILITY ── */
 .hero {
     position: relative;
     overflow: hidden;
-    height: 520px;
+    height: 550px;
     background: #0a2f1a;
 }
 .slide-container {
@@ -125,7 +125,7 @@ transition: background 0.2s; white-space: nowrap;
     width: 100%;
     height: 100%;
     background-size: cover;
-    background-position: center 30%;
+    background-position: center center;  /* Ensures image is centered and fully visible */
     background-repeat: no-repeat;
     transform: translateX(100%);
     opacity: 0;
@@ -525,18 +525,18 @@ footer { background: var(--dark); color: rgba(255,255,255,0.8); }
   </div>
 </nav>
 
-<!-- Hero slider: new images welcome.jpg, welcome1.jpg, welcome2.jpg inserted at beginning, existing ones follow in correct order -->
+<!-- Hero slider: WEL.JPG is the first slide and fully visible within hero section (optimal background-position: center) -->
 <div class="hero">
   <div class="slide-container">
-    <!-- Three new images inserted as first slides (starting order: welcome, welcome1, welcome2, then original sequence) -->
-    <div class="slide active" style="background-image: url('welcome.jpg');"><div class="slide-overlay"><div class="slide-caption"><h2>Welcome to Karugutu — Gateway to opportunity, unity, and sustainable development in Western Uganda.</h2><a href="#">Discover More</a></div></div></div>
-    <div class="slide" style="background-image: url('wel.jpg');"><div class="slide-overlay"><div class="slide-caption"><h2>Empowering communities, transforming lives — Karugutu Town Council at the heart of change.</h2><a href="#">Learn About Us</a></div></div></div>
-        <!-- Original existing hero images follow after the new ones -->
-    <div class="slide" style="background-image: url('hero.jpg');"><div class="slide-overlay"><div class="slide-caption"><h2>Welcome to Karugutu Town Council — A Strategic Urban Growth Centre in Ntoroko District, Western Uganda.</h2><a href="#">Learn More</a></div></div></div>
-    <div class="slide" style="background-image: url('hero1.jpg');"><div class="slide-overlay"><div class="slide-caption"><h2>Elevated to Urban Status in 2010 — Driving Local Governance &amp; Socio-Economic Transformation for 19,070 Residents Across 5 Wards.</h2><a href="#">Our Services</a></div></div></div>
-    <div class="slide" style="background-image: url('hero2.jpg');"><div class="slide-overlay"><div class="slide-caption"><h2>Serving 87 km² Bordering Toro-Semliki National Park — Committed to Quality, Equitable &amp; Sustainable Service Delivery.</h2><a href="#">Contact Us</a></div></div></div>
-    <div class="slide" style="background-image: url('hero3.jpg');"><div class="slide-overlay"><div class="slide-caption"><h2>Empowering local businesses and farmers — Karugutu's vision for inclusive economic growth.</h2><a href="#">Development Plans</a></div></div></div>
-    <div class="slide" style="background-image: url('hero4.jpg');"><div class="slide-overlay"><div class="slide-caption"><h2>Investing in infrastructure, health, and education — Building a resilient community for all.</h2><a href="#">Our Projects</a></div></div></div>
+    <!-- Slide 1: WEL.JPG - made prominent as the FIRST slide to be seen wholly -->
+    <div class="slide active" style="background-image: url('wel.jpg'); background-size: cover; background-position: center center;"><div class="slide-overlay"><div class="slide-caption"><h2>Karugutu Town Council – Gateway to inclusive growth, transparency & sustainable development in Western Uganda.</h2><a href="#">Discover More</a></div></div></div>
+    <!-- Additional slides in correct sequence: welcome.jpg then other existing images -->
+    <div class="slide" style="background-image: url('welcome.jpg'); background-size: cover; background-position: center center;"><div class="slide-overlay"><div class="slide-caption"><h2>Unity, Progress, Opportunity — Building the future of Karugutu together.</h2><a href="#">Our Vision</a></div></div></div>
+    <div class="slide" style="background-image: url('hero.jpg'); background-size: cover; background-position: center center;"><div class="slide-overlay"><div class="slide-caption"><h2>Welcome to Karugutu Town Council — A Strategic Urban Growth Centre in Ntoroko District, Western Uganda.</h2><a href="#">Learn More</a></div></div></div>
+    <div class="slide" style="background-image: url('hero1.jpg'); background-size: cover; background-position: center center;"><div class="slide-overlay"><div class="slide-caption"><h2>Elevated to Urban Status in 2010 — Driving Local Governance &amp; Socio-Economic Transformation for 19,070 Residents Across 5 Wards.</h2><a href="#">Our Services</a></div></div></div>
+    <div class="slide" style="background-image: url('hero2.jpg'); background-size: cover; background-position: center center;"><div class="slide-overlay"><div class="slide-caption"><h2>Serving 87 km² Bordering Toro-Semliki National Park — Committed to Quality, Equitable &amp; Sustainable Service Delivery.</h2><a href="#">Contact Us</a></div></div></div>
+    <div class="slide" style="background-image: url('hero3.jpg'); background-size: cover; background-position: center center;"><div class="slide-overlay"><div class="slide-caption"><h2>Empowering local businesses and farmers — Karugutu's vision for inclusive economic growth.</h2><a href="#">Development Plans</a></div></div></div>
+    <div class="slide" style="background-image: url('hero4.jpg'); background-size: cover; background-position: center center;"><div class="slide-overlay"><div class="slide-caption"><h2>Investing in infrastructure, health, and education — Building a resilient community for all.</h2><a href="#">Our Projects</a></div></div></div>
   </div>
   <button class="slider-arrow arrow-prev" id="prevSlideBtn">&#8249;</button>
   <button class="slider-arrow arrow-next" id="nextSlideBtn">&#8250;</button>
@@ -570,7 +570,7 @@ footer { background: var(--dark); color: rgba(255,255,255,0.8); }
 <footer><div class="footer-top"><div class="footer-col"><h4>Find Us At</h4><address>P.O. Box 568, Fort Portal<br>Fort Portal–Bundibugyo Road<br>Karugutu, Ntoroko District<br>Western Region, Uganda<br><br><a href="mailto:karugututowncouncil033@gmail.com" style="color: rgba(255,255,255,0.75);">karugututowncouncil033@gmail.com</a></address></div><div class="footer-col"><h4>Key Contacts</h4><div class="footer-contacts"><div><span>Town Clerk:</span> +256 785 221 110</div><div><span>Sr. Asst. Town Clerk:</span> +256 773 899 959</div><div><span>LC III Chairperson:</span> +256 782 431 733</div><div><span>Senior CDO:</span> +256 775 512 770</div><div><span>Sr. Internal Auditor:</span> +256 772 823 466</div><div><span>Town Treasurer:</span> +256 772 303 176</div></div></div><div class="footer-col"><h4>Quick Links</h4><ul><li><a href="https://www.ntoroko.go.ug/">Ntoroko District Local Government</a></li><li><a href="#">Lower Local Government</a></li><li><a href="#">Performance Assessment FY 2025–2026</a></li><li><a href="#">Home</a></li><li><a href="#">Services</a></li><li><a href="#">Contact Us</a></li></ul></div></div><div class="footer-bottom">All Rights Reserved &copy; Karugutu Town Council, Ntoroko District, Uganda.</div></footer>
 
 <script>
-// Enhanced SLIDING CAROUSEL with new images order (welcome, welcome1, welcome2 first, then original ones)
+// Enhanced SLIDING CAROUSEL with new image order: wel.jpg (first), welcome.jpg, then rest
 const slides = Array.from(document.querySelectorAll('.hero .slide'));
 const dotsContainer = document.getElementById('dots');
 let currentIndex = 0;
